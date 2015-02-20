@@ -14,4 +14,4 @@ permalink: http://tech.fhiso.org/?page_id=5
 This is a test.
 And another line.
 
-Foo.
+Foo xyz.
