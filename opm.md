@@ -735,4 +735,3 @@ Voting Member:
     Group or committee, this is any member of that group that is not a
     Transitional Member.
 
-
