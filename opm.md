@@ -1,3 +1,12 @@
+---
+post_title: TSC Operations and Policy Manual
+author: Admin
+post_date: 2015-02-20 02:55:00
+post_excerpt:
+layout: page
+permalink: http://tech.fhiso.org/opm/
+---
+
 # Technical Standing Committee Operations and Policy Manual of the Family
 History Information Standards Organisation, Inc.
 
