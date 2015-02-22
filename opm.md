@@ -6,7 +6,6 @@ post_excerpt:
 layout: page
 permalink: http://tech.fhiso.org/opm/
 ---
-
 # Technical Standing Committee Operations and Policy Manual of the Family
 History Information Standards Organisation, Inc.
 
@@ -734,4 +733,5 @@ Voting Member:
     standards, this is any member of FHISO. For votes in a Technical
     Group or committee, this is any member of that group that is not a
     Transitional Member.
+
 
