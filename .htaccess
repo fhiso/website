@@ -1,0 +1,14 @@
+RewriteEngine on
+
+# Map foo/ => foo, and redirect
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteCond %{DOCUMENT_ROOT}/$1 !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301,E=limitcache:1]
+
+# Map foo => foo.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteCond %{DOCUMENT_ROOT}/$1 !-d
+RewriteRule ^(.*)$ /$1.html [L]
+
+# Use 301 redirects for better SEO and caching, but don't cache forever!
+Header always set Cache-Control "max-age=3600" env=limitcache

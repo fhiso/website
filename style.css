@@ -1,0 +1,149 @@
+body {
+    padding: 0px;
+    margin: 0px auto;
+    display: block;
+    width: 95%;
+    font-family: tahoma,arial,sans-serif;
+    font-size: 0.8em;
+}
+
+.logo {
+    margin: 10px;
+    padding: 0px;
+    height: 103px;
+}
+
+.logo img, .logo a { padding: 0px; margin: 0px; border: none 0px; }
+
+.navbar {
+    width: 100%;
+    background: #EEE;
+    border: 1px solid #CCC;    
+    font: 14px Arial,Verdana,sans-serif;
+    color: #000;
+    margin: 0px;
+}
+
+.menu1 {
+    background: #EEE;
+    border: 1px solid #CCC;
+}
+
+.menu2 {
+    background: #777;
+    border: 1px;
+    border-style: solid;
+    border-color: #000;
+}
+
+
+.navbar span, .navbar a {
+    padding: 4px 5px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+.menu1 span, .menu1 a {
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    float: left;
+    color: #555;
+}
+
+.menu1 .sep {
+    border: none;
+}
+
+.menu2 a {
+    float: right;
+    color: #FFF;
+    border-left: 1px solid #000;
+    text-transform: uppercase;
+    font: 11px Arial,Verdana,sans-serif;
+}
+
+.menu1 .sep {
+    color: #AAA;
+}
+
+.menu1 .active, .menu1 a:hover {
+    color: #000;
+    background-color: #DDD;
+}
+
+.menu2 a:hover {
+    background-color: #C00;
+}
+
+.navbar::after {
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+.right {
+    float: right;
+    width: 180px;
+    border-left: 1px dashed #CCC;
+    padding: 10px;
+}
+
+.related, .sitemap ul {
+    display: block;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.sitemap p, .sitemap ul {
+    margin-bottom: 0px;
+}
+.sitemap ul {
+    margin-top: 0px;
+}
+
+
+.related li, .sitemap li {
+    display: block;
+    margin: 2px 0px;
+    padding: 0px 0px 0px 5px;
+    border-left: 7px solid #CCC;
+}
+
+.related li.index {
+    font-weight: bold;
+}
+
+.content {
+    padding: 10px 15px;
+}
+
+.footer {
+    width: auto;
+    font-size: 95%;
+    padding: 10px;
+    border-top: 1px dashed #CCC;
+    color: #777;
+    text-align: center;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: dotted underline;
+}
+
+h1, h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.content {
+    max-width: 560px;
+}
+
+a {
+    color: #0071BD;
+    text-decoration: none;
+}
