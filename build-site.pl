@@ -56,7 +56,7 @@ my $site = {
   }
 };
 
-my @files = ( '.htaccess', 'style.css', 'fhiso.png' );
+my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico' );
 
 my $outdir = '../www-build';
 
