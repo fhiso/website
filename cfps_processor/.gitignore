@@ -1,0 +1,11 @@
+checkstatus.py
+temporary*
+raw.*
+changelog.*
+*.aux
+*.log
+raw2.*
+index.*
+*.pyc
+pdfrw
+pyPdf

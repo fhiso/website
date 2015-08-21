@@ -1,0 +1,2446 @@
+{
+  "4": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Tychonievich", 
+        "description": "An data model architecture for storing each step in the research process, simplifying collaboration. ", 
+        "language": "English", 
+        "title": "Modeling Research, not Conclusions", 
+        "subnum": "4", 
+        "lname": "cfps4_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/LAT-Modeling_Research.pdf", 
+        "keywords": "Data model, architecture, research", 
+        "sname": "cfps4.pdf", 
+        "date": "2013-03-10", 
+        "type": "Proposal", 
+        "email": "ltychonievich@fhiso.org", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      77, 
+      79, 
+      94, 
+      95, 
+      97, 
+      "77"
+    ]
+  }, 
+  "5": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Tychonievich", 
+        "description": "Inference rules used in indirect evidence should be codified within the data model. ", 
+        "language": "English", 
+        "title": "Inference Rules", 
+        "subnum": "5", 
+        "lname": "cfps5_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/LAT-Inference_Rules.pdf", 
+        "keywords": "inference, indirect evidence, evidence, rule, extension", 
+        "sname": "cfps5.pdf", 
+        "date": "2013-03-15", 
+        "type": "Proposal", 
+        "email": "ltychonievich@fhiso.org", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      8
+    ]
+  }, 
+  "6": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "date2": null, 
+        "last": "Tychonievich", 
+        "description": "Round-trip communication between tools supporting different portions of the data standard should behave sanely. Nine use cases demonstrate what that means. ", 
+        "language": "English", 
+        "title": "Partial Implementations and Extensions", 
+        "subnum": "6", 
+        "lname": "cfps6_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/LAT-Extensions.pdf", 
+        "keywords": "partial implementation, extension, collaboration", 
+        "sname": "cfps6.pdf", 
+        "date": "2013-03-15", 
+        "type": "Requirement", 
+        "email": "ltychonievich@fhiso.org", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }, 
+      {
+        "cfps": "6", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": "20/13/0315", 
+        "last": "Tychonievich", 
+        "description": "Round-trip communication between tools supporting different portions of the data standard should behave sanely. Nine use cases demonstrate what that means.", 
+        "language": "English", 
+        "title": "Partial Implementation and Extensions", 
+        "subnum": "39", 
+        "keywords": "partial implementation, extension, collaboration", 
+        "lname": "cfps6_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps6.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/LAT-Extensions.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-16", 
+        "type": "Update", 
+        "email": "lat7h@viriginia.edu", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      98
+    ]
+  }, 
+  "7": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "date2": null, 
+        "last": "Tychonievich", 
+        "description": "Tools must be able to import course-grained information because existing usage patterns presume incompatible data granularity. ", 
+        "language": "English", 
+        "title": "Multi-Granularity Standards", 
+        "subnum": "7", 
+        "lname": "cfps7_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/LAT-Multigranularity.pdf", 
+        "keywords": "Data model, requirement, conflict, multiple standards, import, export, granularity, lattice", 
+        "sname": "cfps7.pdf", 
+        "date": "2013-03-17", 
+        "type": "Requirement", 
+        "email": "ltychonievich@fhiso.org", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "8": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "date2": null, 
+        "last": "Tychonievich", 
+        "description": "There should be a standard way to express things like \u201ctwo people, one the second cousin of the other, both from Prussia.\u201d ", 
+        "language": "English", 
+        "title": "Selector Language for Family History Conclusions", 
+        "subnum": "8", 
+        "lname": "cfps8_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/LAT-Selectors.pdf", 
+        "keywords": "selector, template, relationship, attribute, conclusion, regular expression, XPath", 
+        "sname": "cfps8.pdf", 
+        "date": "2013-03-15", 
+        "type": "Area to Standardise", 
+        "email": "ltychonievich@fhiso.org", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      5
+    ]
+  }, 
+  "13": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposed adoption of a date syntax applicable to multiple world calendars, both historical and modern-day.", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Alternative World Calendar Systems", 
+        "subnum": "13", 
+        "lname": "cfps13_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Calendars1.pdf", 
+        "keywords": "Dates, World-calendars", 
+        "sname": "cfps13.pdf", 
+        "date": "2013-03-11", 
+        "type": "Proposal", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "13", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": "20/13/0311", 
+        "last": "Proctor", 
+        "description": "Proposed adoption of a date syntax applicable to multiple world calendars, both historical and modern-day.", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Alternative World Calendar Systems", 
+        "subnum": "45", 
+        "keywords": null, 
+        "lname": "cfps13_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps13.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Calendars.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "13", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposed adoption of a date syntax applicable to multiple world calendars, both historical and modern-day.", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Alternative World Calendar Systems", 
+        "subnum": "46", 
+        "keywords": "Dates, World-calendars", 
+        "lname": "cfps13_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps13.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Calendars.pdf", 
+        "version": "1.1.46", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": [
+      14, 
+      38, 
+      43
+    ]
+  }, 
+  "14": {
+    "seealso": [
+      13
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for a generalised dual-date representation that applies to multiple calendars", 
+        "language": "English", 
+        "title": "Proposal for a Generalised Dual-Date Representation", 
+        "subnum": "14", 
+        "type": "Proposal", 
+        "lname": "cfps14_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Dual_Dates.pdf", 
+        "date": "2013-03-06", 
+        "keywords": "Dates, Dual-dates, World-calendars", 
+        "sname": "cfps14.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "14", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for a generalised dual-date representation that applies to multiple calendars", 
+        "language": "English", 
+        "title": "Proposal for a Generalised Dual-Date Representation", 
+        "subnum": "48", 
+        "keywords": "Dates, Dual-dates, World-calendars", 
+        "lname": "cfps14_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps14.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Dual_Dates.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "15": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposed adoption constraints between events", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Event Constraints", 
+        "subnum": "15", 
+        "lname": "cfps15_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Event_Constraints.pdf", 
+        "keywords": "Events, Event-ordering", 
+        "sname": "cfps15.pdf", 
+        "date": "2013-03-06", 
+        "type": "Proposal", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "15", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposed adoption constraints between events", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Event Constraints", 
+        "subnum": "49", 
+        "keywords": "Events, Event-ordering", 
+        "lname": "cfps15_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps15.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Event_Constraints.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "16": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Functional requirement for locale independence in representations of the Data Model.", 
+        "language": "English", 
+        "title": "Requirement for Locale Independence in Data Representations", 
+        "subnum": "16", 
+        "lname": "cfps16_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Locale_Independence.pdf", 
+        "keywords": "Locales, Portability, Serialisation-format", 
+        "sname": "cfps16.pdf", 
+        "date": "2013-03-11", 
+        "type": "Requirement", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "16", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Functional requirement for locale independence in representations of the Data Model.", 
+        "language": "English", 
+        "title": "Requirement for Locale Independence in Data Representations", 
+        "subnum": "52", 
+        "keywords": "Locales, Portability, Serialisation-format", 
+        "lname": "cfps16_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps16.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Locale_Independence.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "17": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposed adoption of a modified ISO 8601 subset to accommodate Gregorian dates, and yearly quarters thereof", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Gregorian Dates using a Modified ISO 8601", 
+        "subnum": "17", 
+        "lname": "cfps17_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Modified_ISO8601.pdf", 
+        "keywords": "Dates, ISO-8601, Quarters", 
+        "sname": "cfps17.pdf", 
+        "date": "2013-03-06", 
+        "type": "Proposal", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "17", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposed adoption of a modified ISO 8601 subset to accommodate Gregorian dates, and yearly quarters thereof", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Gregorian Dates using a Modified ISO 8601", 
+        "subnum": "53", 
+        "keywords": "Dates, Date Range, ISO-8601, Quarters", 
+        "lname": "cfps17_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps17.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Modified_ISO8601.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": [
+      40, 
+      44, 
+      67, 
+      68, 
+      102, 
+      103
+    ]
+  }, 
+  "18": {
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to accommodate mark-up in all forms of narrative text", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Mark-up in Narrative Text", 
+        "subnum": "18", 
+        "type": "Proposal", 
+        "lname": "cfps18_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Narrative_Text.pdf", 
+        "date": "2013-03-08", 
+        "keywords": "Text, Narrative, Mark-up", 
+        "sname": "cfps18.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "18", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to accommodate mark-up in all forms of narrative text", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Mark-up in Narrative Text", 
+        "subnum": "54", 
+        "keywords": "Text, Narrative, Mark-up", 
+        "lname": "cfps18_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps18.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Narrative_Text.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "19": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to have a standard object model to support scripting and query languages.", 
+        "language": "English", 
+        "title": "Proposal to Create a Standard Run-time Object Model", 
+        "subnum": "19", 
+        "lname": "cfps19_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Object_Model.pdf", 
+        "keywords": "Object-model, Scripting, Queries", 
+        "sname": "cfps19.pdf", 
+        "date": "2013-02-25", 
+        "type": "Area to Standardise", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "19", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to have a standard object model to support scripting and query languages.", 
+        "language": "English", 
+        "title": "Proposal to Create a Standard Run-time Object Model", 
+        "subnum": "55", 
+        "keywords": "Object-model, Scripting, Queries", 
+        "lname": "cfps19_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps19.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Object_Model.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "20": {
+    "seealso": [
+      77
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for handling partially controlled vocabularies for types", 
+        "language": "English", 
+        "title": "Proposal for Handling Partially Controlled Vocabularies", 
+        "subnum": "20", 
+        "type": "Proposal", 
+        "lname": "cfps20_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Partially_Controlled_Vocabulary.pdf", 
+        "date": "2013-03-13", 
+        "keywords": "Tag-Values, Namespaces, Software-vocabulary", 
+        "sname": "cfps20.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "20", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for handling partially controlled vocabularies for types", 
+        "language": "English", 
+        "title": "Proposal for Handling Partially Controlled Vocabularies", 
+        "subnum": "56", 
+        "keywords": "Tag-values, Namespaces, Software-vocabulary", 
+        "lname": "cfps20_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps20.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Partially_Controlled_Vocabulary.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "21": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for Handling Personal Names", 
+        "language": "English", 
+        "title": "Proposal for Handling Personal Names", 
+        "subnum": "21", 
+        "lname": "cfps21_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Personal_Names.pdf", 
+        "keywords": "Personal-names", 
+        "sname": "cfps21.pdf", 
+        "date": "2013-03-19", 
+        "type": "Proposal", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "21", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for Handling Personal Names", 
+        "language": "English", 
+        "title": "Proposal for Handling Personal Names", 
+        "subnum": "57", 
+        "keywords": "Personal-names, Culture-neutral", 
+        "lname": "cfps21_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps21.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Personal_Names.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "22": {
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for Handling Place References", 
+        "language": "English", 
+        "title": "Proposal for Handling Place References", 
+        "subnum": "22", 
+        "type": "Proposal", 
+        "lname": "cfps22_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Place_References.pdf", 
+        "date": "2013-03-21", 
+        "keywords": "Place-references, Place-hierarchies", 
+        "sname": "cfps22.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "22", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for handling Place References", 
+        "language": "English", 
+        "title": "Proposal for Handling Place References", 
+        "subnum": "58", 
+        "keywords": "Place-references, Place-hierarchies", 
+        "lname": "cfps22_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps22.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Place_References.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "23": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to define a Preferred Vocabulary and Glossary", 
+        "language": "English", 
+        "title": "Proposal to Defining a Preferred Vocabulary", 
+        "subnum": "23", 
+        "lname": "cfps23_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Preferred_Vocabulary.pdf", 
+        "keywords": "Glossary, Vocabulary", 
+        "sname": "cfps23.pdf", 
+        "date": "2013-03-19", 
+        "type": "Area to Standardise", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "23", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to define a Preferred Vocabulary and Lexicon", 
+        "language": "English", 
+        "title": "Proposal to Defining a Preferred Vocabulary", 
+        "subnum": "59", 
+        "keywords": "Glossary, Lexicon, Vocabulary", 
+        "lname": "cfps23_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps23.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Preferred_Vocabulary.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": [
+      74
+    ]
+  }, 
+  "24": {
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for the major record linkages in the data model", 
+        "language": "English", 
+        "title": "Proposal to Adopt Certain Core Record Linkages", 
+        "subnum": "24", 
+        "type": "Proposal", 
+        "lname": "cfps24_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Record_Linkage.pdf", 
+        "date": "2013-03-14", 
+        "keywords": "Record-linkage, Events, Persons, Sources, Personae", 
+        "sname": "cfps24.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "24", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for the major record linkages in the data model", 
+        "language": "English", 
+        "title": "Proposal to Adopt Certain Core Record Linkages", 
+        "subnum": "60", 
+        "keywords": "Record-linkage, Events, Persons, Sources, Personae", 
+        "lname": "cfps24_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps24.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Record_Linkage.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "25": {
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to accommodate protracted and hierarchical events", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Structured Events", 
+        "subnum": "25", 
+        "type": "Proposal", 
+        "lname": "cfps25_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Structured_Events.pdf", 
+        "date": "2013-03-07", 
+        "keywords": "Events, Events-protracted, Events-hierarchical", 
+        "sname": "cfps25.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "25", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal to accommodate protracted and hierarchical events", 
+        "language": "English", 
+        "title": "Proposal to Accommodate Structured Events", 
+        "subnum": "61", 
+        "keywords": "Events, Events-protracted, Events-hierarchical", 
+        "lname": "cfps25_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps25.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Structured_Events.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "27": {
+    "seealso": [
+      69
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Requirement for representing uncertain characters in transcribed data", 
+        "language": "English", 
+        "title": "Requirement for Representing Uncertain Characters", 
+        "subnum": "27", 
+        "type": "Requirement", 
+        "lname": "cfps27_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Uncertain_Characters.pdf", 
+        "date": "2013-03-27", 
+        "keywords": "Transcription, Mark-up, UCF", 
+        "sname": "cfps27.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "27", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Requirement for representing uncertain characters in transcribed data", 
+        "language": "English", 
+        "title": "Requirement for Representing Uncertain Characters", 
+        "subnum": "62", 
+        "keywords": "Transcription, Mark-up, UCF", 
+        "lname": "cfps27_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps27.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Uncertain_Characters.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "90": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "sname": "cfps90.pdf", 
+        "last": "Gardner", 
+        "description": "This paper proposes a microdata markup standard based on the Schema.org vocabulary to be used for genealogical information published on the World Wide Web. The authors propose that FHISO assume responsibility for publishing, promoting, enhancing, and maintaining the standard.", 
+        "language": "HTML", 
+        "title": "FHISO Microdata Markup Proposal", 
+        "subnum": "90", 
+        "changes": null, 
+        "lname": "cfps90_v1.pdf", 
+        "extension": ".pdf", 
+        "version": "1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/08/FHISOMicrodataProposal.pdf", 
+        "keywords": "microdata markup html", 
+        "date": "2013-08-14", 
+        "type": "Area to Standardise", 
+        "email": "rgardner@google.com", 
+        "submitter": "Gardner, Robert", 
+        "first": "Robert"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "31": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Requirement to support both Family History and Genealogy data", 
+        "language": "English", 
+        "title": "Requirement to Support Family History Data", 
+        "subnum": "31", 
+        "lname": "cfps31_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Family_History2.pdf", 
+        "keywords": "Family-history, Genealogy, Events, Narrative", 
+        "sname": "cfps31.pdf", 
+        "date": "2013-03-29", 
+        "type": "Requirement", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "31", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Requirement to support both Family History and Genealogy data", 
+        "language": "English", 
+        "title": "Requirement to Support Family History Data", 
+        "subnum": "51", 
+        "keywords": "Family-history, Genealogy, Events, Narrative", 
+        "lname": "cfps31_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps31.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Family_History.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "34": {
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Requirement to separate evidence and conclusion", 
+        "language": "English", 
+        "title": "Requirement to Separate Evidence and Conclusion", 
+        "subnum": "34", 
+        "type": "Requirement", 
+        "lname": "cfps34_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/03/ACP_Proposal_Evidence_Conclusion.pdf", 
+        "date": "2013-03-30", 
+        "keywords": "Evidence, Conclusion, Mark-up", 
+        "sname": "cfps34.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "34", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Requirement to separate evidence and conclusion", 
+        "language": "English", 
+        "title": "Requirement to Separate Evidence and Conclusion", 
+        "subnum": "50", 
+        "keywords": "Evidence, Conclusion, Transcription, Mark-up", 
+        "lname": "cfps34_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps34.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Evidence_Conclusion.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "36": {
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for accommodating custom properties for persons", 
+        "language": "English", 
+        "title": "Proposal for Accommodating Custom Properties", 
+        "subnum": "36", 
+        "type": "Proposal", 
+        "lname": "cfps36_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Custom_Properties.pdf", 
+        "date": "2013-04-03", 
+        "keywords": "Properties, Customisation, Person", 
+        "sname": "cfps36.pdf", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }, 
+      {
+        "cfps": "36", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for accommodating custom properties for persons", 
+        "language": "English", 
+        "title": "Proposal for Accommodating Custom Properties", 
+        "subnum": "47", 
+        "keywords": "Properties, Customisation, Person", 
+        "lname": "cfps36_v1-1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps36.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Custom_Properties1.pdf", 
+        "version": "1.1", 
+        "date": "2013-04-20", 
+        "type": "Update", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "37": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Smith", 
+        "description": "Proposal to address certain extensibility requirements by using XML namespaces, but without requiring the use of XML.", 
+        "language": "English", 
+        "title": "Proposal for a scalable extensibility mechanism", 
+        "subnum": "37", 
+        "lname": "cfps37_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/extensibility.pdf", 
+        "keywords": "extensibility, vendor extensions, forwards compatibility, decentralised development, XML namespaces, URIs", 
+        "sname": "cfps37.pdf", 
+        "date": "2013-04-12", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "37", 
+        "kind": "An updated version of a previously submitted paper", 
+        "sname": "cfps37.pdf", 
+        "last": "Smith", 
+        "description": "Proposal to address certain extensibility requirements by using XML namespaces, both in XML formats and in non-XML formats such as GEDCOM.", 
+        "language": "English", 
+        "title": "Proposal for a scalable extensibility mechanism", 
+        "subnum": "123", 
+        "type": "Update", 
+        "lname": "cfps37_v2-0.pdf", 
+        "extension": ".pdf", 
+        "version": "2.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2015/05/extensibility.pdf", 
+        "date": "2015-05-30", 
+        "keywords": "extensibility, vendor extensions, forwards compatibility, decentralised development, XML namespaces, URIs, GEDCOM", 
+        "changes": "Added two new sections detailing the proposed application to GEDCOM.", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": [
+      67
+    ]
+  }, 
+  "38": {
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Smith", 
+        "description": "Proposal to allow the default calendar to be dependent on the date.", 
+        "language": "English", 
+        "title": "Proposal for compound calendars to resolve a difficulty with default calendars", 
+        "subnum": "38", 
+        "lname": "cfps38_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/compound-calendars.pdf", 
+        "keywords": "dates, calendars, calendar change, Gregorian calendar, Julian calendar, English calendar", 
+        "sname": "cfps38.pdf", 
+        "date": "2013-04-14", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": [
+      13, 
+      67
+    ]
+  }, 
+  "40": {
+    "seealso": [
+      17, 
+      67, 
+      68
+    ], 
+    "versions": [
+      {
+        "cfps": "17", 
+        "kind": "A comment on a submitted paper", 
+        "date2": "03/06/2013", 
+        "last": "Tychonievich", 
+        "description": "CFPS 17's yearly quarters are not sortable with other dates; fixing this makes the proposal more general as well.", 
+        "language": "English", 
+        "title": "Sortable, Versatile CFPS 17", 
+        "subnum": "40", 
+        "lname": "cfps40_v1.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps40.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/LAT-CFPS17-comment.pdf", 
+        "version": "1", 
+        "date": "2013-04-17", 
+        "keywords": null, 
+        "type": "Comment", 
+        "email": "lat7h@viriginia.edu", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }, 
+      {
+        "cfps": "40", 
+        "kind": "An updated version of a previously submitted paper", 
+        "date2": "20/13/0417", 
+        "last": "Tychonievich", 
+        "description": "CFPS 17's yearly quarters are not sortable with other dates; fixing this makes the proposal more general as well.", 
+        "language": "English", 
+        "title": "Sortable, Versatile CFPS 17", 
+        "subnum": "42", 
+        "keywords": "Dates, Date Range, ISO-8601, Quarters", 
+        "lname": "cfps40_v1-2.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps40.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/LAT-CFPS17-comment2.pdf", 
+        "version": "1.2", 
+        "date": "2013-04-17", 
+        "type": "Update", 
+        "email": "lat7h@viriginia.edu", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ]
+  }, 
+  "43": {
+    "seealso": [
+      13, 
+      67
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Smith", 
+        "description": "Proposal to separate presentation from representation in calendars in order to avoid a proliferation of calendars.", 
+        "language": "English", 
+        "title": "Proposal to add style to the wholly-numeric representation of dates in CFPS 13", 
+        "subnum": "43", 
+        "lname": "cfps43_v1-0.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps43.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/numeric-dates.pdf", 
+        "version": "1.0", 
+        "date": "2013-04-19", 
+        "keywords": "dates, calendars, date style, Julian calendar, Roman calendar, regnal years", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "44": {
+    "seealso": [
+      17, 
+      67, 
+      102
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Smith", 
+        "description": "Proposal for a Julian calendar with years starting on 1 Jan", 
+        "language": "English", 
+        "title": "Proposal to support the Julian calendar similarly to CFPS 17", 
+        "subnum": "44", 
+        "lname": "cfps44_v1-0.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps44.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/julian-calendar.pdf", 
+        "version": "1.0", 
+        "date": "2013-04-19", 
+        "keywords": "dates, calendars, Julian calendar, Gregorian calendar", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "93": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps93.pdf", 
+        "last": "Smith", 
+        "description": "This paper discusses the requirements for storing media objects, such as images, vidoes and audio recordings, and attaching them to items of genealogical significance.", 
+        "language": "English", 
+        "title": "Requirements for storing media objects", 
+        "subnum": "93", 
+        "changes": null, 
+        "lname": "cfps93_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/10/media.pdf", 
+        "keywords": "media objects, images, audio, container files, jar files, MIME types, metadata, Dublin Core", 
+        "date": "2013-10-30", 
+        "type": "Requirement", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "95": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps95.pdf", 
+        "last": "Smith", 
+        "description": "This paper makes a functional requirement that all personal attributes can be dated, including those such as personal names that cannot be dated in GEDCOM.", 
+        "language": "English", 
+        "title": "Expressing time-dependent personal attributes", 
+        "subnum": "95", 
+        "changes": null, 
+        "lname": "cfps95_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/attributes.pdf", 
+        "keywords": "statements, properties, time-dependence", 
+        "date": "2013-11-16", 
+        "type": "Requirement", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps95.pdf", 
+        "last": "Smith", 
+        "description": "This paper makes a functional requirement that all personal attributes can be dated, including those such as personal names that cannot be dated in GEDCOM.", 
+        "language": "English", 
+        "title": "Expressing time-dependent personal attributes", 
+        "subnum": "95", 
+        "type": "Requirement", 
+        "lname": "cfps95_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/attributes.pdf", 
+        "date": "2013-11-16", 
+        "keywords": "statements, properties, time-dependence", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps95.pdf", 
+        "last": "Smith", 
+        "description": "This paper makes a functional requirement that all personal attributes can be dated, including those such as personal names that cannot be dated in GEDCOM.", 
+        "language": "English", 
+        "title": "Expressing time-dependent personal attributes", 
+        "subnum": "95", 
+        "changes": null, 
+        "lname": "cfps95_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/attributes.pdf", 
+        "keywords": "statements, properties, time-dependence", 
+        "date": "2013-11-16", 
+        "type": "Requirement", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": [
+      4, 
+      77
+    ]
+  }, 
+  "63": {
+    "tablerow": "", 
+    "seealso": [
+      112
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Proctor", 
+        "description": "Proposal for handling sources and citations", 
+        "language": "English", 
+        "title": "Proposal for Handling Sources and Citations", 
+        "subnum": "63", 
+        "lname": "cfps63_v1-0.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps63.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/ACP_Proposal_Sources_Citations.pdf", 
+        "version": "1.0", 
+        "date": "2013-04-22", 
+        "keywords": "Sources, Citations", 
+        "type": "Proposal", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ]
+  }, 
+  "65": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "date2": null, 
+        "last": "Tychonievich", 
+        "description": "Citations are a mix of out-references and cross-references. These can be standardised independently of a Citations Names Authority.", 
+        "language": "English", 
+        "title": "A Gradual Path to Standardised Citations", 
+        "subnum": "65", 
+        "keywords": "sources, citations, names, outref, xref, cross-references, xlink, pointers, variants", 
+        "lname": "cfps65_v1-0.pdf", 
+        "extension": ".pdf", 
+        "sname": "cfps65.pdf", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/LAT-Citations.pdf", 
+        "version": "1.0", 
+        "date": "2013-04-26", 
+        "type": "Proposal", 
+        "email": "lat7h@viriginia.edu", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }, 
+      {
+        "cfps": "65", 
+        "kind": "An updated version of a previously submitted paper", 
+        "sname": "cfps65.pdf", 
+        "last": "Tychonievich", 
+        "description": "Citations are a mix of out-references and cross-references. These can be standardised independently of a Citations Names Authority.", 
+        "language": "English", 
+        "title": "A Gradual Path to Standardised Citations", 
+        "subnum": "66", 
+        "changes": "Fixed internal reference to own CFPS", 
+        "lname": "cfps65_v1-1.pdf", 
+        "extension": ".pdf", 
+        "version": "1.1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/LAT-Citations1.pdf", 
+        "keywords": "sources, citations, names, outref, xref, cross-references, xlink, pointers, variants", 
+        "date": "2013-04-29", 
+        "type": "Update", 
+        "email": "lat7h@virginia.edu", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      112
+    ]
+  }, 
+  "67": {
+    "tablerow": "", 
+    "seealso": [
+      17, 
+      37, 
+      38, 
+      43, 
+      44, 
+      68
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps67.pdf", 
+        "last": "Smith", 
+        "description": "CFPS 43's style mechanism is extended into abstract formatting model that would allow applications to format correctly dates written in many unknown calendar systems.", 
+        "language": "English", 
+        "title": "Proposal to extend the calendar style mechanism of CFPS 43 into an abstract formatting model", 
+        "subnum": "67", 
+        "type": "Proposal", 
+        "lname": "cfps67_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/calendar-style.pdf", 
+        "date": "2013-04-30", 
+        "keywords": "dates, calendars, date style, formatting, calendar facets", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "68": {
+    "tablerow": "", 
+    "seealso": [
+      17, 
+      40, 
+      67
+    ], 
+    "versions": [
+      {
+        "cfps": "40", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps68.pdf", 
+        "last": "Smith", 
+        "description": "Comments on alternative syntaxes for date ranges, and the need to define their semantics including the arithmetic of durations and dates.", 
+        "language": "English", 
+        "title": "Comments on the serialisation of date ranges in CFPS 17 and CFPS 40", 
+        "subnum": "68", 
+        "type": "Comment", 
+        "lname": "cfps68_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/periods.pdf", 
+        "date": "2013-04-30", 
+        "keywords": "dates, date ranges, durations, precision, calendars", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "40", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps68.pdf", 
+        "last": "Smith", 
+        "description": "Comments on alternative syntaxes for date ranges, and the need to define their semantics including the arithmetic of durations and dates.", 
+        "language": "English", 
+        "title": "Comments on the serialisation of date ranges in CFPS 17 and CFPS 40", 
+        "subnum": "68", 
+        "changes": null, 
+        "lname": "cfps68_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/periods.pdf", 
+        "keywords": "dates, date ranges, durations, precision, calendars", 
+        "date": "2013-04-30", 
+        "type": "Comment", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "40", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps68.pdf", 
+        "last": "Smith", 
+        "description": "Comments on alternative syntaxes for date ranges, and the need to define their semantics including the arithmetic of durations and dates.", 
+        "language": "English", 
+        "title": "Comments on the serialisation of date ranges in CFPS 17 and CFPS 40", 
+        "subnum": "68", 
+        "type": "Comment", 
+        "lname": "cfps68_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/04/periods.pdf", 
+        "date": "2013-04-30", 
+        "keywords": "dates, date ranges, durations, precision, calendars", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "69": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps69.pdf", 
+        "last": "Fitzpatrick", 
+        "description": "A proposed notation for improving the transcription and translation of genealogical sources.", 
+        "language": "English", 
+        "title": "A Transcription Notation for Genealogy", 
+        "subnum": "69", 
+        "changes": null, 
+        "lname": "cfps69_v3-0.pdf", 
+        "extension": ".pdf", 
+        "version": "3.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/Transcription-Notation-V30.pdf", 
+        "keywords": "transcription, translation, notation, annotation, note", 
+        "date": "2013-05-05", 
+        "type": "Proposal", 
+        "email": "jerryf@SoftwareRenovation.com", 
+        "submitter": "Fitzpatrick, Jerry", 
+        "first": "Jerry"
+      }
+    ], 
+    "seealso": [
+      27
+    ]
+  }, 
+  "70": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps70.pdf", 
+        "last": "Johnston", 
+        "description": "This paper identifies several functional requirements for places within a GEDCOM database.", 
+        "language": "English", 
+        "title": "Places", 
+        "subnum": "70", 
+        "changes": null, 
+        "lname": "cfps70_v1.pdf", 
+        "extension": ".docx", 
+        "version": "1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/FHISO-Place-Requirements.docx", 
+        "keywords": "place, town, city, street, township, county, country", 
+        "date": "2013-05-07", 
+        "type": "Requirement", 
+        "email": "wwjohnston01@yahoo.com", 
+        "submitter": "Johnston, Wesley", 
+        "first": "Wesley"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "71": {
+    "tablerow": "", 
+    "seealso": [], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps71.pdf", 
+        "last": "Johnston", 
+        "description": "This paper identifies a few functional requirements for files attached to an entity within a GEDCOM database.", 
+        "language": "English", 
+        "title": "Attachments", 
+        "subnum": "71", 
+        "type": "Requirement", 
+        "lname": "cfps71_v1.pdf", 
+        "extension": ".docx", 
+        "version": "1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/FHISO-Attachment-Requirements.docx", 
+        "date": "2013-05-07", 
+        "keywords": "merge, atttachment, file, image, picture, photograph, document, pdf", 
+        "changes": null, 
+        "email": "wwjohnston01@yahoo.com", 
+        "submitter": "Johnston, Wesley", 
+        "first": "Wesley"
+      }
+    ]
+  }, 
+  "72": {
+    "tablerow": "", 
+    "seealso": [
+      89
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "sname": "cfps72.pdf", 
+        "last": "Wetmore", 
+        "description": "A persona record contains a transcription of information about a single person found in a single item from source material. Persona records are important components in genealogical systems that support recording evidence and research.", 
+        "language": "English", 
+        "title": "Persona Records", 
+        "subnum": "72", 
+        "type": "Area to Standardise", 
+        "lname": "cfps72_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/Persona.pdf", 
+        "date": "2013-05-01", 
+        "keywords": "Persona, Person Record, Data Model, Research, Evidence, Conclusion, Nominal Record, Two-tier, N-tier", 
+        "changes": null, 
+        "email": "ttw4@verizon.net", 
+        "submitter": "Wetmore, Thomas", 
+        "first": "Thomas"
+      }
+    ]
+  }, 
+  "73": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps73.pdf", 
+        "last": "Johnston", 
+        "description": "There is a need to model, share, and manipulate relationships other than inter-personal lineage-linkage.", 
+        "language": "English", 
+        "title": "Beyond Lineage-Linked", 
+        "subnum": "73", 
+        "changes": null, 
+        "lname": "cfps73_v1.pdf", 
+        "extension": ".docx", 
+        "version": "1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/FHISO-Beyond-Lineage-Linked-Requirements.docx", 
+        "keywords": "relationships, community trees, place, merging, sharing, manipulation, sorting, searching, aggregating, reporting, analysis", 
+        "date": "2013-05-09", 
+        "type": "Requirement", 
+        "email": "wwjohnston01@yahoo.com", 
+        "submitter": "Johnston, Wesley", 
+        "first": "Wesley"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "74": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "sname": "cfps74.pdf", 
+        "last": "Tychonievich", 
+        "description": "FHISO should maintain a lexicon of terms and their several meanings to help mitigate confusions caused by terms with multiple distinct usages. And example lexicon is included", 
+        "language": "English", 
+        "title": "Family History Lexicon", 
+        "subnum": "74", 
+        "changes": null, 
+        "lname": "cfps74_v1-0.pdf", 
+        "extension": ".tex", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/LAT-Lexicon.tex", 
+        "keywords": "lexicon, dictionary, terms, definitions, vocabulary", 
+        "date": "2013-05-10", 
+        "type": "Area to Standardise", 
+        "email": "ltychonievich@fhiso.org", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      23
+    ]
+  }, 
+  "75": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps75.pdf", 
+        "last": "Smith", 
+        "description": "This paper discusses the requirement for recording searches, whether proposed, successful or unsuccessful, in addition to the results of the search.", 
+        "language": "English", 
+        "title": "Functional requirement for recording searches", 
+        "subnum": "75", 
+        "changes": null, 
+        "lname": "cfps75_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/05/searches.pdf", 
+        "keywords": "search, inference, negative inference", 
+        "date": "2013-05-22", 
+        "type": "Requirement", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "77": {
+    "tablerow": "", 
+    "seealso": [
+      4, 
+      94, 
+      95, 
+      97
+    ], 
+    "versions": [
+      {
+        "cfps": "4", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps77.pdf", 
+        "last": "Smith", 
+        "description": "This paper proposes a way of unifying the various types of node in the formalism for modelling genealogical research proposed in CFPS 4.", 
+        "language": "English", 
+        "title": "A unified formalism for genealogical statements", 
+        "subnum": "77", 
+        "changes": null, 
+        "lname": "cfps77_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/06/statements.pdf", 
+        "keywords": "data model, architecture, statement, graph, RDF", 
+        "date": "2013-06-05", 
+        "type": "Comment", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "78": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps78.pdf", 
+        "last": "Kessler", 
+        "description": "This paper describes requirements for a Source Detail record and a Place record to be added, and stresses issues such as no extensions, registration and compliance testing, and regular updates, as well as the need to keep the standard as simple as possible. ", 
+        "language": "English", 
+        "title": "Nine Necessities in a GEDCOM Replacement", 
+        "subnum": "78", 
+        "changes": null, 
+        "lname": "cfps78_v1-0.pdf", 
+        "extension": ".docx", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/06/Nine-Necessities-in-a-GEDCOM-Replacement.docx", 
+        "keywords": "sources, conclusions, citations, formatting, places, events, facts, data model, syntax, extensions, registration, testing, updates", 
+        "date": "2013-06-05", 
+        "type": "Requirement", 
+        "email": "lkessler@lkessler.com", 
+        "submitter": "Kessler, Louis", 
+        "first": "Louis"
+      }
+    ], 
+    "seealso": [
+      112
+    ]
+  }, 
+  "79": {
+    "tablerow": "", 
+    "seealso": [
+      4, 
+      77, 
+      97
+    ], 
+    "versions": [
+      {
+        "cfps": "77", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps79.pdf", 
+        "last": "Tychonievich", 
+        "description": "The principle of sensible disbelief provides useful research-modelling and disagreement-moderating properties in CFPS 4 which are absent from CFPS 77.", 
+        "language": "English", 
+        "title": "The Principle of Sensible Disbelief", 
+        "subnum": "79", 
+        "type": "Comment", 
+        "lname": "cfps79_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/06/cpfs77-rebuttal.pdf", 
+        "date": "2013-06-25", 
+        "keywords": null, 
+        "changes": null, 
+        "email": "lat7h@virginia.edu", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ]
+  }, 
+  "88": {
+    "tablerow": "", 
+    "seealso": [
+      101
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps88.pdf", 
+        "last": "Trauring", 
+        "description": "A series of methods for sharing information between different researchers, that are investigating overlapping segments of their family trees, and receiving updates.", 
+        "language": "English", 
+        "title": "Asynchronous Collaboration: A Proposal", 
+        "subnum": "88", 
+        "type": "Proposal", 
+        "lname": "cfps88_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/07/AsyncGen-PhilipTrauring.pdf", 
+        "date": "2013-07-30", 
+        "keywords": "collaboration, sharing, cloud storage, UUID, media, photographs, documents, sources, geographic, places, events", 
+        "changes": null, 
+        "email": "philip@trauring.com", 
+        "submitter": "Trauring, Philip", 
+        "first": "Philip"
+      }
+    ]
+  }, 
+  "89": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": "72", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps89.pdf", 
+        "last": "Cothey", 
+        "description": "The paper identifies an evidence graph as the basis for an explicitly evidence based and culturally agnostic approach to genealogical information systems.", 
+        "language": "English", 
+        "title": "Sources, events, personae, individuals and graphs", 
+        "subnum": "89", 
+        "changes": null, 
+        "lname": "cfps89_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/08/cfps.pdf", 
+        "keywords": null, 
+        "date": "2013-08-06", 
+        "type": "Comment", 
+        "email": "viv.cothey@wlv.ac.uk", 
+        "submitter": "Cothey, Viv", 
+        "first": "Viv"
+      }
+    ], 
+    "seealso": [
+      4, 
+      21, 
+      22, 
+      24, 
+      25, 
+      34, 
+      63, 
+      70, 
+      72, 
+      73, 
+      78
+    ]
+  }, 
+  "91": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps91.pdf", 
+        "last": "Heaton", 
+        "description": "A substantive vision for FHISO, and a proposal that FHISO's first step in fulfillment of this vision be to validate and ratify the GEDCOM X specification set.", 
+        "language": "English", 
+        "title": "A substantive vision and proposal to validate and ratify the GEDCOM X specification set", 
+        "subnum": "91", 
+        "changes": null, 
+        "lname": "cfps91_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/08/raw.pdf", 
+        "keywords": "GEDCOM X, vision", 
+        "date": "2013-03-29", 
+        "type": "Proposal", 
+        "email": "heatonra@familysearch.org", 
+        "submitter": "Heaton, Ryan", 
+        "first": "Ryan"
+      }
+    ], 
+    "seealso": [
+      103, 
+      104
+    ]
+  }, 
+  "94": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps94.pdf", 
+        "last": "Smith", 
+        "description": "This paper extends CFPS 77's statement mechanism with a means of grouping statements into bundles for the purpose of description which it proposes to use to record provenance infomation and other metadata.", 
+        "language": "English", 
+        "title": "Recording provenance using statements about statements", 
+        "subnum": "94", 
+        "changes": null, 
+        "lname": "cfps94_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/bundles.pdf", 
+        "keywords": " data model, statement, provenance, sources, metadata, inference, hypotheses, RDF", 
+        "date": "2013-11-14", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps94.pdf", 
+        "last": "Smith", 
+        "description": "This paper extends CFPS 77's statement mechanism with a means of grouping statements into bundles for the purpose of description which it proposes to use to record provenance infomation and other metadata.", 
+        "language": "English", 
+        "title": "Recording provenance using statements about statements", 
+        "subnum": "94", 
+        "type": "Proposal", 
+        "lname": "cfps94_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/bundles.pdf", 
+        "date": "2013-11-14", 
+        "keywords": " data model, statement, provenance, sources, metadata, inference, hypotheses, RDF", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps94.pdf", 
+        "last": "Smith", 
+        "description": "This paper extends CFPS 77's statement mechanism with a means of grouping statements into bundles for the purpose of description which it proposes to use to record provenance infomation and other metadata.", 
+        "language": "English", 
+        "title": "Recording provenance using statements about statements", 
+        "subnum": "94", 
+        "changes": null, 
+        "lname": "cfps94_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/bundles.pdf", 
+        "keywords": " data model, statement, provenance, sources, metadata, inference, hypotheses, RDF", 
+        "date": "2013-11-14", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": [
+      4, 
+      77
+    ]
+  }, 
+  "101": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps101.pdf", 
+        "last": "Trauring", 
+        "description": "A look at how to include all names associated with a person, in different times, cultures, contexts, etc. A single person might have over a dozen name fields associated with them, and this proposal gives a way to organize them and display them properly, considering the many cultural differences in names.", 
+        "language": "English", 
+        "title": "Name Templates", 
+        "subnum": "101", 
+        "changes": null, 
+        "lname": "cfps101_v1.pdf", 
+        "extension": ".pdf", 
+        "version": "1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/Name-Templates.pdf", 
+        "keywords": "names, given names, surnames, family, religious, internationalization", 
+        "date": "2014-01-17", 
+        "type": "Proposal", 
+        "email": "philip@trauring.com", 
+        "submitter": "Trauring, Philip", 
+        "first": "Philip"
+      }
+    ], 
+    "seealso": [
+      88
+    ]
+  }, 
+  "96": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps96.pdf", 
+        "last": "Smith", 
+        "description": "This paper proposes a structured mechanism for recording the ownership of land, and the holders of titles and offices. ", 
+        "language": "English", 
+        "title": "Proposal to allow recording the holders of offices, titles and land", 
+        "subnum": "96", 
+        "changes": null, 
+        "lname": "cfps96_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/offices.pdf", 
+        "keywords": "titles, office holders, land ownership, hereditaments, regnal numbers", 
+        "date": "2013-11-18", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "96", 
+        "kind": "An updated version of a previously submitted paper", 
+        "sname": "cfps96.pdf", 
+        "last": "Smith", 
+        "description": "This paper proposes a structured mechanism for recording the ownership of land, and the holders of titles and offices. ", 
+        "language": "English", 
+        "title": "Proposal to allow recording the holders of offices, titles and land", 
+        "subnum": "105", 
+        "type": "Update", 
+        "lname": "cfps96_v1-1.pdf", 
+        "extension": ".pdf", 
+        "version": "1.1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/02/offices.pdf", 
+        "date": "2014-02-02", 
+        "keywords": "titles, office holders, land ownership, hereditaments, regnal numbers", 
+        "changes": "Changed the term property to real estate to avoid ambiguity between a property that a real person once owned, and a property as an arbitrary attribute in the data model. Also corrected a missing \u2018not\u2019 in \u00a72 \u00b61, and corrected the title of\r\nreference [4].", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "97": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": "79", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps97.pdf", 
+        "last": "Smith", 
+        "description": "This paper resolves some type-safety issues raised in CFPS 79 about the statement formalism of CFPS 77, though which apply equally to CFPS 4's node formalism. ", 
+        "language": "English", 
+        "title": "Type safety in an extensible data model", 
+        "subnum": "97", 
+        "changes": null, 
+        "lname": "cfps97_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/type-safety.pdf", 
+        "keywords": "data model, statement, node, type safety, extensibility, discovery", 
+        "date": "2013-11-25", 
+        "type": "Comment", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "79", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps97.pdf", 
+        "last": "Smith", 
+        "description": "This paper resolves some type-safety issues raised in CFPS 79 about the statement formalism of CFPS 77, though which apply equally to CFPS 4's node formalism. ", 
+        "language": "English", 
+        "title": "Type safety in an extensible data model", 
+        "subnum": "97", 
+        "type": "Comment", 
+        "lname": "cfps97_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/type-safety.pdf", 
+        "date": "2013-11-25", 
+        "keywords": "data model, statement, node, type safety, extensibility, discovery", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "79", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps97.pdf", 
+        "last": "Smith", 
+        "description": "This paper resolves some type-safety issues raised in CFPS 79 about the statement formalism of CFPS 77, though which apply equally to CFPS 4's node formalism. ", 
+        "language": "English", 
+        "title": "Type safety in an extensible data model", 
+        "subnum": "97", 
+        "changes": null, 
+        "lname": "cfps97_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/11/type-safety.pdf", 
+        "keywords": "data model, statement, node, type safety, extensibility, discovery", 
+        "date": "2013-11-25", 
+        "type": "Comment", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ], 
+    "seealso": [
+      4, 
+      77, 
+      79
+    ]
+  }, 
+  "98": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps98.pdf", 
+        "last": "Hill", 
+        "description": "This document has ideas on standards for genealogy systems, how to build them, and on information held within genealogy systems.", 
+        "language": "English", 
+        "title": "Thoughts on Genealogy Standards", 
+        "subnum": "98", 
+        "changes": null, 
+        "lname": "cfps98_vV1.pdf", 
+        "extension": ".pdf", 
+        "version": "V1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2013/12/Thoughts-on-Genealogy-Standards.pdf", 
+        "keywords": "Standards, Modelling, Data Formats, Structures", 
+        "date": "2013-12-12", 
+        "type": "Requirement", 
+        "email": "chris.hill.11heath@gmail.com", 
+        "submitter": "Hill, Chris", 
+        "first": "Chris"
+      }
+    ], 
+    "seealso": [
+      6
+    ]
+  }, 
+  "103": {
+    "tablerow": "", 
+    "seealso": [
+      17, 
+      91
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps103.pdf", 
+        "last": "Smith", 
+        "description": "This paper proposes a light-weight timestamp type for representing the creation and modification times of digital resources.", 
+        "language": "English", 
+        "title": "A trivial timestamp type", 
+        "subnum": "103", 
+        "type": "Proposal", 
+        "lname": "cfps103_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/timestamp.pdf", 
+        "date": "2014-01-29", 
+        "keywords": "dates, timestamps, time zones", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps103.pdf", 
+        "last": "Smith", 
+        "description": "This paper proposes a light-weight timestamp type for representing the creation and modification times of digital resources.", 
+        "language": "English", 
+        "title": "A trivial timestamp type", 
+        "subnum": "103", 
+        "changes": null, 
+        "lname": "cfps103_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/timestamp.pdf", 
+        "keywords": "dates, timestamps, time zones", 
+        "date": "2014-01-29", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps103.pdf", 
+        "last": "Smith", 
+        "description": "This paper proposes a light-weight timestamp type for representing the creation and modification times of digital resources.", 
+        "language": "English", 
+        "title": "A trivial timestamp type", 
+        "subnum": "103", 
+        "type": "Proposal", 
+        "lname": "cfps103_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/timestamp.pdf", 
+        "date": "2014-01-29", 
+        "keywords": "dates, timestamps, time zones", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "112": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Functional requirements", 
+        "sname": "cfps112.pdf", 
+        "last": "Tychonievich", 
+        "description": "A list of properties that a citation model should strive to achieve. It is unlike that any single model could achieve them all.", 
+        "language": "English", 
+        "title": "Desirable Citation Properties", 
+        "subnum": "112", 
+        "changes": null, 
+        "lname": "cfps112_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/08/LAT-CitationProperties.pdf", 
+        "keywords": "Citations, sources, properties", 
+        "date": "2014-08-20", 
+        "type": "Requirement", 
+        "email": "tychonievich@gmail.com", 
+        "submitter": "Tychonievich, Luther", 
+        "first": "Luther"
+      }
+    ], 
+    "seealso": [
+      63, 
+      65, 
+      78
+    ]
+  }, 
+  "104": {
+    "tablerow": "", 
+    "seealso": [
+      91
+    ], 
+    "versions": [
+      {
+        "cfps": "91", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps104.pdf", 
+        "last": "Smith", 
+        "description": "This paper considers the proposal to ratify GEDCOM X as a FHISO standard, and supports the adoption of GEDCOM X's container file format.", 
+        "language": "English", 
+        "title": "Proposal to use GEDCOM X\u2019s container format", 
+        "subnum": "104", 
+        "type": "Comment", 
+        "lname": "cfps104_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/02/containers.pdf", 
+        "date": "2014-02-01", 
+        "keywords": "GEDCOM X, container files, jar files, MIME types, metadata, Dublin Core, modularity, URIs", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "91", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps104.pdf", 
+        "last": "Smith", 
+        "description": "This paper considers the proposal to ratify GEDCOM X as a FHISO standard, and supports the adoption of GEDCOM X's container file format.", 
+        "language": "English", 
+        "title": "Proposal to use GEDCOM X\u2019s container format", 
+        "subnum": "104", 
+        "changes": null, 
+        "lname": "cfps104_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/02/containers.pdf", 
+        "keywords": "GEDCOM X, container files, jar files, MIME types, metadata, Dublin Core, modularity, URIs", 
+        "date": "2014-02-01", 
+        "type": "Comment", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": "91", 
+        "kind": "A comment on a submitted paper", 
+        "sname": "cfps104.pdf", 
+        "last": "Smith", 
+        "description": "This paper considers the proposal to ratify GEDCOM X as a FHISO standard, and supports the adoption of GEDCOM X's container file format.", 
+        "language": "English", 
+        "title": "Proposal to use GEDCOM X\u2019s container format", 
+        "subnum": "104", 
+        "type": "Comment", 
+        "lname": "cfps104_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/02/containers.pdf", 
+        "date": "2014-02-01", 
+        "keywords": "GEDCOM X, container files, jar files, MIME types, metadata, Dublin Core, modularity, URIs", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }, 
+  "114": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps114.pdf", 
+        "last": "Kessler", 
+        "description": "This paper describes how GEDCOM currently handles sources and citations, and suggests how a new standard could and should handle them.", 
+        "language": "English", 
+        "title": "Standardized Sources and Citation Templates", 
+        "subnum": "114", 
+        "changes": null, 
+        "lname": "cfps114_v1.pdf", 
+        "extension": ".pdf", 
+        "version": "1", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/08/Standardized-Sources-and-Citation-Templates.pdf", 
+        "keywords": "sources, citations, formatting, GEDCOM, repository, templates, data transfer", 
+        "date": "2014-08-30", 
+        "type": "Proposal", 
+        "email": "lkessler@lkessler.com", 
+        "submitter": "Kessler, Louis", 
+        "first": "Louis"
+      }
+    ], 
+    "seealso": [
+      112, 
+      78, 
+      65, 
+      63
+    ]
+  }, 
+  "122": {
+    "tablerow": "", 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "An area requiring standardisation", 
+        "sname": "cfps122.pdf", 
+        "last": "Proctor", 
+        "description": "Proposal to devise an image meta-data standard to handle copyright, attribution, provenance, and the identification of historical subjects, including their position.", 
+        "language": "English", 
+        "title": "Proposal for Image Meta-Data Standard", 
+        "subnum": "122", 
+        "changes": null, 
+        "lname": "cfps122_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2015/05/ACP_Proposal_Image_Metadata.pdf", 
+        "keywords": "Images, copyright, Attribution, Metadata", 
+        "date": "2015-05-24", 
+        "type": "Area to Standardise", 
+        "email": "tony@proctor.net", 
+        "submitter": "Proctor, Tony", 
+        "first": "Tony"
+      }
+    ], 
+    "seealso": []
+  }, 
+  "102": {
+    "tablerow": "", 
+    "seealso": [
+      17, 
+      44
+    ], 
+    "versions": [
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps102.pdf", 
+        "last": "Smith", 
+        "description": "This paper presents a case for allowing dates BC to be recorded using the standard Julian and Gregorian calendars, proposes a representation for such dates that is naturally sortable.", 
+        "language": "English", 
+        "title": "Proposal to support dates BC as negative years", 
+        "subnum": "102", 
+        "type": "Proposal", 
+        "lname": "cfps102_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/dates-bc.pdf", 
+        "date": "2014-01-29", 
+        "keywords": "dates, calendars, proleptic calendars, epoch, BC", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps102.pdf", 
+        "last": "Smith", 
+        "description": "This paper presents a case for allowing dates BC to be recorded using the standard Julian and Gregorian calendars, proposes a representation for such dates that is naturally sortable.", 
+        "language": "English", 
+        "title": "Proposal to support dates BC as negative years", 
+        "subnum": "102", 
+        "changes": null, 
+        "lname": "cfps102_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/dates-bc.pdf", 
+        "keywords": "dates, calendars, proleptic calendars, epoch, BC", 
+        "date": "2014-01-29", 
+        "type": "Proposal", 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }, 
+      {
+        "cfps": null, 
+        "kind": "Technical proposal", 
+        "sname": "cfps102.pdf", 
+        "last": "Smith", 
+        "description": "This paper presents a case for allowing dates BC to be recorded using the standard Julian and Gregorian calendars, proposes a representation for such dates that is naturally sortable.", 
+        "language": "English", 
+        "title": "Proposal to support dates BC as negative years", 
+        "subnum": "102", 
+        "type": "Proposal", 
+        "lname": "cfps102_v1-0.pdf", 
+        "extension": ".pdf", 
+        "version": "1.0", 
+        "url": "http://fhiso.org/wp-content/uploads/gravity_forms/1-f519698841e98c110faf9a3c2f50cd0e/2014/01/dates-bc.pdf", 
+        "date": "2014-01-29", 
+        "keywords": "dates, calendars, proleptic calendars, epoch, BC", 
+        "changes": null, 
+        "email": "richard@ex-parrot.com", 
+        "submitter": "Smith, Richard", 
+        "first": "Richard"
+      }
+    ]
+  }
+}
