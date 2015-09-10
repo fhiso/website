@@ -13,7 +13,11 @@ body {
     height: 103px;
 }
 
-.logo img, .logo a { padding: 0px; margin: 0px; border: none 0px; }
+.logo img, .logo a { 
+    padding: 0px;
+    margin: 0px;
+    border: none 0px; 
+}
 
 .navbar {
     width: 100%;
@@ -139,11 +143,43 @@ h1, h2 {
     padding: 0px;
 }
 
-.content {
-    max-width: 560px;
-}
-
 a {
     color: #0071BD;
     text-decoration: none;
 }
+
+dt {
+    font-weight: bold;
+}
+
+.content * {
+    max-width: 560px;
+}
+
+.content table {
+    max-width: 100%;
+    border-collapse: collapse;
+    font-size: 100%;
+    word-wrap: break-word;
+}
+
+.content table th {
+    background: #888;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 90%;
+    padding: 4px 8px;
+    border: 1px solid #FFF;
+    text-align: left;
+}
+
+.content table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #DDD;
+}
+
+.content table tr:nth-child(odd) td {
+    background: #F4F4F4 
+}
+
+

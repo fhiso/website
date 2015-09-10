@@ -44,11 +44,11 @@ def makerow(cfps):
 	kind = masterlist[cfps]["versions"][0]["type"]
 	if kind == "Comment":
 		targ = int(masterlist[cfps]['versions'][0]['cfps'])
-		kind = 'Comment on <a href="/files/cfp/'+masterlist[targ]['versions'][0]['sname']+'">CFPS '+str(targ)+'</a>'
+		kind = 'Comment on <a href="files/'+masterlist[targ]['versions'][0]['sname']+'">CFPS '+str(targ)+'</a>'
 		masterlist[cfps]["versions"][0]["keywords"] = masterlist[targ]['versions'][0]["keywords"]
 	
 	links = ", ".join(
-		'<a href="/files/cfp/'+masterlist[x]['versions'][0]['sname']+'">'+str(x)+'</a>'
+		'<a href="files/'+masterlist[x]['versions'][0]['sname']+'">'+str(x)+'</a>'
 		for x in sorted(masterlist[cfps]["seealso"])
 		if x in live
 	)
@@ -57,7 +57,7 @@ def makerow(cfps):
 <tr>
 	<td class="cfps">{0}</td>
 	<td class="author">{last}, {first}</td>
-	<td class="title"><a href="/files/cfp/{sname}">{title}</a></td>
+	<td class="title"><a href="files/{sname}">{title}</a></td>
 	<td class="type">{1}</td>
 	<td class="date">{2}</td>
 	<td class="date">{4}</td>
@@ -89,11 +89,13 @@ for k in live:
 print """<script type="text/javascript" src="http://fhiso.org/wp-includes/js/columnsort.js"></script>
 <style type="text/css"> .hide, .keywords { display:none; } </style>
 
-The CFPS (Call For Paper Submission) number is a unique identifier for each submitted document. Posted submissions may be referred to by title and author or by CFPS number as, e.g., CFPS 12.
+<h1>Call for Papers Submissions</h1>
 
-The table may be sorted by clicking on column headers. 
+<p>The CFPS (Call For Paper Submission) number is a unique identifier for each submitted document. Posted submissions may be referred to by title and author or by CFPS number as, e.g., CFPS 12.</p>
 
-You may filter the rows by search string (keywords and visible text are searched as you type): <input type="text" id="cfpsfilter" onkeyup="filterrows('tablerows',document.getElementById('cfpsfilter').value)"/>
+<p>The table may be sorted by clicking on column headers.</p>
+
+<p>You may filter the rows by search string (keywords and visible text are searched as you type): <input type="text" id="cfpsfilter" onkeyup="filterrows('tablerows',document.getElementById('cfpsfilter').value)"/></p>
 
 <table>
 <tbody id="tablerows">
@@ -111,17 +113,17 @@ You may filter the rows by search string (keywords and visible text are searched
 """ + "\n".join(s for s in rows) + """
 </tbody>
 </table>
-To view a paper in your browser (if your browser supports viewing PDF files), simply click on any of the titles above. If you would like to save a copy locally, right click on the title and choose the "Save Link As..." option (or your browser's equivalent).
+<p>To view a paper in your browser (if your browser supports viewing PDF files), simply click on any of the titles above. If you would like to save a copy locally, right click on the title and choose the "Save Link As..." option (or your browser's equivalent).</p>
 """
 
 import sys
 
 unused = [k for k in masterlist if k not in live]
 unused.sort(lambda x,y: cmp(masterlist[x]["versions"][0]["date"], masterlist[y]["versions"][0]["date"]))
-print >> sys.stderr, unused
+#print >> sys.stderr, unused
 usedplus = [k for k in masterlist]
 usedplus.sort(lambda x,y: cmp(masterlist[x]["versions"][0]["date"], masterlist[y]["versions"][0]["date"]))
-print >> sys.stderr, usedplus
+#print >> sys.stderr, usedplus
 used = [k for k in masterlist if k in live]
 used.sort(lambda x,y: cmp(masterlist[x]["versions"][0]["date"], masterlist[y]["versions"][0]["date"]))
-print >> sys.stderr, used
+#print >> sys.stderr, used

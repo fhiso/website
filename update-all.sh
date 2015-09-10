@@ -21,7 +21,11 @@ git pull -q
 
 cd $HOME/website
 git pull -q
+cd cfps_processor; python makeindex.py > index.html; cd ..
 perl build-site.pl
+
+mkdir -p $HOME/www-build/cfps/files
+rsync -r cfps_processor/ready/ $HOME/www-build/cfps/files/
 
 rsync -r $HOME/www-build/ $HOME/www/
 

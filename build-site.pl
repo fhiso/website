@@ -6,6 +6,7 @@ use warnings;
 use Perl6::Slurp;
 use File::Copy;
 use FindBin;
+use POSIX qw/strftime/;
 
 my $site = {
   'index'      
@@ -53,6 +54,16 @@ my $site = {
        => [ 'bibliography/bibliography.md', 'Contents' ],
     'datamodels'
        => [ 'bibliography/datamodels.md', 'Data Models' ],
+  },
+  'cfps' => {
+    'index'
+       => [ 'tsc-governance/CFPS/index.md', 'Call for Papers' ],
+    'faq'
+       => [ 'tsc-governance/CFPS/faq.md', 'FAQ' ],
+    'papers'
+       => [ 'website/cfps_processor/index.html', 'Papers received' ],
+    'submit'
+       => [ 'website/cfps_processor/submit.md', 'Submit paper' ],
   }
 };
 
@@ -153,13 +164,26 @@ EOF
     
     right_index($out, $index, $item) if $index;
 
-    print $out "<div class=\"content\">\n",
-        qx(pandoc -f markdown+header_attributes-auto_identifiers "$src"),
-        "</div>\n";
+    print $out "<div class=\"content\">\n";
 
+    if ($src =~ /\.md$/) {
+        my $dialect 
+            = 'markdown+definition_lists+header_attributes-auto_identifiers';
+        print $out qx(pandoc -f $dialect "$src");
+    }
+    elsif ($src =~ /\.html$/) {
+        print $out qx(cat "$src");
+    }
+    else { 
+        die "Unknown file extension"; 
+    }
+
+    print $out "</div>\n";
+
+    my $y = strftime("%y", gmtime);
     print $out <<EOF;
     <div class="footer">
-      Copyright © 2013–15, Family History Information Standards Organisation, 
+      Copyright © 2013–$y, Family History Information Standards Organisation, 
       Inc.<br/> Hosting generously donated by 
       <a href="http://www.mythic-beasts.com/">Mythic Beasts, Ltd</a>.
     </div>
