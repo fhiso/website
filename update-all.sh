@@ -2,7 +2,10 @@
 
 set -e 
 
-rm -rf $HOME/www-build
+OUT=$HOME/www
+BUILD=$HOME/www-build
+
+rm -rf $BUILD
 
 cd $HOME/lexicon-eg
 git pull -q
@@ -21,11 +24,17 @@ git pull -q
 
 cd $HOME/website
 git pull -q
-cd cfps_processor; python makeindex.py > index.html; cd ..
 perl build-site.pl
+rsync -r include/ $BUILD/include/
 
-mkdir -p $HOME/www-build/cfps/files
-rsync -r cfps_processor/ready/ $HOME/www-build/cfps/files/
+mkdir -p $BUILD/cfps/files
+rsync -r cfps_processor/ready/ $BUILD/cfps/files/
 
-rsync -r $HOME/www-build/ $HOME/www/
+# At the moment the database is built from the JSON file in git.
+# This is a temporary arrangement while the old and new sites are 
+# running in parallel.  This will trash and recreate the database.
+./mysql.php < cfps_processor/schema.sql
+./cfps_processor/import.php
+
+rsync -r $BUILD/ $OUT/
 

@@ -1,0 +1,7 @@
+; Rename this file to config.ini and add the password
+
+[database]
+hostname = "localhost"
+username = "website"
+password = ""
+database = "website"

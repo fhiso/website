@@ -61,13 +61,14 @@ my $site = {
     'faq'
        => [ 'tsc-governance/CFPS/faq.md', 'FAQ' ],
     'papers'
-       => [ 'website/cfps_processor/index.html', 'Papers received' ],
+       => [ 'website/cfps_processor/papers.php', 'Papers received' ],
     'submit'
        => [ 'website/cfps_processor/submit.md', 'Submit paper' ],
   }
 };
 
-my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico' );
+my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico', 
+              'columnsort.js' );
 
 my $outdir = '../www-build';
 
@@ -110,6 +111,8 @@ sub write_html {
 
     my $src = "../$item->[0]";
     my $dest = "${dir}$file.html";
+    $dest =~ s/html$/php/ if $src =~ /\.php$/;
+
     my $title = $item->[1];
 
     $title =~ s/&/&amp;/g;
@@ -171,7 +174,7 @@ EOF
             = 'markdown+definition_lists+header_attributes-auto_identifiers';
         print $out qx(pandoc -f $dialect "$src");
     }
-    elsif ($src =~ /\.html$/) {
+    elsif ($src =~ /\.(html|php)$/) {
         print $out qx(cat "$src");
     }
     else { 
