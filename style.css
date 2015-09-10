@@ -131,6 +131,7 @@ body {
     border-top: 1px dashed #CCC;
     color: #777;
     text-align: center;
+    clear: right;
 }
 
 .footer a {
