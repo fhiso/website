@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
-set_include_path(dirname(__FILE__).'/include');
-include_once('utils.php');
+set_include_path(dirname(__FILE__));
+include_once('include/utils.php');
 
 $cfg = $config['database'];
 

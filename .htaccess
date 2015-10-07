@@ -1,16 +1,18 @@
 RewriteEngine on
 
-# Map foo/ => foo, and redirect
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteCond %{DOCUMENT_ROOT}/$1 !-d
-RewriteRule ^(.*)/$ /$1 [L,R=301,E=limitcache:1]
+# Redirect foo.php => foo
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^(.*)\.html$ /$1 [L,R=301,E=limitcache:1]
 
-# Map foo => foo.html
+# Redirect index => . to strip index from the end of URLs
+RewriteRule ^(.*)/index$ /$1/ [L,R=301,E=limitcache:1]
+
+# Map foo => foo.html internally
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteCond %{DOCUMENT_ROOT}/$1 !-d
 RewriteRule ^(.*)$ /$1.html [L]
 
-# Map foo => foo.html
+# Map foo => foo.php internally
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteCond %{DOCUMENT_ROOT}/$1 !-d
 RewriteRule ^(.*)$ /$1.php [L]

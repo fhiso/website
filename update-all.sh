@@ -25,10 +25,10 @@ git pull -q
 cd $HOME/website
 git pull -q
 perl build-site.pl
-rsync -r include/ $BUILD/include/
+rsync -rp include/ $BUILD/include/
 
 mkdir -p $BUILD/cfps/files
-rsync -r cfps_processor/ready/ $BUILD/cfps/files/
+rsync -rp cfps_processor/ready/ $BUILD/cfps/files/
 
 # At the moment the database is built from the JSON file in git.
 # This is a temporary arrangement while the old and new sites are 
@@ -36,5 +36,5 @@ rsync -r cfps_processor/ready/ $BUILD/cfps/files/
 ./mysql.php < cfps_processor/schema.sql
 ./cfps_processor/import.php
 
-rsync -r $BUILD/ $OUT/
+rsync -rp $BUILD/ $OUT/
 

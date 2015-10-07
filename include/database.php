@@ -1,6 +1,6 @@
 <?php
 
-include_once('utils.php');
+include_once('include/utils.php');
 
 function db_connect() {
     global $dbh, $config;

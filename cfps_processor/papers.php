@@ -54,8 +54,9 @@ foreach ( fetch_objs_with_sql($sql) as $c ) { ?>
     <td class="title"><a href="files/cfps<?php esc($c->cfps_id) ?>.pdf"><?php
       esc($c->title) ?></a></td>
     <td class="type"><?php esc($c->type);
-      if ($c->comment_on) { ?> on <a href="files/cfps<?php esc($c->comment_on) 
-      ?>.pdf"><?php esc($c->comment_on) ?></a><?php } ?></td> 
+      if ($c->comment_on) { ?> on CFPS <a href="files/cfps<?php 
+        esc($c->comment_on) ?>.pdf"><?php esc($c->comment_on) ?></a><?php } 
+      ?></td> 
     <td class="date"><?php esc($c->date_created) ?></td>
     <td class="date"><?php esc($c->version_created) ?></td> 
     <td class="keywords"><?php esc($c->keywords) ?></td> 

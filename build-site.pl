@@ -72,102 +72,52 @@ my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico',
 
 my $outdir = '../www-build';
 
-sub right_index_item($$$$$) {
-    my ($out, $key, $i, $item, $class) = @_;
+sub right_index($$) {
+    my ($out, $index) = @_;
 
-    my $t = ref($i) eq 'HASH' ? $i->{index}->[1] : $i->[1]; 
-    $t =~ s/&/&amp;/g;
-    if ($i == $item) { 
-        print $out "<li class=\"$class\">$t</li>\n"; 
-    }
-    else { 
-        print $out "<li class=\"$class\"><a href=\"$key\">$t</a></li>\n";
-    }
-}
-
-sub right_index($$$) {
-    my ($out, $index, $item) = @_;
-
-    print $out <<EOF;
-    <div class="right">
-      <h2>Related Links</h2>
-      <ul class="related">
-EOF
-    if (exists $index->{index}) {
-        right_index_item( $out, 'index', $index->{index}, $item, 'index' );
-    }
-    foreach my $key (sort { lc($a) cmp lc($b) } keys %$index) {
-        next if $key eq 'index';
-        right_index_item( $out, $key, $index->{$key}, $item, '' );
-    }
-    print $out <<EOF;
-      </ul>
-    </div>
-EOF
 }
 
 sub write_html {
     my ($file, $dir, $item, $crumbs, $index) = @_;
 
     my $src = "../$item->[0]";
-    my $dest = "${dir}$file.html";
-    $dest =~ s/html$/php/ if $src =~ /\.php$/;
-
-    my $title = $item->[1];
-
-    $title =~ s/&/&amp;/g;
+    my $dest = "${dir}$file.php";
 
     open my $out, '>', "$outdir/$dest" or die "Unable to open $outdir/$dest";
-    print $out <<EOF;
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta name="author" 
-          content="Family History Information Standards Organisation, Inc." />
-    <title>$title</title>
-    <link rel="stylesheet" href="/style.css" type="text/css" />
-  </head>
-  <body>
-    <div class="logo"><a href="http://fhiso.org/"><img src="/fhiso.png" 
-         alt="Family History Information Standards Organisation" /></a></div>
-    <div class="navbar menu1">
-      <a class="navitem" href="http://fhiso.org/">Home</a>
-EOF
+    print $out "<?php\n";
 
+    print $out "\$page_title = '$item->[1]';\n\n";
+
+    my $root;
+    print $out "\$ancestral_pages = [\n";
     for my $i (0 .. $#$crumbs) {
         if (@$crumbs) {
-            my $t = $crumbs->[$i]; $t =~ s/&/&amp;/g;
+            my $t = $crumbs->[$i];
             my $depth = $#$crumbs-$i;  
-            $depth++ if $dest =~ m!/index\.html$!;
+            $depth++ if $dest =~ m!/index\.php$!;
             my $url = join( '/', ('..') x $depth ) || '.';
-            print $out <<EOF
-      <span class="sep">/</span>
-      <a class="navitem" href="$url">$t</a>
-EOF
+            print $out "  (object)[ 'url' => '$url', 'title' => '$t' ],\n";
+            $root = $url unless defined $root;
         }
     }
-
-    print $out <<EOF;
-      <span class="sep">/</span>
-      <span class="navitem active">$title</span>
-    </div>
-    <div class="navbar menu2">
-      <a href="/sitemap">Site Map</a>
-      <script type="text/javascript">
-      <!--
-        h='&#102;&#104;&#x69;&#x73;&#x6f;&#46;&#x6f;&#114;&#x67;';
-        a='&#64;';n='&#116;&#x73;&#x63;';e=n+a+h;
-        document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'
-                       +'Contact Us'+'<\/'+'a'+'>');
-      // -->
-      </script>
-    </div>
-EOF
+    print $out "];\n\n";
     
-    right_index($out, $index, $item) if $index;
+    if ($index) { 
+        print $out "\$child_pages = [\n";
+        foreach my $key (sort { $a eq 'index' ? -1 :
+                                $b eq 'index' ? +1 : 
+                                lc($a) cmp lc($b) } keys %$index) {
+            my $i = $index->{$key};
+            my $t = ref($i) eq 'HASH' ? $i->{index}->[1] : $i->[1];
+            print $out "  (object)[ 'url' => '$key', 'title' => '$t' ],\n";
+        }
+        print $out "];\n\n";
+    }
 
-    print $out "<div class=\"content\">\n";
+    $root //= '.';
+    print $out "set_include_path('$root');\n\n";
+
+    print $out "function content() { ?>\n";
 
     if ($src =~ /\.md$/) {
         my $dialect 
@@ -181,18 +131,9 @@ EOF
         die "Unknown file extension"; 
     }
 
-    print $out "</div>\n";
+    print $out "<?php }\n\n";
 
-    my $y = strftime("%y", gmtime);
-    print $out <<EOF;
-    <div class="footer">
-      Copyright © 2013–$y, Family History Information Standards Organisation, 
-      Inc.<br/> Hosting generously donated by 
-      <a href="http://www.mythic-beasts.com/">Mythic Beasts, Ltd</a>.
-    </div>
-  </body>
-</html>
-EOF
+    print $out "include('include/template.php');\n";
     exit 1 if $?;
     close $out;
 }

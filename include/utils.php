@@ -1,7 +1,7 @@
 <?php 
 
 global $config;
-$config = parse_ini_file('config.ini', true);
+$config = parse_ini_file('include/config.ini', true);
 
 # Not sure to what extent this is necessary in PHP 5.6 ...
 # After lots of experimentation, it seems that htmlentities() simply 
