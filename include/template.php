@@ -26,7 +26,7 @@ header('Content-Type: text/html; charset=utf-8');
         ?></a>
       <?php } ?>
       <span class="sep">/</span>
-      <span class="navitem active"><?php esc($page_title); ?></a>
+      <span class="navitem active"><?php esc($page_title); ?></span>
     </div>
     <div class="navbar menu2">
       <a href="/sitemap">Site Map</a>
@@ -39,7 +39,7 @@ header('Content-Type: text/html; charset=utf-8');
       // -->
       </script>
     </div>
-    <?php if ($child_pages) { ?>
+    <?php if (isset($child_pages) && count($child_pages)) { ?>
     <div class="right">
       <h2>Related Links</h2>
       <ul class="related">
