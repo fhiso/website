@@ -86,6 +86,12 @@ function fetch_wghol($fields, $tables, $where, $groupby = null, $having = null,
     return fetch_objs_with_sql($sql);
 }
 
+function fetch_wol($fields, $tables, $where, 
+                   $order = null, $limit = null, $offset = null) {
+  return fetch_wghol($fields, $tables, $where, null, null, 
+                     $order, $limit, $offset);
+}
+
 function field_eq_clause($key, $id) {
     global $dbh;
     if (!$dbh) db_connect();
@@ -96,6 +102,20 @@ function field_eq_clause($key, $id) {
 function fetch_all($table, $key, $id, $order = null) {
     return fetch_wghol('*', $table, field_eq_clause($key, $id), 
                        null, null, $order);
+}
+
+function fetch_one_or_none($table, $key, $id, $fields = null) {
+  global $dbh;
+  if (!$dbh) db_connect();
+  $where = sprintf("%s='%s'", $key, mysql_real_escape_string($id, $dbh));
+  $objs = fetch_wol($fields, $table, $where);
+  if (count($objs)) return $objs[0];
+  else return null;
+}
+
+function fetch_one_cell($sql) {
+  $row = mysql_fetch_array(exec_sql($sql), MYSQL_NUM);
+  return $row[0];
 }
 
 function update_where($table, $fields, $where) {
@@ -114,5 +134,12 @@ function update_where($table, $fields, $where) {
 
 function update_all($table, $fields, $key, $id) {
   update_where($table, $fields, field_eq_clause($key, $id));
+}
+
+function update_local_object(&$obj, $sets) {
+  $o = (array)$obj;
+  foreach (array_keys($sets) as $k)
+    $o[$k] = $sets[$k];
+  $obj = (object)$o;
 }
 

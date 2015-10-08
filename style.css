@@ -184,3 +184,52 @@ dt {
 }
 
 
+/*
+ * Forms 
+ */
+
+div.fieldrow, fieldset, .form-instructions {
+    margin-top: 1em;
+}
+
+div.fieldrow:first-child {
+    margin-top: 0em;
+}
+
+div.fieldrow > div, fieldset > div, div.fieldrow > .field, fieldset > .field {
+    vertical-align: top;
+    display: inline-block;
+}
+
+div.fieldrow div.fieldrow, fieldset div.fieldrow {
+    display: block;
+}
+
+label, legend {
+    font-weight: bold;
+    display: block;
+}
+
+
+input[type='checkbox'], input[type='checkbox'] + label {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+input[type='checkbox'] + label {
+    margin-left: 1em;
+}
+
+fieldset {
+    border: 1px solid #00a651; /* Our cedar green colour */
+    margin-bottom: 0.2em;
+}
+
+.label-extra {
+    font-weight: normal;
+}
+
+.error {
+    color: red;
+}
+

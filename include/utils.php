@@ -12,3 +12,11 @@ $config = parse_ini_file('include/config.ini', true);
 function esc($text) {
     print( htmlspecialchars($text, ENT_COMPAT, 'UTF-8') );
 }
+
+function do_redirect($url) {
+  return header("Location: http://tech.fhiso.org/${url}");
+}
+
+function page_header($title) { ?>
+  <h2><?php esc($title) ?></h2>
+<?php }

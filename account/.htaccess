@@ -1,0 +1,16 @@
+RewriteEngine on
+
+Options -MultiViews
+
+RewriteEngine on
+
+RewriteRule "^login$"               "login.php"                   [L]
+RewriteRule "^logout$"              "logout.php"                  [L]
+RewriteRule "^register$"            "register.php"                [L]
+RewriteRule "^activate/(.*)$"       "activate.php?token=$1"       [L]
+RewriteRule "^request-reset$"       "request-reset.php"           [L]
+RewriteRule "^reset-password/(.*)$" "reset-password.php?token=$1" [L]
+RewriteRule "^reset-password$"      "reset-password.php"          [L]
+RewriteRule "^change-email$"        "change-email.php"            [L]
+RewriteRule "^verify-email/(.*)$"   "verify-email.php?token=$1"   [L]
+RewriteRule "^approve/(\d+)$"       "approve.php?id=$1"           [L]

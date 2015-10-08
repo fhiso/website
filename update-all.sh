@@ -26,6 +26,7 @@ cd $HOME/website
 git pull -q
 perl build-site.pl
 rsync -rp include/ $BUILD/include/
+rsync -rp account/ $BUILD/account/
 
 mkdir -p $BUILD/cfps/files
 rsync -rp cfps_processor/ready/ $BUILD/cfps/files/

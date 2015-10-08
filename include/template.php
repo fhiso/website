@@ -1,6 +1,7 @@
 <?php
 
 include_once('include/utils.php');
+include_once('include/perms.php');
 
 header('Content-Type: text/html; charset=utf-8');
 
@@ -38,6 +39,13 @@ header('Content-Type: text/html; charset=utf-8');
                        +'Contact Us'+'<\/'+'a'+'>');
       // -->
       </script>
+      <?php if (user_logged_in()) { ?>
+      <a href="/account/logout">Log out</a>
+      <a href="/account">Account</a>
+      <?php } else { ?>
+      <a href="/account/register">Register</a>
+      <a href="/account/login">Log in</a>
+      <?php } ?>
     </div>
     <?php if (isset($child_pages) && count($child_pages)) { ?>
     <div class="right">
