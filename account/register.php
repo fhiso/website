@@ -137,7 +137,12 @@ function content() {
   page_header('Register for an account');
   show_error_list($errors); ?>
 
-    <form method="post" action="" accept-charset="UTF-8">
+  <p class="paragraphs section">At present it is not necessary to register
+    on the FHISO technical website as there is currently no members-only 
+    functionality on the site.</p>
+
+  <form method="post" action="" accept-charset="UTF-8">
+    <fieldset>
       <div class="fieldrow">
         <?php text_field($_POST, 'name', 'Name', 'publicly visible') ?>
       </div>
@@ -162,7 +167,8 @@ function content() {
       <div class="fieldrow">
         <input type="submit" name="register" value="Register" />
       </div>
-    </form>
+    </fieldset>
+  </form>
   <?php
 }
 

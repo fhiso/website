@@ -38,6 +38,9 @@ function content() {
                    'email' => $user->email_address );
 
   ?>
+    <p class="paragraphs section">At present there is no members-only
+      functionality on this site.</p>
+
     <form method="post" action="" accept-charset="UTF-8">
       <fieldset>
         <legend>Details</legend>
