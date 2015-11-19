@@ -38,8 +38,8 @@ function content() {
                    'email' => $user->email_address );
 
   ?>
-
     <form method="post" action="" accept-charset="UTF-8">
+      <fieldset>
         <legend>Details</legend>
         <div class="fieldrow">
           <?php text_field($fields, 'name', 'Name', 'publicly visible') ?>
@@ -64,6 +64,7 @@ function content() {
         <div class="fieldrow">
           <input type="submit" name="apply" value="Update"/>
         </div>
+      </fieldset>
     </form>
 <?php
 }
