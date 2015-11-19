@@ -7,6 +7,12 @@ RewriteRule ^(.*)\.html$ /$1 [L,R=301,E=limitcache:1]
 # Redirect index => . to strip index from the end of URLs
 RewriteRule ^(.*)/index$ /$1/ [L,R=301,E=limitcache:1]
 
+# Redirect foo/ to foo if it's not a directory
+RewriteCond %{DOCUMENT_ROOT}/$1 !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^(.*)/$ /$1 [L,R=301,E=limitcache:1]
+
 # Map foo => foo.html internally
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteCond %{DOCUMENT_ROOT}/$1 !-d
