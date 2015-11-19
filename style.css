@@ -233,3 +233,8 @@ fieldset {
     color: red;
 }
 
+.warning {
+    border: 2pt solid red;
+    padding: 4pt;
+}
+

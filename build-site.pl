@@ -72,16 +72,18 @@ my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico',
 
 my $outdir = '../www-build';
 
-sub right_index($$) {
-    my ($out, $index) = @_;
 
-}
-
-sub write_html {
+sub write_html_1 {
     my ($file, $dir, $item, $crumbs, $index) = @_;
 
     my $src = "../$item->[0]";
     my $dest = "${dir}$file.php";
+    my $primary = undef;
+    if ($src =~ /-([0-9]{8})\.([a-z]+)$/) {
+        $primary = $dest;  
+        $dest = "${dir}$file-$1.php";
+        $primary =~ s!^(?:.*/)?([^./]+)\.php$!$1!;
+    }
 
     open my $out, '>', "$outdir/$dest" or die "Unable to open $outdir/$dest";
     print $out "<?php\n";
@@ -119,6 +121,13 @@ sub write_html {
 
     print $out "function content() { ?>\n";
 
+    if (defined $primary) { 
+        print $out '<p class="warning">Warning: '
+            . 'This may be an old version of the document.   '
+            . 'The current version can be found '
+            . "<a href=\"$primary\">here</a>.</p>\n";
+    }
+
     if ($src =~ /\.md$/) {
         my $dialect 
             = 'markdown+definition_lists+header_attributes-auto_identifiers';
@@ -136,6 +145,19 @@ sub write_html {
     print $out "include('include/template.php');\n";
     exit 1 if $?;
     close $out;
+}
+
+sub write_html {
+    my ($file, $dir, $item, $crumbs, $index) = @_;
+    write_html_1($file, $dir, $item, $crumbs, $index);
+ 
+    my $old_pat = "../$item->[0]";
+    my $date_pat = "[0-9]" x 8;
+    $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
+    foreach my $old (glob $old_pat) {
+        $old =~ s!^\.\./!!;
+        write_html_1($file, $dir, [ $old, $item->[1] ], $crumbs, $index);
+    }
 }
 
 sub recurse {

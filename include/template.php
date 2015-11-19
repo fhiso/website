@@ -47,19 +47,39 @@ header('Content-Type: text/html; charset=utf-8');
       <a href="/account/login">Log in</a>
       <?php } ?>
     </div>
-    <?php if (isset($child_pages) && count($child_pages)) { ?>
+    <?php 
+    $path = preg_split( '/\//', 
+                        preg_replace('/\.php$/', '', $_SERVER['PHP_SELF']) );
+    $vers = glob( preg_replace( '/(?:-[0-9]{8})$/', '', 
+                                $path[count($path)-1] )
+                  . '-' . str_repeat('[0-9]', 8) . '.*' );
+
+    if (isset($child_pages) && count($child_pages) || count($vers)) { ?>
     <div class="right">
-      <h2>Related Links</h2>
+      <?php if (isset($child_pages) && count($child_pages)) { ?>
+        <h2>Related Links</h2>
+        <ul class="related">
+          <?php foreach ($child_pages as $c) { ?>
+            <li<?php if ($c->url == 'index') { ?> class="index" <?php } 
+              ?>><?php if ($c->url != $path[count($path)-1]) { 
+              ?><a href="<?php esc($c->url) ?>"><?php } esc($c->title);
+              if ($c->url != $path[count($path)-1]) { ?></a><?php } ?></li>
+          <?php } ?>
+        </ul>
+      <?php } ?>
+      <?php if (count($vers)) { ?>
+      <h2>File Versions</h2>
       <ul class="related">
-        <?php $path = preg_split('/\//', 
-                        preg_replace('/\.php$/', '', $_SERVER['PHP_SELF']));
-        foreach ($child_pages as $c) { ?>
-          <li<?php if ($c->url == 'index') { ?> class="index" <?php } 
-            ?>><?php if ($c->url != $path[count($path)-1]) { 
-            ?><a href="<?php esc($c->url) ?>"><?php } esc($c->title);
-            if ($c->url != $path[count($path)-1]) { ?></a><?php } ?></li>
+        <?php foreach (array_reverse($vers) as $v) { 
+          $v = preg_replace('/\.php$/', '', $v); ?>
+          <li><?php if ($v != $path[count($path)-1]) { ?><a href="<?php 
+            esc($v) ?>"><?php }
+            esc(preg_replace('/^.*([0-9]{4})([0-9]{2})([0-9]{2})$/', 
+                             '$1-$2-$3', $v));
+            if ($v != $path[count($path)-1]) { ?></a><?php } ?></li>
         <?php } ?>
-      </ul>
+      </ul> 
+      <?php } ?>
     </div>
     <?php } ?>
     <div class="content">
