@@ -16,8 +16,11 @@ header('Content-Type: text/html; charset=utf-8');
     <?php if (function_exists('header_content')) header_content() ?>
   </head>
   <body>
-    <div class="logo"><a href="http://fhiso.org/"><img src="/fhiso.png" 
-         alt="Family History Information Standards Organisation" /></a></div>
+    <div class="header">
+      <div class="right"><a href="/">Technical<br/>Site</a></div>
+      <div class="logo"><a href="http://fhiso.org/"><img src="/fhiso.png" 
+           alt="Family History Information Standards Organisation" /></a></div>
+    </div>
     <div class="navbar menu1">
       <?php global $ancestral_pages, $page_title; ?>
       <a class="navitem" href="http://fhiso.org/">Home</a>
