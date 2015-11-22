@@ -1,7 +1,7 @@
 <?php
 set_include_path('..');
 
-include('include/utils.php');
+include_once('include/utils.php');
 
 function logout() {
   global $config;
