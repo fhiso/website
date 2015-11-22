@@ -1,6 +1,8 @@
 RewriteEngine on
 
-# Redirect foo.php => foo
+### General rules for new tech.fhiso.org website
+
+# Redirect foo.html => foo if the html is now php
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^(.*)\.html$ /$1 [L,R=301,E=limitcache:1]
 
@@ -25,3 +27,37 @@ RewriteRule ^(.*)$ /$1.php [L]
 
 # Use 301 redirects for better SEO and caching, but don't cache forever!
 Header always set Cache-Control "max-age=3600" env=limitcache
+
+
+### Redirect rules for old site layout
+
+RewriteRule ^tsc/?$               /                      [R=301,E=limitcache:1]
+RewriteRule ^call-for-papers/?$   /cfps                  [R=301,E=limitcache:1]
+RewriteRule ^cfp-faq/?$           /cfps/faq              [R=301,E=limitcache:1]
+RewriteRule ^call-for-papers-submissions/?$                                   \
+                                  /cfps/papers           [R=301,E=limitcache:1]
+RewriteRule ^tsc-charter/?$       /charter               [R=301,E=limitcache:1]
+RewriteRule ^tsc-opm/?$           /opm                   [R=301,E=limitcache:1]
+RewriteRule ^technical-style-guide/?$                                         \
+                                  /style                 [R=301,E=limitcache:1]
+RewriteRule ^tsc-egs/?$           /egs                   [R=301,E=limitcache:1]
+RewriteRule ^cceg/?$              /egs/cceg              [R=301,E=limitcache:1]
+RewriteRule ^cceg-directives/?$   /egs/cceg/directives   [R=301,E=limitcache:1]
+RewriteRule ^lexeg/?$             /egs/lexeg             [R=301,E=limitcache:1]
+RewriteRule ^lexeg-directives/?$  /egs/lexeg/directives  [R=301,E=limitcache:1]
+RewriteRule ^lexeg/lexicon-snapshot/?$                                        \
+                                  /egs/lexeg/snapshot    [R=301,E=limitcache:1] 
+RewriteRule ^sceg/?$              /egs/sceg/             [R=301,E=limitcache:1]
+RewriteRule ^sceg-directives/?$   /egs/sceg/directives   [R=301,E=limitcache:1]
+
+
+### Convenience redirects back to main site
+
+RewriteCond %{REQUEST_URI}   ^/pipermail/    [OR]
+RewriteCond %{REQUEST_URI}   ^/mailman/      [OR]
+RewriteCond %{REQUEST_URI}   ^/aboutfhiso/   [OR]
+RewriteCond %{REQUEST_URI}   ^/by-laws/?$    [OR]
+RewriteCond %{REQUEST_URI}   ^/join-fhiso/?$ 
+RewriteRule .* http://fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1]
+
+# Don't redirect call-for-papers-submission/ yet -- not implemented on new site
