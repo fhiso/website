@@ -19,6 +19,8 @@ my $site = {
      => [ 'tsc-governance/style.md',      'Style Guide' ],
   'tsc-public' 
      => [ 'tsc-governance/tsc-public.md', 'tsc-public Mailing List' ],
+  'minutes' 
+     => [ 'tsc-governance/minutes.md',    'TSC Minutes' ],
   'egs' => {
      'index'
         => [ 'tsc-governance/egs.md',      'Exploratory Groups' ],
