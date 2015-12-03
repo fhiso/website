@@ -17,6 +17,8 @@ my $site = {
      => [ 'tsc-governance/charter.md',    'Charter' ],
   'style'  
      => [ 'tsc-governance/style.md',      'Style Guide' ],
+  'vocabulary'  
+     => [ 'tsc-governance/vocabulary.md',      'Preferred nature of vocabularies (draft)' ],
   'tsc-public' 
      => [ 'tsc-governance/tsc-public.md', 'tsc-public Mailing List' ],
   'minutes' 
