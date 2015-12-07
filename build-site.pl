@@ -15,14 +15,18 @@ my $site = {
      => [ 'tsc-governance/opm.md',        'Operations & Policy Manual' ],
   'charter'
      => [ 'tsc-governance/charter.md',    'Charter' ],
-  'style'  
-     => [ 'tsc-governance/style.md',      'Style Guide' ],
-  'vocabulary'  
-     => [ 'tsc-governance/vocabularies.md', 'Vocabularies (draft policy)' ],
   'tsc-public' 
      => [ 'tsc-governance/tsc-public.md', 'tsc-public Mailing List' ],
   'minutes' 
-     => [ 'tsc-governance/minutes.md',    'TSC Minutes' ],
+     => [ 'tsc-governance/minutes.md',    'Minutes' ],
+  'policies' => {
+     'index' 
+        => [ 'tsc-governance/policies.md',   'Policies' ],
+     'style'  
+        => [ 'tsc-governance/style.md',      'Style Guide' ],
+     'vocabularies'  
+        => [ 'tsc-governance/vocabularies.md', 'Vocabularies (draft policy)' ],
+  },
   'egs' => {
      'index'
         => [ 'tsc-governance/egs.md',      'Exploratory Groups' ],

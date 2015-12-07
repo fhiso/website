@@ -50,6 +50,9 @@ RewriteRule ^lexeg/lexicon-snapshot/?$                                        \
 RewriteRule ^sceg/?$              /egs/sceg/             [R=301,E=limitcache:1]
 RewriteRule ^sceg-directives/?$   /egs/sceg/directives   [R=301,E=limitcache:1]
 
+# Subsequent layout changes
+
+RewriteRule ^style$               /policies/style        [R=301,E=limitcache:1]
 
 ### Convenience redirects back to main site
 
