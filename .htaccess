@@ -36,6 +36,7 @@ RewriteRule ^call-for-papers/?$   /cfps                  [R=301,E=limitcache:1]
 RewriteRule ^cfp-faq/?$           /cfps/faq              [R=301,E=limitcache:1]
 RewriteRule ^call-for-papers-submissions/?$                                   \
                                   /cfps/papers           [R=301,E=limitcache:1]
+RewriteRule ^files/cfp/(.*)$      /cfps/files/$1         [R=301,E=limitcache:1]
 RewriteRule ^tsc-charter/?$       /charter               [R=301,E=limitcache:1]
 RewriteRule ^tsc-opm/?$           /opm                   [R=301,E=limitcache:1]
 RewriteRule ^technical-style-guide/?$                                         \
