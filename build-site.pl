@@ -19,11 +19,15 @@ my $site = {
      => [ 'tsc-governance/tsc-public.md', 'tsc-public Mailing List' ],
   'minutes' 
      => [ 'tsc-governance/minutes.md',    'Minutes' ],
+  'strategy' 
+     => [ 'tsc-governance/strategy.md',    'Strategy' ],
   'policies' => {
      'index' 
-        => [ 'tsc-governance/policies.md',   'Policies' ],
+        => [ 'tsc-governance/policies.md',     'Policies' ],
      'style'  
-        => [ 'tsc-governance/style.md',      'Style Guide' ],
+        => [ 'tsc-governance/style.md',        'Style Guide' ],
+     'strategy'  
+        => [ 'tsc-governance/strategy.md',     'Strategy Paper (draft)' ],
      'vocabularies'  
         => [ 'tsc-governance/vocabularies.md', 'Vocabularies (draft policy)' ],
   },
