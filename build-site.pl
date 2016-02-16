@@ -22,7 +22,7 @@ my $site = {
   'strategy'  
      => [ 'tsc-governance/strategy.md',   'Technical Strategy (draft)' ],
   'priorities'
-     => [ 'tsc-governance/strategy.md',   'Priorities (draft)' ],
+     => [ 'tsc-governance/priorities.md', 'Technical Priorities (draft)' ],
   'policies' => {
      'index' 
         => [ 'tsc-governance/policies.md',     'Policies' ],
