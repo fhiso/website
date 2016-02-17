@@ -63,7 +63,7 @@ rsync -rp cfps_processor/ready/ $BUILD/cfps/files/
 
 if [ $# -eq 1 -a "$1" = '--testing' ]; then
     :
-elif [ -z $DIRTY -o $# -eq 1 -a "$1" = '--deploy' ]; then
+elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
     # The code above will dump data in $BUILD and never touch the www root.
     # This is the only place where the main www root is populated.
     rsync -rp $BUILD/ $OUT/
