@@ -17,7 +17,12 @@ header('Content-Type: text/html; charset=utf-8');
   </head>
   <body>
     <div class="header">
-      <div class="right"><a href="/">Technical<br/>Site</a></div>
+      <?php if ($_SERVER['SERVER_NAME'] == 'test.tech.fhiso.org') { ?>
+      <div class="right" style="border: 2px solid red"
+        ><a href="/" style="color: red">Testing</br>Site</a></div>
+      <?php } else { ?>
+      <div class="right"><a href="/">Technical</br>Site</a></div>
+      <?php } ?>
       <div class="logo"><a href="http://fhiso.org/"><img src="/fhiso.png" 
            alt="Family History Information Standards Organisation" /></a></div>
     </div>
