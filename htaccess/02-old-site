@@ -1,35 +1,8 @@
-RewriteEngine on
-
-### General rules for new tech.fhiso.org website
-
-# Redirect foo.html => foo if the html is now php
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f
-RewriteRule ^(.*)\.html$ /$1 [L,R=301,E=limitcache:1]
-
-# Redirect index => . to strip index from the end of URLs
-RewriteRule ^(.*)/index$ /$1/ [L,R=301,E=limitcache:1]
-
-# Redirect foo/ to foo if it's not a directory
-RewriteCond %{DOCUMENT_ROOT}/$1 !-d
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f
-RewriteRule ^(.*)/$ /$1 [L,R=301,E=limitcache:1]
-
-# Map foo => foo.html internally
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteCond %{DOCUMENT_ROOT}/$1 !-d
-RewriteRule ^(.*)$ /$1.html [L]
-
-# Map foo => foo.php internally
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f
-RewriteCond %{DOCUMENT_ROOT}/$1 !-d
-RewriteRule ^(.*)$ /$1.php [L]
-
-# Use 301 redirects for better SEO and caching, but don't cache forever!
-Header always set Cache-Control "max-age=3600" env=limitcache
-
-
 ### Redirect rules for old site layout
+#
+# These are the old (i.e. pre-2016) file names.  We keep them working 
+# so that relative links in any material now hosted on tech.fhiso.org 
+# continues to work.
 
 RewriteRule ^tsc/?$               /                      [R=301,E=limitcache:1]
 RewriteRule ^call-for-papers/?$   /cfps                  [R=301,E=limitcache:1]
@@ -51,17 +24,3 @@ RewriteRule ^lexeg/lexicon-snapshot/?$                                        \
 RewriteRule ^sceg/?$              /egs/sceg/             [R=301,E=limitcache:1]
 RewriteRule ^sceg-directives/?$   /egs/sceg/directives   [R=301,E=limitcache:1]
 
-# Subsequent layout changes
-
-RewriteRule ^style$               /policies/style        [R=301,E=limitcache:1]
-
-### Convenience redirects back to main site
-
-RewriteCond %{REQUEST_URI}   ^/pipermail/    [OR]
-RewriteCond %{REQUEST_URI}   ^/mailman/      [OR]
-RewriteCond %{REQUEST_URI}   ^/aboutfhiso/   [OR]
-RewriteCond %{REQUEST_URI}   ^/by-laws/?$    [OR]
-RewriteCond %{REQUEST_URI}   ^/join-fhiso/?$ 
-RewriteRule .* http://fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1]
-
-# Don't redirect call-for-papers-submission/ yet -- not implemented on new site

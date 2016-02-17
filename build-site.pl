@@ -10,11 +10,15 @@ use POSIX qw/strftime/;
 
 my $site = {
   'index'      
-     => [ 'tsc-governance/tsc.md',        'Technical Work' ],
-  'opm'        
-     => [ 'tsc-governance/opm.md',        'Operations & Policy Manual' ],
-  'charter'
-     => [ 'tsc-governance/charter.md',    'Charter' ],
+     => [ 'tsc-governance/tsc-revision.md',  'Technical Work' ],
+  'governance' => {
+    'index'
+       => [ 'tsc-governance/interim-structure.md', 'Governance' ],
+    'opm'        
+       => [ 'tsc-governance/opm.md',        'Operations & Policy Manual' ],
+    'charter'
+       => [ 'tsc-governance/charter.md',    'Charter' ],
+  },
   'tsc-public' 
      => [ 'tsc-governance/tsc-public.md', 'tsc-public Mailing List' ],
   'minutes' 
@@ -79,8 +83,7 @@ my $site = {
   }
 };
 
-my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico', 
-              'columnsort.js' );
+my @files = ( 'style.css', 'fhiso.png', 'favicon.ico', 'columnsort.js' );
 
 my $outdir = '../www-build';
 
