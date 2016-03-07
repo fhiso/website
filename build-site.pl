@@ -24,9 +24,9 @@ my $site = {
   'minutes' 
      => [ 'tsc-governance/minutes.md',    'Minutes' ],
   'strategy'  
-     => [ 'tsc-governance/strategy.md',   'Technical Strategy (draft)' ],
+     => [ 'tsc-governance/strategy.md',   'Technical Strategy' ],
   'priorities'
-     => [ 'tsc-governance/priorities.md', 'Technical Priorities (draft)' ],
+     => [ 'tsc-governance/priorities.md', 'Technical Priorities' ],
   'policies' => {
      'index' 
         => [ 'tsc-governance/policies.md',     'Policies' ],
