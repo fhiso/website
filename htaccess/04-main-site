@@ -1,0 +1,13 @@
+### Convenience redirects back to main site
+#
+# These exist so that relative links in content originally hosted on
+# the main site, and now hosted here, continue to work.
+
+RewriteCond %{REQUEST_URI}   ^/pipermail/    [OR]
+RewriteCond %{REQUEST_URI}   ^/mailman/      [OR]
+RewriteCond %{REQUEST_URI}   ^/aboutfhiso/   [OR]
+RewriteCond %{REQUEST_URI}   ^/by-laws/?$    [OR]
+RewriteCond %{REQUEST_URI}   ^/join-fhiso/?$ 
+RewriteRule .* http://fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1]
+
+# Don't redirect call-for-papers-submission/ yet -- not implemented on new site
