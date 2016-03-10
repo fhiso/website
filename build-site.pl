@@ -20,16 +20,16 @@ my $site = {
   'minutes' 
      => [ 'tsc-governance/minutes.md',    'Minutes' ],
   'strategy'  
-     => [ 'tsc-governance/strategy.md',   'Technical Strategy (draft)' ],
+     => [ 'tsc-governance/strategy.md',   'Technical Strategy' ],
   'priorities'
-     => [ 'tsc-governance/priorities.md', 'Technical Priorities (draft)' ],
+     => [ 'tsc-governance/priorities.md', 'Technical Priorities' ],
   'policies' => {
      'index' 
         => [ 'tsc-governance/policies.md',     'Policies' ],
      'style'  
         => [ 'tsc-governance/style.md',        'Style Guide' ],
      'vocabularies'  
-        => [ 'tsc-governance/vocabularies.md', 'Vocabularies (draft policy)' ],
+        => [ 'tsc-governance/vocabularies.md', 'Vocabularies (draft)' ],
   },
   'egs' => {
      'index'
@@ -84,6 +84,9 @@ my @files = ( '.htaccess', 'style.css', 'fhiso.png', 'favicon.ico',
 
 my $outdir = '../www-build';
 
+# We use this to avoid duplicating the markdown dialect between repositories
+system "make -q -C \"$FindBin::Bin/../tsc-governance\" .dialect";
+my $dialect = slurp "$FindBin::Bin/../tsc-governance/.dialect";
 
 sub write_html_1 {
     my ($file, $dir, $item, $crumbs, $index) = @_;
@@ -141,9 +144,7 @@ sub write_html_1 {
     }
 
     if ($src =~ /\.md$/) {
-        my $dialect 
-            = 'markdown+definition_lists+header_attributes-auto_identifiers';
-        print $out qx(pandoc -f $dialect "$src");
+        print $out qx(pandoc -f "$dialect" "$src");
     }
     elsif ($src =~ /\.(html|php)$/) {
         print $out qx(cat "$src");
