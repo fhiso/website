@@ -168,6 +168,10 @@ dt {
     max-width: 560px;
 }
 
+.content hr {
+    margin-left: 0px;
+}
+
 .content table {
     max-width: 100%;
     border-collapse: collapse;
@@ -249,3 +253,10 @@ fieldset {
     padding: 4pt;
 }
 
+.content blockquote {
+    background: #f4f4f4;
+    border: solid 1px #e1e1e1;
+    padding: 1em;
+    max-width: calc(560px - 2*1em);
+    margin-left: 0px;
+}
