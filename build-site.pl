@@ -13,6 +13,9 @@ my @files = ( 'style.css', 'fhiso.png', 'favicon.ico', 'columnsort.js' );
 
 my $outdir = '../www-build';
 
+# NOTE: The $site variable with a long list of pages is now generated
+# from tsc-governance/sitemap.xml.
+
 # We use this to avoid duplicating the markdown dialect between repositories
 system "make -q -C \"$FindBin::Bin/../tsc-governance\" .dialect";
 my $dialect = slurp "$FindBin::Bin/../tsc-governance/.dialect";
