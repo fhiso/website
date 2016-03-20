@@ -9,7 +9,8 @@ use FindBin;
 use POSIX qw/strftime/;
 use XML::LibXML;
 
-my @files = ( 'style.css', 'fhiso.png', 'favicon.ico', 'columnsort.js' );
+my @files = ( 'style.css', 'fhiso.png', 'favicon.ico', 'columnsort.js', 
+              'pdf.png' );
 
 my $outdir = '../www-build';
 

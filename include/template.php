@@ -61,9 +61,9 @@ header('Content-Type: text/html; charset=utf-8');
                         preg_replace('/\.php$/', '', $_SERVER['PHP_SELF']) );
     $vers = glob( preg_replace( '/(?:-[0-9]{8})$/', '', 
                                 $path[count($path)-1] )
-                  . '-' . str_repeat('[0-9]', 8) . '.*' );
+                  . '-' . str_repeat('[0-9]', 8) . '.php' );
 
-    $pdf = glob( "$path.pdf" );
+    $pdf = glob( $path[count($path)-1].".pdf" );
     if (count($pdf) == 1) $pdf = $pdf[0]; else $pdf = null;
 
     if (isset($child_pages) && count($child_pages) || count($vers) || $pdf) { ?>
@@ -80,8 +80,13 @@ header('Content-Type: text/html; charset=utf-8');
         </ul>
       <?php } ?>
       <?php if (count($vers)) { ?>
-      <h2>File Versions</h2>
+      <h2>Versions</h2>
       <ul class="related">
+        <?php $v = preg_replace( '/(?:-[0-9]{8})$/', '',
+                                 $path[count($path)-1] ); ?>
+          <li><?php if ($v != $path[count($path)-1]) { ?><a href="<?php 
+            esc($v) ?>"><?php } ?>Latest<?php
+            if ($v != $path[count($path)-1]) { ?></a><?php } ?></li>
         <?php foreach (array_reverse($vers) as $v) { 
           $v = preg_replace('/\.php$/', '', $v); ?>
           <li><?php if ($v != $path[count($path)-1]) { ?><a href="<?php 
@@ -93,9 +98,9 @@ header('Content-Type: text/html; charset=utf-8');
       </ul> 
       <?php } ?>
       <?php if (count($vers)) { ?>
-      <h2>Other formats</h2>
+      <h2>Download</h2>
       <ul class="related">
-        <li><a href="<?php esc($pdf) ?>">Download as PDF</a></li>
+        <li><a href="<?php esc($pdf) ?>">as PDF <img src="/pdf.png"/></a></li>
       </ul>
       <?php } ?>
     </div>
