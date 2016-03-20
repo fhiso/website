@@ -43,8 +43,6 @@ my $site = {
            => [ 'tsc-governance/S&CEG/index.md', 'Sources & Citations' ],
         'directives'
            => [ 'tsc-governance/S&CEG/directives.md', 'Directives' ],
-        'decisions'
-           => [ 'sources-and-citations-eg/decisions.md', 'Decisions' ],
         'links'
            => [ 'sources-and-citations-eg/Useful_Links.md', 'Useful Links' ],
      },
