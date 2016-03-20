@@ -20,7 +20,7 @@ my $dialect = slurp "$FindBin::Bin/../tsc-governance/.dialect";
 sub write_html_1 {
     my ($file, $dir, $item, $crumbs, $index) = @_;
 
-    my $src = "../$item->[0]";
+    my $src = "../$item->{src}";
     my $dest = "${dir}$file.php";
     my $primary = undef;
     if ($src =~ /-([0-9]{8})\.([a-z]+)$/) {
@@ -32,7 +32,7 @@ sub write_html_1 {
     open my $out, '>', "$outdir/$dest" or die "Unable to open $outdir/$dest";
     print $out "<?php\n";
 
-    print $out "\$page_title = '$item->[1]';\n\n";
+    print $out "\$page_title = '$item->{title}';\n\n";
 
     my $root;
     print $out "\$ancestral_pages = [\n";
@@ -54,7 +54,7 @@ sub write_html_1 {
                                 $b eq 'index' ? +1 : 
                                 lc($a) cmp lc($b) } keys %$index) {
             my $i = $index->{$key};
-            my $t = ref($i) eq 'HASH' ? $i->{index}->[1] : $i->[1];
+            my $t = exists $i->{index} ? $i->{index}->{title} : $i->{title};
             print $out "  (object)[ 'url' => '$key', 'title' => '$t' ],\n";
         }
         print $out "];\n\n";
@@ -93,12 +93,13 @@ sub write_html {
     my ($file, $dir, $item, $crumbs, $index) = @_;
     write_html_1($file, $dir, $item, $crumbs, $index);
  
-    my $old_pat = "../$item->[0]";
+    my $old_pat = "../$item->{src}";
     my $date_pat = "[0-9]" x 8;
     $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
     foreach my $old (glob $old_pat) {
         $old =~ s!^\.\./!!;
-        write_html_1($file, $dir, [ $old, $item->[1] ], $crumbs, $index);
+        write_html_1( $file, $dir, { src => $old, title => $item->{title} }, 
+                      $crumbs, $index );
     }
 }
 
@@ -109,13 +110,13 @@ sub recurse {
     if (exists $desc->{'index'}) {
         my $i = $desc->{'index'};
         write_html( 'index', $dir, $i, \@crumbs, $desc );
-        push @crumbs, $i->[1];
+        push @crumbs, $i->{title};
     }
 
     foreach my $file (keys %$desc) {
         next if $file eq 'index';
         my $i = $desc->{$file};
-        if ( ref($i) eq 'HASH') { 
+        if ( exists $i->{index} ) { 
             mkdir "$outdir/$dir$file" unless -d "$outdir/$dir$file";
             recurse( $i, "$dir$file/", @crumbs ); 
         }
@@ -130,10 +131,10 @@ sub recurse_sitemap {
     foreach my $key (sort { lc($a) cmp lc($b) } keys %$desc) {
         next if $key eq 'index';
         my $i = $desc->{$key};
-        my $t = ref($i) eq 'HASH' ? $i->{index}->[1] : $i->[1]; 
+        my $t = exists $i->{index} ? $i->{index}->{title} : $i->{title}; 
         print $out "$indent*   [$t](/$path$key)\n";
         recurse_sitemap($out, "$indent    ", "$path$key/", $i) 
-            if ref($i) eq 'HASH';
+            if exists $i->{index};
     }   
 }
 
@@ -141,14 +142,15 @@ sub recurse_parse_sitemap {
     my ($xml) = @_;
 
     my $dir = {
-        'index' => [ $xml->findvalue('index/@src'), 
-                     $xml->getAttribute('title') ] 
+        'index' => { src   => $xml->findvalue('index/@src'), 
+                     title => $xml->getAttribute('title') } 
     };
 
     foreach my $p ($xml->findnodes('page')) {
-        $dir->{ $p->getAttribute('name') } = [
-          $p->getAttribute('src'), $p->getAttribute('title')
-        ];
+        $dir->{ $p->getAttribute('name') } ={
+          src   => $p->getAttribute('src'), 
+          title => $p->getAttribute('title')
+        };
     }
 
     foreach my $p ($xml->findnodes('directory')) {
@@ -174,13 +176,13 @@ mkdir $outdir unless -d $outdir;
 open my $sitemap, '>', "$FindBin::Bin/sitemap.md" or die;
 print $sitemap "# Site Map\n";
 print $sitemap "<div class=\"sitemap\">\n";
-print $sitemap "[$site->{index}->[1]](/)\n\n";
+print $sitemap "[$site->{index}->{title}](/)\n\n";
 recurse_sitemap( $sitemap, '', '', $site );
 print $sitemap "</div>\n";
 close $sitemap;
 
-write_html( 'sitemap', '', [ 'website/sitemap.md', 'Site Map' ],
-            [$site->{index}->[1]], $site );
+write_html( 'sitemap', '', { src => 'website/sitemap.md', title => 'Site Map' },
+            [ $site->{index}->{title} ], $site );
 
 foreach my $f (@files) {
   copy $f, "$outdir/";
