@@ -76,7 +76,14 @@ if [ $# -eq 1 -a "$1" = '--testing' ]; then
 elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
     # The code above will dump data in $BUILD and never touch the www root.
     # This is the only place where the main www root is populated.
-    rsync -rp $BUILD/ $OUT/
+    # The code used to do 
+    #   rsync -rp $BUILD/ $OUT/
+    # We no longer do that so as not to update the file mtime unnecessarily.
+    find $BUILD/ -type d | sed "s#^$BUILD/#$OUT/#" | xargs -r mkdir -p
+    find $BUILD/ -type f | while read NEW; do 
+        OLD=$(echo "$NEW" | sed "s#www-build/#www/#")
+        if ! cmp -s $OLD $NEW; then cp -p $NEW $OLD; fi
+    done
 else
     cat <<EOF >&2
 Not deploying a checkout with local modifications in these repositories:
