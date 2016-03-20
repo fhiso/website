@@ -5,7 +5,8 @@ include_once('include/perms.php');
 
 header('Content-Type: text/html; charset=utf-8');
 
-?><html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+?><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -62,7 +63,10 @@ header('Content-Type: text/html; charset=utf-8');
                                 $path[count($path)-1] )
                   . '-' . str_repeat('[0-9]', 8) . '.*' );
 
-    if (isset($child_pages) && count($child_pages) || count($vers)) { ?>
+    $pdf = glob( "$path.pdf" );
+    if (count($pdf) == 1) $pdf = $pdf[0]; else $pdf = null;
+
+    if (isset($child_pages) && count($child_pages) || count($vers) || $pdf) { ?>
     <div class="right">
       <?php if (isset($child_pages) && count($child_pages)) { ?>
         <h2>Related Links</h2>
@@ -87,6 +91,12 @@ header('Content-Type: text/html; charset=utf-8');
             if ($v != $path[count($path)-1]) { ?></a><?php } ?></li>
         <?php } ?>
       </ul> 
+      <?php } ?>
+      <?php if (count($vers)) { ?>
+      <h2>Other formats</h2>
+      <ul class="related">
+        <li><a href="<?php esc($pdf) ?>">Download as PDF</a></li>
+      </ul>
       <?php } ?>
     </div>
     <?php } ?>

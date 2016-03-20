@@ -17,7 +17,7 @@ my $outdir = '../www-build';
 # from tsc-governance/sitemap.xml.
 
 # We use this to avoid duplicating the markdown dialect between repositories
-system "make -q -C \"$FindBin::Bin/../tsc-governance\" .dialect";
+system "make -s -C \"$FindBin::Bin/../tsc-governance\" .dialect";
 my $dialect = slurp "$FindBin::Bin/../tsc-governance/.dialect";
 
 sub write_html_1 {
@@ -92,17 +92,37 @@ sub write_html_1 {
     close $out;
 }
 
+sub write_pdf {
+    my ($src, $dest) = @_;
+
+    if ($src =~ m!^tsc-governance/(.*)!) {
+        (my $pdf = $1) =~ s/\.md$/.pdf/;
+        system "make -s -C \"../tsc-governance\" \"$pdf\"\n";
+
+        if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
+        $dest .= '.pdf';
+
+        copy "../tsc-governance/$pdf" => "$outdir/$dest";
+    }
+}
+
 sub write_html {
     my ($file, $dir, $item, $crumbs, $index) = @_;
     write_html_1($file, $dir, $item, $crumbs, $index);
- 
-    my $old_pat = "../$item->{src}";
-    my $date_pat = "[0-9]" x 8;
-    $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
-    foreach my $old (glob $old_pat) {
-        $old =~ s!^\.\./!!;
-        write_html_1( $file, $dir, { src => $old, title => $item->{title} }, 
-                      $crumbs, $index );
+
+    if ($item->{versioned}) {
+        my $old_pat = "../$item->{src}";
+        my $date_pat = "[0-9]" x 8;
+        $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
+        foreach my $old (glob $old_pat) {
+            $old =~ s!^\.\./!!;
+            write_html_1( $file, $dir, 
+                          { src => $old, title => $item->{title} }, 
+                          $crumbs, $index );
+            write_pdf($old, $dir.$file);
+        }
+
+        write_pdf($item->{src}, $dir.$file);
     }
 }
 
@@ -150,10 +170,12 @@ sub recurse_parse_sitemap {
     };
 
     foreach my $p ($xml->findnodes('page')) {
-        $dir->{ $p->getAttribute('name') } ={
-          src   => $p->getAttribute('src'), 
-          title => $p->getAttribute('title')
+        my $desc = {
+            src   => $p->getAttribute('src'), 
+            title => $p->getAttribute('title')
         };
+        $desc->{versioned} = 1 if $p->getAttribute('versioned');
+        $dir->{ $p->getAttribute('name') } = $desc
     }
 
     foreach my $p ($xml->findnodes('directory')) {
