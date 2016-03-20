@@ -210,6 +210,11 @@ close $sitemap;
 write_html( 'sitemap', '', { src => 'website/sitemap.md', title => 'Site Map' },
             [ $site->{index}->{title} ], $site );
 
+# Put an undocumented copy of the by-laws on the tech site.
+write_html( 'by-laws', '', { src => 'tsc-governance/by-laws.md', 
+                             title => 'By-Laws', versioned => 1 },
+            [ ], $site );
+
 foreach my $f (@files) {
   copy $f, "$outdir/";
 }
