@@ -188,14 +188,14 @@ sub recurse_parse_sitemap {
 }
 
 sub read_sitemap {
-    my $dom = XML::LibXML->load_xml
-        ( location => "$FindBin::Bin/../tsc-governance/sitemap.xml" );
+    my ($xmlfile) = @_;
+    my $dom = XML::LibXML->load_xml( location => "$FindBin::Bin/../$xmlfile" );
 
     my (undef, $site) = recurse_parse_sitemap( $dom->documentElement );
     return $site;
 }
 
-my $site = read_sitemap();
+my $site = read_sitemap( "tsc-governance/sitemap.xml" );
 
 mkdir $outdir unless -d $outdir;
 
@@ -218,6 +218,11 @@ write_html( 'by-laws', '', { src => 'tsc-governance/by-laws.md',
 foreach my $f (@files) {
   copy $f, "$outdir/";
 }
+
+# Build the actual site
 recurse $site;
 
+# Unlinked, but not especially secret (or it wouldn't be in Github!) site
+mkdir "$outdir/board" unless -d "$outdir/board";
+recurse read_sitemap( "tsc-governance/board.xml" ), 'board/', 'Board';
 
