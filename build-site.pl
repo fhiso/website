@@ -7,79 +7,7 @@ use Perl6::Slurp;
 use File::Copy;
 use FindBin;
 use POSIX qw/strftime/;
-
-my $site = {
-  'index'      
-     => [ 'tsc-governance/tsc-revision.md',  'Technical Work' ],
-  'governance' => {
-    'index'
-       => [ 'tsc-governance/interim-structure.md', 'Governance' ],
-    'opm'        
-       => [ 'tsc-governance/opm.md',        'Operations & Policy Manual' ],
-    'charter'
-       => [ 'tsc-governance/charter.md',    'Charter' ],
-  },
-  'tsc-public' 
-     => [ 'tsc-governance/tsc-public.md', 'tsc-public Mailing List' ],
-  'minutes' 
-     => [ 'tsc-governance/minutes.md',    'Minutes' ],
-  'strategy'  
-     => [ 'tsc-governance/strategy.md',   'Technical Strategy' ],
-  'priorities'
-     => [ 'tsc-governance/priorities.md', 'Technical Priorities' ],
-  'policies' => {
-     'index' 
-        => [ 'tsc-governance/policies.md',     'Policies' ],
-     'style'  
-        => [ 'tsc-governance/style.md',        'Style Guide' ],
-     'vocabularies'  
-        => [ 'tsc-governance/vocabularies.md', 'Vocabularies (draft)' ],
-  },
-  'egs' => {
-     'index'
-        => [ 'tsc-governance/egs.md',      'Exploratory Groups' ],
-     'sceg' => {
-        'index'   
-           => [ 'tsc-governance/S&CEG/index.md', 'Sources & Citations' ],
-        'directives'
-           => [ 'tsc-governance/S&CEG/directives.md', 'Directives' ],
-        'links'
-           => [ 'sources-and-citations-eg/Useful_Links.md', 'Useful Links' ],
-     },
-     'cceg' => {
-        'index'
-           => [ 'tsc-governance/CCEG/index.md', 'Core Concepts' ],
-        'directives', 
-           => [ 'tsc-governance/CCEG/directives.md', 'Directives' ],
-     },
-     'lexeg' => {
-        'index'
-           => [ 'tsc-governance/LexEG/index.md', 'Lexicon' ],
-        'directives', 
-           => [ 'tsc-governance/LexEG/directives.md', 'Directives' ],
-        'snapshot',
-           => [ 'lexicon-eg/builder/snapshot.md', 'Snapshot' ],
-     }
-   },
-  'bibliography' => {
-    'index'
-       => [ 'tsc-governance/bibliography.md', 'Bibliography' ],
-    'contents'
-       => [ 'bibliography/bibliography.md', 'Contents' ],
-    'datamodels'
-       => [ 'bibliography/datamodels.md', 'Data Models' ],
-  },
-  'cfps' => {
-    'index'
-       => [ 'tsc-governance/CFPS/index.md', 'Call for Papers' ],
-    'faq'
-       => [ 'tsc-governance/CFPS/faq.md', 'FAQ' ],
-    'papers'
-       => [ 'website/cfps_processor/papers.php', 'Papers received' ],
-    'submit'
-       => [ 'website/cfps_processor/submit.md', 'Submit paper' ],
-  }
-};
+use XML::LibXML;
 
 my @files = ( 'style.css', 'fhiso.png', 'favicon.ico', 'columnsort.js' );
 
@@ -209,6 +137,38 @@ sub recurse_sitemap {
     }   
 }
 
+sub recurse_parse_sitemap {
+    my ($xml) = @_;
+
+    my $dir = {
+        'index' => [ $xml->findvalue('index/@src'), 
+                     $xml->getAttribute('title') ] 
+    };
+
+    foreach my $p ($xml->findnodes('page')) {
+        $dir->{ $p->getAttribute('name') } = [
+          $p->getAttribute('src'), $p->getAttribute('title')
+        ];
+    }
+
+    foreach my $p ($xml->findnodes('directory')) {
+        my ($n, $v) = recurse_parse_sitemap($p);
+        $dir->{$n} = $v;
+    }
+
+    return $xml->getAttribute('name') => $dir;
+}
+
+sub read_sitemap {
+    my $dom = XML::LibXML->load_xml
+        ( location => "$FindBin::Bin/../tsc-governance/sitemap.xml" );
+
+    my (undef, $site) = recurse_parse_sitemap( $dom->documentElement );
+    return $site;
+}
+
+my $site = read_sitemap();
+
 mkdir $outdir unless -d $outdir;
 
 open my $sitemap, '>', "$FindBin::Bin/sitemap.md" or die;
@@ -218,7 +178,9 @@ print $sitemap "[$site->{index}->[1]](/)\n\n";
 recurse_sitemap( $sitemap, '', '', $site );
 print $sitemap "</div>\n";
 close $sitemap;
-write_html('sitemap', '', [ 'website/sitemap.md', 'Site Map' ], [$site->{index}->[1]], $site);
+
+write_html( 'sitemap', '', [ 'website/sitemap.md', 'Site Map' ],
+            [$site->{index}->[1]], $site );
 
 foreach my $f (@files) {
   copy $f, "$outdir/";
