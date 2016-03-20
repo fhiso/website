@@ -103,7 +103,7 @@ sub write_pdf {
         if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
         $dest .= '.pdf';
 
-        copy "../tsc-governance/$pdf" => "$outdir/$dest";
+        system "cp -p \"../tsc-governance/$pdf\" \"$outdir/$dest\"";
     }
 }
 
