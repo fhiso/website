@@ -46,7 +46,8 @@ sub write_html_1 {
             my $depth = $#$crumbs-$i;  
             $depth++ if $dest =~ m!/index\.php$!;
             my $url = join( '/', ('..') x $depth ) || '.';
-            print $out "  (object)[ 'url' => '$url', 'title' => '$t' ],\n";
+            print $out "  (object)[ 'url' => '$url', 'title' => '$t' ],\n"
+                if $t;
             $root = $url unless defined $root;
         }
     }
@@ -224,5 +225,5 @@ recurse $site;
 
 # Unlinked, but not especially secret (or it wouldn't be in Github!) site
 mkdir "$outdir/board" unless -d "$outdir/board";
-recurse read_sitemap( "tsc-governance/board.xml" ), 'board/', 'Board';
+recurse read_sitemap( "tsc-governance/board.xml" ), 'board/', '';
 
