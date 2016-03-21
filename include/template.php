@@ -97,7 +97,7 @@ header('Content-Type: text/html; charset=utf-8');
         <?php } ?>
       </ul> 
       <?php } ?>
-      <?php if (count($vers)) { ?>
+      <?php if ($pdf) { ?>
       <h2>Download</h2>
       <ul class="related">
         <li><a href="<?php esc($pdf) ?>">as PDF <img src="/pdf.png"/></a></li>
