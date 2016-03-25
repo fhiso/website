@@ -260,7 +260,19 @@ fieldset {
 .content blockquote {
     background: #f4f4f4;
     border: solid 1px #e1e1e1;
-    padding: 1em;
+    padding: 0em 1em;
     max-width: calc(560px - 2*1em);
-    margin-left: 0px;
+    margin: 0em;
+}
+
+.content p {
+    margin: 1em 0em;
+}
+
+.content blockquote > p:first-child { 
+    margin-top: 0.5em;
+}
+
+.content blockquote > p:last-child {
+    margin-bottom: 0.5em;
 }
