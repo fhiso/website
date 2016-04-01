@@ -18,8 +18,9 @@ my $outdir = '../www-build';
 # from tsc-governance/sitemap.xml.
 
 # We use this to avoid duplicating the markdown dialect between repositories
-system "make -s -C \"$FindBin::Bin/../tsc-governance\" .dialect";
-my $dialect = slurp "$FindBin::Bin/../tsc-governance/.dialect";
+chdir "$FindBin::Bin";
+system "make -s -f pandoc.mk .dialect";
+my $dialect = slurp ".dialect";
 
 sub write_html_1 {
     my ($file, $dir, $item, $crumbs, $index) = @_;
@@ -99,7 +100,7 @@ sub write_pdf {
 
     if ($src =~ m!^tsc-governance/(.*)!) {
         (my $pdf = $1) =~ s/\.md$/.pdf/;
-        system "make -s -C \"../tsc-governance\" \"$pdf\"\n";
+        system "make -s -f pandoc.mk \"../tsc-governance/$pdf\"\n";
 
         if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
         $dest .= '.pdf';

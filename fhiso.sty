@@ -1,0 +1,67 @@
+% Basic fonts
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Scale=1}
+\setmainfont[Mapping=tex-text]{Linux Libertine O}
+\setsansfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Japanese support
+\usepackage{xeCJK}
+\setCJKmainfont{TakaoMincho}
+\setCJKsansfont{TakaoGothic}
+\setCJKmonofont{TakaoGothic}
+
+% Arabic support
+\usepackage[Latin,Arabic]{ucharclasses}
+\usepackage{ifthen}
+\newfontfamily{\fhisoarabicfont}[Script=Arabic]{Amiri}
+\newenvironment{fhisoarabic}%
+  % We can't simply setmonofont, because by the time this is invoked,
+  % we're already inside with \texttt macro
+  {\ifthenelse{\equal{\f@family}{lmtt}}%
+    {\setmainfont[Script=Arabic]{Thabit}}%
+    {\setmainfont[Script=Arabic]{Amiri}}}{}
+\setTransitionTo{Arabic}{\begin{fhisoarabic}}
+\setTransitionFrom{Arabic}{\end{fhisoarabic}}
+
+% Section title style
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+\newcommand\titlefont{\rm\huge\sffamily\nohang}
+\sectionfont{\large\sffamily\nohang}
+\subsectionfont{\normalsize\sffamily\nohang}
+\subsubsectionfont{\small\sffamily\nohang}
+\usepackage{titling}
+\renewcommand{\maketitlehooka}{\sffamily}
+\newcommand\chapter[1]{}
+
+% Page headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\fancyhf{}
+\rhead{\itshape \@title}
+\cfoot{\thepage}
+\fancypagestyle{empty}{
+  \setlength\headheight{93pt}
+  \fancyhf{}
+  \chead{\includegraphics[scale=1]{logo.png}}
+}
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt, label=---}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+% Title page
+\renewcommand{\maketitle}{
+\thispagestyle{empty}
+\begin{center}
+
+\vspace{1em}
+{\titlefont{\@title}}
+
+\vspace{2em}
+{\large\sffamily{\@date}}
+
+\vspace{1em}
+\end{center}
+}
