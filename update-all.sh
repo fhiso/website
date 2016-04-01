@@ -15,7 +15,7 @@ BUILD=$ROOT/www-build
 OUT=$ROOT/www
 
 # Git repositories we use
-REPOS="lexicon-eg tsc-governance sources-and-citations-eg bibliography website"
+REPOS="lexicon-eg tsc-governance sources-and-citations bibliography website"
 
 if [ $# -eq 1 -a "$1" = '--help' ]; then
     cat <<EOF 
