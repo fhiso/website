@@ -1,4 +1,5 @@
 .*.swp
 sitemap.md
-local-settings
+local-settings.mk
+local-settings.sh
 .dialect

@@ -6,8 +6,8 @@ ROOT=$HOME
 
 # To override the directory the site is built in, create a file called
 # local-settings in this directory.
-if [ -e $(dirname $0)/local-settings ] ; then
-    . $(dirname $0)/local-settings
+if [ -e $(dirname $0)/local-settings.sh ] ; then
+    . $(dirname $0)/local-settings.sh
 fi
 
 # Note that www-build is the document root for http://test.tech.fhiso.org/

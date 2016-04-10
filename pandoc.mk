@@ -11,7 +11,7 @@ PANDOC := pandoc
 
 # Allow any changes for the local machine.
 # (E.g. to set PANDOC=schroot -c testing -- pandoc.)
--include local-settings
+-include local-settings.mk
 
 %.html:	%.md
 	$(PANDOC) -f $(MD_DIALECT) -o "$@" "$^"
