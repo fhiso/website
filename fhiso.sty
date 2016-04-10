@@ -1,8 +1,5 @@
 % Basic fonts
 \usepackage[no-math]{fontspec}
-%\defaultfontfeatures{Ligatures=TeX,Scale=1}
-%\setmainfont[Mapping=tex-text]{Linux Libertine O}
-%\setsansfont[Mapping=tex-text]{Linux Biolinum O}
 \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \setmainfont{Noto Serif}
 \setsansfont{Noto Sans}
@@ -10,30 +7,17 @@
 
 % Japanese support
 \usepackage{xeCJK}
-%\setCJKmainfont{TakaoMincho}
-%\setCJKsansfont{TakaoGothic}
-%\setCJKmonofont{TakaoGothic}
 \setCJKmainfont[Script=Hangul,Language=Korean]{Noto Sans CJK JP}
 
-%% Arabic support
-%\usepackage[Latin,Greek,Arabic]{ucharclasses}
+% Arabic support
 \usepackage[Latin,Arabic]{ucharclasses}
 \usepackage{ifthen}
-%\newfontfamily{\Arabicmainfont}[Script=Arabic, Scale=1]{Amiri}
-%\newfontfamily{\Arabicmonofont}[Script=Arabic, Scale=1]{Thabit}
 \newfontfamily{\Arabicmainfont}[Script=Arabic, Scale=1]{Noto Naskh Arabic}
 \newfontfamily{\Arabicmonofont}[Script=Arabic, Scale=1]{Noto Kufi Arabic}
 \newenvironment{fhisoArabic}%
   {\ifthenelse{\equal{\f@family}{lmtt}}{\Arabicmonofont}{\Arabicmainfont}}{}
 \setTransitionTo{Arabic}{\begin{fhisoArabic}}
 \setTransitionFrom{Arabic}{\end{fhisoArabic}}
-
-%
-%% Greek support
-%\newfontfamily{\Greekfont}[Script=Greek, Scale=MatchLowercase]{GFS Artemisia}
-%\newenvironment{fhisoGreek}{\Greekfont}{}
-%\setTransitionTo{GreekAndCoptic}{\begin{fhisoGreek}}
-%\setTransitionFrom{GreekAndCoptic}{\end{fhisoGreek}}
 
 % Section title style
 \usepackage{sectsty}
@@ -73,7 +57,7 @@
 {\titlefont{\@title}}
 
 \vspace{2em}
-{\large\sffamily{\@date}}
+{\large\sffamily\bfseries{\@date}}
 
 \vspace{1em}
 \end{center}
