@@ -1,40 +1,53 @@
 % Basic fonts
 \usepackage[no-math]{fontspec}
-\defaultfontfeatures{Ligatures=TeX,Scale=1}
-\setmainfont[Mapping=tex-text]{Linux Libertine O}
-\setsansfont[Mapping=tex-text]{Linux Biolinum O}
+%\defaultfontfeatures{Ligatures=TeX,Scale=1}
+%\setmainfont[Mapping=tex-text]{Linux Libertine O}
+%\setsansfont[Mapping=tex-text]{Linux Biolinum O}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Mono}
 
 % Japanese support
 \usepackage{xeCJK}
-\setCJKmainfont{TakaoMincho}
-\setCJKsansfont{TakaoGothic}
-\setCJKmonofont{TakaoGothic}
+%\setCJKmainfont{TakaoMincho}
+%\setCJKsansfont{TakaoGothic}
+%\setCJKmonofont{TakaoGothic}
+\setCJKmainfont[Script=Hangul,Language=Korean]{Noto Sans CJK JP}
 
-% Arabic support
+%% Arabic support
+%\usepackage[Latin,Greek,Arabic]{ucharclasses}
 \usepackage[Latin,Arabic]{ucharclasses}
 \usepackage{ifthen}
-\newfontfamily{\fhisoarabicfont}[Script=Arabic]{Amiri}
-\newenvironment{fhisoarabic}%
-  % We can't simply setmonofont, because by the time this is invoked,
-  % we're already inside with \texttt macro
-  {\ifthenelse{\equal{\f@family}{lmtt}}%
-    {\setmainfont[Script=Arabic]{Thabit}}%
-    {\setmainfont[Script=Arabic]{Amiri}}}{}
-\setTransitionTo{Arabic}{\begin{fhisoarabic}}
-\setTransitionFrom{Arabic}{\end{fhisoarabic}}
+%\newfontfamily{\Arabicmainfont}[Script=Arabic, Scale=1]{Amiri}
+%\newfontfamily{\Arabicmonofont}[Script=Arabic, Scale=1]{Thabit}
+\newfontfamily{\Arabicmainfont}[Script=Arabic, Scale=1]{Noto Naskh Arabic}
+\newfontfamily{\Arabicmonofont}[Script=Arabic, Scale=1]{Noto Kufi Arabic}
+\newenvironment{fhisoArabic}%
+  {\ifthenelse{\equal{\f@family}{lmtt}}{\Arabicmonofont}{\Arabicmainfont}}{}
+\setTransitionTo{Arabic}{\begin{fhisoArabic}}
+\setTransitionFrom{Arabic}{\end{fhisoArabic}}
+
+%
+%% Greek support
+%\newfontfamily{\Greekfont}[Script=Greek, Scale=MatchLowercase]{GFS Artemisia}
+%\newenvironment{fhisoGreek}{\Greekfont}{}
+%\setTransitionTo{GreekAndCoptic}{\begin{fhisoGreek}}
+%\setTransitionFrom{GreekAndCoptic}{\end{fhisoGreek}}
 
 % Section title style
 \usepackage{sectsty}
 \allsectionsfont{\sffamily}
-\newcommand\titlefont{\rm\huge\sffamily\nohang}
-\sectionfont{\large\sffamily\nohang}
-\subsectionfont{\normalsize\sffamily\nohang}
-\subsubsectionfont{\small\sffamily\nohang}
+\newcommand\titlefont{\bfseries\huge\sffamily\nohang}
+\sectionfont{\Large\sffamily\nohang}
+\subsectionfont{\large\sffamily\nohang}
+\subsubsectionfont{\normalsize\sffamily\nohang}
 \usepackage{titling}
 \renewcommand{\maketitlehooka}{\sffamily}
 \newcommand\chapter[1]{}
 
 % Page headers and footers
+\usepackage[a4paper]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \pagenumbering{arabic}
