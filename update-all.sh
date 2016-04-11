@@ -84,6 +84,9 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
         OLD=$(echo "$NEW" | sed "s#www-build/#www/#")
         if ! cmp -s $OLD $NEW; then cp -p $NEW $OLD; fi
     done
+
+    # Do remote updates on the main server
+    ./main/upload-htaccess.pl
 else
     cat <<EOF >&2
 Not deploying a checkout with local modifications in these repositories:

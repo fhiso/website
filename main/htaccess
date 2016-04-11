@@ -1,0 +1,135 @@
+# httpd options
+Options -Indexes
+Options +FollowSymLinks
+
+# URL Rewrite Rules (mod_rewrite)
+# This is a combination of the rules defined for WordPress, Drupal, and custom rules for
+# maintenance mode and setting of canonical URLs for the fhiso.org web site.
+<IfModule mod_rewrite.c>
+# Turn the engine on
+RewriteEngine On
+# Set the URL prefix to be used for rewrite directives that substitute a relative path
+RewriteBase /
+
+#
+# Redirects for the new tech site (http://tech.fhiso.org)
+# Use 301 redirects for better SEO and caching, but don't cache forever!
+#
+RewriteCond %{REQUEST_URI}  ^/tsc(-charter|-opm|-egs|-public)?/?$  [OR]
+RewriteCond %{REQUEST_URI}  ^/(cceg|lexeg|sceg|bibliography)       [OR]
+RewriteCond %{REQUEST_URI}  ^/technical-style-guide/?$             [OR]
+RewriteCond %{REQUEST_URI}  ^(/terms?|/files/cfp)/                 [OR]
+RewriteCond %{REQUEST_URI}  ^/(call-for-papers(-submissions)?|cfp-faq)/?$
+RewriteRule .* http://tech.fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1] 
+Header always set Cache-Control "max-age=3600" env=limitcache
+
+#
+# Pages that have moved on the main site.
+#
+RewriteRule ^(aboutfhiso/)?fhiso-board(/minutes.*)$ \
+	http://fhiso.org$2        [L,R=301,E=limitcache:1]
+RewriteRule ^(aboutfhiso/)?fhiso-(board|regions)/?$ \
+	http://fhiso.org/$2/      [L,R=301,E=limitcache:1]
+RewriteRule ^aboutfhiso(/.*)$ \
+	http://fhiso.org$1        [L,R=301,E=limitcache:1]
+
+
+# BEGIN "wordpress"/"drupal" switch
+#
+# This section is used to allow the user, via a special URL, to switch between the WordPress and Drupal
+# versions of the fhiso.org site.
+#
+RewriteCond %{REQUEST_URI} !^/sso/
+RewriteCond %{HTTP_COOKIE} !__fhiso_site=(wp|drupal)
+RewriteRule .* - [CO=__fhiso_site:wp:.fhiso.org:1440]
+#
+RewriteRule ^switch/drupal/?$ / [R=302,CO=__fhiso_site:drupal:.fhiso.org:1440,L]
+RewriteRule ^switch/wp/?$ / [R=302,CO=__fhiso_site:wp:.fhiso.org:1440,L]
+#
+# END "wordpress"/"drupal" switch
+
+# BEGIN Maintenance Mode Section
+#
+# This set of conditions and rules is used to turn on site-wide maintenance mode, while
+# allowing access for one or more IP addresses. To turn on maintenance mode create a file
+# named "maintenance_on" in the "maintenance" subdirectory, and then change the 503.shmtl file
+# to provide visitors with the appropriate information about the nature and duration of maintenance.
+# To turn off maintenance mode, delete the "maintenance_on" file (or rename it to, for example,
+# "maintenance_off").
+#
+RewriteCond %{REQUEST_URI} !^/sso/
+RewriteCond %{DOCUMENT_ROOT}/maintenance/maintenance_on -f
+#RewriteCond %{HTTP_COOKIE} !__fhiso_site=drupal
+RewriteCond %{HTTP_COOKIE} __fhiso_site=drupal
+RewriteCond %{REMOTE_ADDR} !^71\.211\.107\.109
+RewriteCond %{REQUEST_URI} ![0-9]+\.shtml$
+RewriteCond %{REQUEST_URI} !\.(png|gif|jpg|jpeg|ico|css|js)$
+RewriteRule .* - [R=503,L]
+# END Maintenance mode
+
+# BEGIN canonical redirect
+#
+# This section rewrites URL to their "canonical" value. Specifically, if "www" is specified as the first
+# part of the domain, then it is stripped off. Additionally, "old" URLs (from old sites, or previous
+# configurations) are redirected to their "new" values.
+#
+#(All rewrites within this section must be [R=301,L] redirects)
+#
+# REDIRECT to canonical url, fhiso.org, if www subdomain is specified
+# (other subdomains are allowed, and pass through unchanged)
+RewriteCond %{HTTP_HOST} ^www\.fhiso\.org [NC]
+RewriteRule ^(.*)$ http://fhiso.org/$1 [R=301,L]
+#
+# REDIRECT previously defined URLs to their new URL
+# old /wp/ links
+RewriteRule ^wp/(.*) $1 [R=301,L]
+RewriteRule ^wp/?$ / [R=301,L]
+# Additional old-to-new URL redirects go here
+# END canonical redirect
+
+# BEGIN CMS
+#
+# This section provides the final set of redirects for the appropriate Content Management System
+# in use.
+#
+# WordPress
+RewriteCond %{REQUEST_URI} !^/sso/
+RewriteCond %{HTTP_COOKIE} !__fhiso_site=drupal
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{HTTP_COOKIE} !__fhiso_site=drupal
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+#
+# Drupal
+# Rewrite URL consisting of only the domain to the main Drupal index page.
+RewriteCond %{REQUEST_URI} ^/sso/ [OR]
+RewriteCond %{HTTP_COOKIE} __fhiso_site=drupal
+RewriteRule ^$ drupal/ [L]
+# Rewrite URLs that point to physical files within the Drupal directory to that directory.
+RewriteCond %{REQUEST_URI} ^/sso/ [OR]
+RewriteCond %{HTTP_COOKIE} __fhiso_site=drupal
+RewriteCond %{DOCUMENT_ROOT}/drupal/$1 -f
+RewriteRule ^(.*)$ drupal/$1 [L,QSA]
+# Rewrite URLs that do no point to physical files or directories to the drupal main index,
+# appending the URI to the query.
+RewriteCond %{REQUEST_URI} ^/sso/ [OR]
+RewriteCond %{HTTP_COOKIE} __fhiso_site=drupal
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ drupal/index.php?q=$1 [L,QSA]
+#
+# END CMS
+</IfModule>
+
+# From original .htaccess from hosting provider
+AddHandler wsgi-script .py
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 109.109.232.226
+deny from 176.31.230.154
+deny from 188.165.245.20
