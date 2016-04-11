@@ -10,4 +10,12 @@ RewriteCond %{REQUEST_URI}   ^/by-laws/?$    [OR]
 RewriteCond %{REQUEST_URI}   ^/join-fhiso/?$ 
 RewriteRule .* http://fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1]
 
+# Moved parts of the main site
+RewriteRule ^(aboutfhiso/)?fhiso-board(/minutes.*)$ \
+        http://fhiso.org$2        [L,R=301,E=limitcache:1]
+RewriteRule ^(aboutfhiso/)?fhiso-(board|regions)/?$ \
+        http://fhiso.org/$2/      [L,R=301,E=limitcache:1]
+RewriteRule ^aboutfhiso(/.*)$ \
+        http://fhiso.org$1        [L,R=301,E=limitcache:1]
+
 # Don't redirect call-for-papers-submission/ yet -- not implemented on new site
