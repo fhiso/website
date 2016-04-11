@@ -109,8 +109,9 @@ header('Content-Type: text/html; charset=utf-8');
       <?php content(); ?>
     </div>
     <div class="footer">
-      Copyright © 2013&ndash;<?php esc(date('y')) ?>,
-      Family History Information Standards Organisation, Inc.<br/> 
+      Copyright © 2012&ndash;<?php esc(date('Y')) ?>,
+      <a href="http://fhiso.org/">Family History
+      Information Standards Organisation, Inc</a>.<br/>
       Hosting generously donated by 
       <a href="http://www.mythic-beasts.com/">Mythic Beasts, Ltd</a>.
     </div>
