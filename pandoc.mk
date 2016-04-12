@@ -20,7 +20,8 @@ PANDOC := pandoc
 # Setting fontfamily=fhiso is a bit of an abuse, as fhiso.sty does much 
 # more than just setting the font.
 PDF_OPTS=-V documentclass:article --chapters -V papersize:a4paper -V dir:1 \
-         -V fontsize:11pt -V fontfamily:fhiso --latex-engine=xelatex
+         -V fontsize:11pt -V fontfamily:fhiso -V header-includes:\\fhisoFinal \
+         --latex-engine=xelatex
 
 %.pdf: %.md fhiso.sty logo.png pandoc.mk
 	$(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" "$<"
