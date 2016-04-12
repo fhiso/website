@@ -98,15 +98,13 @@ sub write_html_1 {
 sub write_pdf {
     my ($src, $dest) = @_;
 
-    if ($src =~ m!^tsc-governance/(.*)!) {
-        (my $pdf = $1) =~ s/\.md$/.pdf/;
-        system "make -s -f pandoc.mk \"../tsc-governance/$pdf\"\n";
+    my $pdf = $src;  $pdf =~ s/\.md$/.pdf/;
+    system "make -s -f pandoc.mk \"../$pdf\"\n";
 
-        if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
-        $dest .= '.pdf';
+    if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
+    $dest .= '.pdf';
 
-        system "cp -p \"../tsc-governance/$pdf\" \"$outdir/$dest\"";
-    }
+    system "cp -p \"../$pdf\" \"$outdir/$dest\"";
 }
 
 sub write_html {

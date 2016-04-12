@@ -6,6 +6,7 @@ MD_DIALECT := markdown+definition_lists+header_attributes-auto_identifiers
 
 # We also want definitions and YAML metadata blocks.
 MD_DIALECT := $(MD_DIALECT)+definition_lists+yaml_metadata_block
+MD_DIALECT := $(MD_DIALECT)+shortcut_reference_links
 
 PANDOC := pandoc
 
@@ -18,11 +19,14 @@ PANDOC := pandoc
 
 # Setting fontfamily=fhiso is a bit of an abuse, as fhiso.sty does much 
 # more than just setting the font.
-PDF_OPTS=-V documentclass:article --chapters -V papersize:a4 \
+PDF_OPTS=-V documentclass:article --chapters -V papersize:a4paper -V dir:1 \
          -V fontsize:11pt -V fontfamily:fhiso --latex-engine=xelatex
 
 %.pdf: %.md fhiso.sty logo.png pandoc.mk
 	$(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" "$<"
+
+%.tex: %.md fhiso.sty logo.png pandoc.mk
+	$(PANDOC) $(PDF_OPTS) --standalone -f $(MD_DIALECT) -o "$@" "$<"
 
 .dialect:
 	@echo -n "$(MD_DIALECT)" > $@

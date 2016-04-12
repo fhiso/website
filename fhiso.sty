@@ -5,19 +5,23 @@
 \setsansfont{Noto Sans}
 \setmonofont{Noto Mono}
 
-% Japanese support
-\usepackage{xeCJK}
-\setCJKmainfont[Script=Hangul,Language=Korean]{Noto Sans CJK JP}
-
 % Arabic support
-\usepackage[Latin,Arabic]{ucharclasses}
+\usepackage{ucharclasses}
 \usepackage{ifthen}
 \newfontfamily{\Arabicmainfont}[Script=Arabic, Scale=1]{Noto Naskh Arabic}
-\newfontfamily{\Arabicmonofont}[Script=Arabic, Scale=1]{Noto Kufi Arabic}
-\newenvironment{fhisoArabic}%
-  {\ifthenelse{\equal{\f@family}{lmtt}}{\Arabicmonofont}{\Arabicmainfont}}{}
-\setTransitionTo{Arabic}{\begin{fhisoArabic}}
-\setTransitionFrom{Arabic}{\end{fhisoArabic}}
+\newfontfamily{\Arabicmonofont}[Script=Arabic, Scale=0.8]{Noto Kufi Arabic}
+\newcommand{\fhisoArabic}{%
+  \ifthenelse{\equal{\f@family}{NotoMono(0)}}{\Arabicmonofont}{\Arabicmainfont}%
+}
+
+\setTransitionsFor{Arabic}{\begingroup\fhisoArabic}{\endgroup}
+
+
+% Japanese support
+% Note: this must come after \usepackage{ucharclasses} or we get spurious 
+% spaces within ``\texttt{...}''.
+\usepackage{xeCJK}
+\setCJKmainfont[Script=Hangul,Language=Korean]{Noto Sans CJK JP}
 
 % Section title style
 \usepackage{sectsty}
