@@ -85,6 +85,9 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
         if ! cmp -s $OLD $NEW; then cp -p $NEW $OLD; fi
     done
 
+    # Copy the rewrite map
+    cp -p ../tsc-governance/terms.map ..
+
     # Do remote updates on the main server
     ./main/upload-htaccess.pl
 else
