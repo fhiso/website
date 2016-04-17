@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /board/   # These are just internal drafts.
