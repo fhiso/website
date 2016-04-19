@@ -53,11 +53,18 @@ sub write_html_1 {
     
     if ($index) { 
         print $out "\$child_pages = [\n";
-        foreach my $key (sort { $a eq 'index' ? -1 :
+        sub page_title($) { 
+            my ($i) = @_;
+            return exists $i->{index} ? $i->{index}->{title} : $i->{title};
+        }
+        foreach my $key (sort { $a eq $b ? 0 :
+                                $a eq 'index' ? -1 :
                                 $b eq 'index' ? +1 : 
-                                lc($a) cmp lc($b) } keys %$index) {
+                                lc(page_title($index->{$a})) 
+                                  cmp lc(page_title($index->{$b})) } 
+                              keys %$index) {
             my $i = $index->{$key};
-            my $t = exists $i->{index} ? $i->{index}->{title} : $i->{title};
+            my $t = page_title($i);
             print $out "  (object)[ 'url' => '$key', 'title' => '$t' ],\n";
         }
         print $out "];\n\n";
