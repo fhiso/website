@@ -5,6 +5,17 @@ include_once('include/perms.php');
 
 header('Content-Type: text/html; charset=utf-8');
 
+$path = preg_split( '/\//', 
+                    preg_replace('/\.php$/', '', $_SERVER['PHP_SELF']) );
+$vers = glob( preg_replace( '/(?:-[0-9]{8})$/', '', 
+                            $path[count($path)-1] )
+              . '-' . str_repeat('[0-9]', 8) . '.php' );
+
+$pdf = glob( $path[count($path)-1].".pdf" );
+if (count($pdf) == 1) $pdf = $pdf[0]; else $pdf = null;
+
+if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
+
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
@@ -14,6 +25,8 @@ header('Content-Type: text/html; charset=utf-8');
           content="Family History Information Standards Organisation, Inc." />
     <title><?php esc($page_title) ?></title>
     <link rel="stylesheet" href="/style.css" type="text/css" />
+    <?php if ($pdf) { ?><link rel="alternate" href="<?php esc($pdf) 
+      ?>" type="application/pdf" /><?php } ?>
     <?php if (function_exists('header_content')) header_content() ?>
   </head>
   <body>
@@ -57,14 +70,6 @@ header('Content-Type: text/html; charset=utf-8');
       <?php } ?>
     </div>
     <?php 
-    $path = preg_split( '/\//', 
-                        preg_replace('/\.php$/', '', $_SERVER['PHP_SELF']) );
-    $vers = glob( preg_replace( '/(?:-[0-9]{8})$/', '', 
-                                $path[count($path)-1] )
-                  . '-' . str_repeat('[0-9]', 8) . '.php' );
-
-    $pdf = glob( $path[count($path)-1].".pdf" );
-    if (count($pdf) == 1) $pdf = $pdf[0]; else $pdf = null;
 
     if (isset($child_pages) && count($child_pages) || count($vers) || $pdf) { ?>
     <div class="right">
