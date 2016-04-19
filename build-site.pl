@@ -10,6 +10,7 @@ use POSIX qw/strftime/;
 use XML::LibXML;
 
 my $outdir = '../www-build';
+my $urlbase = 'http://tech.fhiso.org/';
 
 # NOTE: The $site variable with a long list of pages is now generated
 # from tsc-governance/sitemap.xml.
@@ -18,6 +19,11 @@ my $outdir = '../www-build';
 chdir "$FindBin::Bin";
 system "make -s -f pandoc.mk .dialect";
 my $dialect = slurp ".dialect";
+
+sub page_title($) { 
+    my ($i) = @_;
+    return exists $i->{index} ? $i->{index}->{title} : $i->{title};
+}
 
 sub write_html_1 {
     my ($file, $dir, $item, $crumbs, $index) = @_;
@@ -53,10 +59,6 @@ sub write_html_1 {
     
     if ($index) { 
         print $out "\$child_pages = [\n";
-        sub page_title($) { 
-            my ($i) = @_;
-            return exists $i->{index} ? $i->{index}->{title} : $i->{title};
-        }
         foreach my $key (sort { $a eq $b ? 0 :
                                 $a eq 'index' ? -1 :
                                 $b eq 'index' ? +1 : 
@@ -155,13 +157,16 @@ sub recurse {
 }
 
 sub recurse_sitemap {
-    my ($out, $indent, $path, $desc) = @_;
-    foreach my $key (sort { lc($a) cmp lc($b) } keys %$desc) {
+    my ($mdout, $xmlout, $indent, $path, $desc) = @_;
+    foreach my $key (sort { lc(page_title($desc->{$a})) 
+                              cmp lc(page_title($desc->{$b})) } keys %$desc) {
         next if $key eq 'index';
         my $i = $desc->{$key};
-        my $t = exists $i->{index} ? $i->{index}->{title} : $i->{title}; 
-        print $out "$indent*   [$t](/$path$key)\n";
-        recurse_sitemap($out, "$indent    ", "$path$key/", $i) 
+        my $t = page_title($i);
+        $key .= '/' if exists $i->{index};
+        print $mdout "$indent*   [$t](/$path$key)\n";
+        print $xmlout "  <url>\n    <loc>$urlbase$path$key</loc>\n  </url>\n";
+        recurse_sitemap($mdout, $xmlout, "$indent    ", "$path$key", $i) 
             if exists $i->{index};
     }   
 }
@@ -203,13 +208,24 @@ my $site = read_sitemap( "tsc-governance/sitemap.xml" );
 
 mkdir $outdir unless -d $outdir;
 
+open my $sitemapxml, '>', "$outdir/sitemap.xml" or die;
+print $sitemapxml <<EOF;
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+EOF
+
 open my $sitemap, '>', "$FindBin::Bin/sitemap.md" or die;
 print $sitemap "# Site Map\n";
 print $sitemap "<div class=\"sitemap\">\n";
 print $sitemap "[$site->{index}->{title}](/)\n\n";
-recurse_sitemap( $sitemap, '', '', $site );
+
+recurse_sitemap( $sitemap, $sitemapxml, '', '', $site );
+
 print $sitemap "</div>\n";
 close $sitemap;
+
+print $sitemapxml "</urlset>\n";
+close $sitemapxml;
 
 write_html( 'sitemap', '', { src => 'website/sitemap.md', title => 'Site Map' },
             [ $site->{index}->{title} ], $site );
