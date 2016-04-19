@@ -31,6 +31,8 @@ RewriteRule ^(aboutfhiso/)?fhiso-(board|regions)/?$ \
 	http://fhiso.org/$2/      [L,R=301,E=limitcache:1]
 RewriteRule ^aboutfhiso(/.*)$ \
 	http://fhiso.org$1        [L,R=301,E=limitcache:1]
+RewriteRule ^by-laws/?$ \
+	http://fhiso.org/bylaws/  [L,R=301,E=limitcache:1]
 
 #
 # Redirect www.fhiso.org to fhiso.org.  
