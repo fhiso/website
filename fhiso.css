@@ -150,9 +150,16 @@ body {
     text-decoration: dotted underline;
 }
 
-h1, h2 {
-    margin: 0px;
-    padding: 0px;
+h1 {
+    margin: 0.5em 0em 0em;
+    padding: 0em;
+    color: #005a9c;
+}
+
+h2, h3, h4, h5, h6 {
+    margin: 1.5em 0em 0em;
+    padding: 0em;
+    color: #005a9c;
 }
 
 h2 + h2 {
@@ -168,7 +175,7 @@ dt {
     font-weight: bold;
 }
 
-.content * {
+.content {
     max-width: 560px;
 }
 
@@ -278,10 +285,39 @@ fieldset {
 }
 
 .fhiso-example {
-    margin: 1em 2em;
+    margin: 1em 0em 1em 2em;
+    background: #e9fbe9;
+    border-left: #99f solid 4px;
+    padding: 0.5em 1em;
 }
+
 .fhiso-example:before {
     content: "Example \2014 ";
+    font-style: italic;
+}
+
+.fhiso-ednote {
+    margin: 1em 0em 1em 2em;
+    background: #f9f0d4;
+    border-left: #b77362 solid 4px;
+    padding: 0.5em 1em;
+}
+
+.fhiso-ednote:before {
+    content: "Editorial note \2014 ";
+    font-style: italic;
+    color: red;
+}
+
+.fhiso-note {
+    margin: 1em 0em 1em 2em;
+    background: #FCFCFC;
+    border-left: #C0C0C0 solid 4px;
+    padding: 0.5em 1em;
+}
+
+.fhiso-note:before {
+    content: "Note \2014 ";
     font-style: italic;
 }
 

@@ -24,12 +24,17 @@
 \setCJKmainfont[Script=Hangul,Language=Korean]{Noto Sans CJK JP}
 
 % Section title style
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{needspace}
 \usepackage{sectsty}
-\allsectionsfont{\sffamily}
-\newcommand\titlefont{\bfseries\huge\sffamily\nohang}
-\sectionfont{\Large\sffamily\nohang}
-\subsectionfont{\large\sffamily\nohang}
-\subsubsectionfont{\normalsize\sffamily\nohang}
+\definecolor{headcol}{HTML}{005A9C}
+\allsectionsfont{\sffamily\color{headcol}}
+\newcommand\titlefont{\bfseries\huge\sffamily\color{headcol}\nohang}
+\newcommand\headspace{\needspace{5\baselineskip}}
+\sectionfont{\headspace\Large\sffamily\color{headcol}\nohang}
+\subsectionfont{\headspace\large\sffamily\color{headcol}\nohang}
+\subsubsectionfont{\headspace\normalsize\sffamily\color{headcol}\nohang}
 \usepackage{titling}
 \renewcommand{\maketitlehooka}{\sffamily}
 \newcommand\chapter[1]{}
@@ -73,6 +78,10 @@
 % imported after a bunch of other stuff in the template.
 \newcommand{\fhisoFinal}{\renewcommand{\maketitle}{\fhisotitle}}
 
+% Remove extra separation around verbatim text
+\usepackage{etoolbox}
+\preto{\@verbatim}{\topsep=0pt \partopsep=0pt }
+
 % Classes that are inserted by pclasses.pl
 % They're done in this roundabout way so that the use of an undefined 
 % class doesn't prevent compilation of the document.
@@ -96,8 +105,38 @@
 % This is where we define FHISO classes.  
 % Syntax is much the same as for \newenvironment.
 
-\usepackage{changepage}
+\usepackage{mdframed}
+
 \definefhisoclass{note}{[\textit{Note} --- }{\unskip]}
-\definefhisoclass{ednote}{[\textit{Editorial note} --- }{\unskip]}
-\definefhisoclass{example}{\begin{adjustwidth}{1cm}{1cm}\textit{Example} --- %
-  }{\end{adjustwidth}}
+
+\mdfsetup{
+  leftmargin=2em,
+  linewidth=3pt,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  skipabove=1em,
+  skipbelow=0.25em
+}
+
+\definecolor{examplebg}{HTML}{E9FBE9}
+\definecolor{exampleln}{HTML}{9999FF}
+\newmdenv[backgroundcolor=examplebg,linecolor=exampleln]{examplebox}
+\definefhisoclass{example}{\begin{examplebox}%
+  \textit{Example} --- \ignorespaces}%
+  {\end{examplebox}}
+
+\definecolor{ednotebg}{HTML}{F9F0D4}
+\definecolor{ednoteln}{HTML}{B77362}
+\newmdenv[backgroundcolor=ednotebg,linecolor=ednoteln]{ednotebox}
+\definefhisoclass{ednote}{\begin{ednotebox}%
+  {\color{red}\textit{Editorial note} ---} \ignorespaces}%
+  {\end{ednotebox}}
+
+\definecolor{notebg}{HTML}{FCFCFC}
+\definecolor{noteln}{HTML}{C0C0C0}
+\newmdenv[backgroundcolor=notebg,linecolor=noteln]{notebox}
+\definefhisoclass{note}{\begin{notebox}%
+  \textit{Note} --- \ignorespaces}%
+  {\end{notebox}}
+
