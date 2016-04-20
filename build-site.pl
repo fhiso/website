@@ -15,10 +15,7 @@ my $urlbase = 'http://tech.fhiso.org/';
 # NOTE: The $site variable with a long list of pages is now generated
 # from tsc-governance/sitemap.xml.
 
-# We use this to avoid duplicating the markdown dialect between repositories
 chdir "$FindBin::Bin";
-system "make -s -f pandoc.mk .dialect";
-my $dialect = slurp ".dialect";
 
 sub page_title($) { 
     my ($i) = @_;
@@ -85,7 +82,10 @@ sub write_html_1 {
     }
 
     if ($src =~ /\.md$/) {
-        print $out qx(pandoc -f "$dialect" "$src");
+        my $html = "$`.html";
+        system qw(make -s -f pandoc.mk), $html and die;
+        print $out qx(cat "$html");
+        unlink $html;
     }
     elsif ($src =~ /\.(html|php)$/) {
         print $out qx(cat "$src");

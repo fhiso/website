@@ -73,3 +73,26 @@
 % imported after a bunch of other stuff in the template.
 \newcommand{\fhisoFinal}{\renewcommand{\maketitle}{\fhisotitle}}
 
+% Classes that are inserted by pclasses.pl
+% They're done in this roundabout way so that the use of an undefined 
+% class doesn't prevent compilation of the document.
+\newcommand{\definefhisoclass}[3]{
+  \expandafter\def\csname fhisoopenclass@#1\endcsname{#2}
+  \expandafter\def\csname fhisocloseclass@#1\endcsname{#3}
+}
+
+\newcommand{\fhisoopenclass}[1]{%
+ \ifcsname fhisoopenclass@#1\endcsname%
+   \csname fhisoopenclass@#1\endcsname%
+ \fi%
+}
+
+\newcommand{\fhisocloseclass}[2]{%
+ \ifcsname fhisocloseclass@#1\endcsname%
+   \csname fhisocloseclass@#1\endcsname%
+ \fi%
+}
+
+% This is where we define FHISO classes.  
+% Syntax is much the same as for \newenvironment.
+\definefhisoclass{note}{[\textit{Note} --- }{]}

@@ -15,20 +15,16 @@ PANDOC := pandoc
 -include local-settings.mk
 
 %.html:	%.md
-	$(PANDOC) -f $(MD_DIALECT) -o "$@" "$^"
+	./pclasses.pl < "$<" | $(PANDOC) -f $(MD_DIALECT) -o "$@"
 
 # Setting fontfamily=fhiso is a bit of an abuse, as fhiso.sty does much 
 # more than just setting the font.
 PDF_OPTS=-V documentclass:article --chapters -V papersize:a4paper -V dir:1 \
          -V fontsize:11pt -V fontfamily:fhiso -V header-includes:\\fhisoFinal \
-         --latex-engine=xelatex
+         --latex-engine=xelatex --standalone
 
 %.pdf: %.md fhiso.sty logo.png pandoc.mk
-	$(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" "$<"
+	./pclasses.pl < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@"
 
 %.tex: %.md fhiso.sty logo.png pandoc.mk
-	$(PANDOC) $(PDF_OPTS) --standalone -f $(MD_DIALECT) -o "$@" "$<"
-
-.dialect:
-	@echo -n "$(MD_DIALECT)" > $@
-
+	./pclasses.pl < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" 
