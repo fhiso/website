@@ -183,8 +183,11 @@ dt {
     margin-left: 0px;
 }
 
+.content .widetable {
+    width: calc(95vw - 2em - 15px);
+}
+
 .content table {
-    max-width: 100%;
     border-collapse: collapse;
     font-size: 100%;
     word-wrap: break-word;

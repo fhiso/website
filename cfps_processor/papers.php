@@ -14,7 +14,7 @@ searched as you type): <input type="text" id="cfpsfilter"
 onkeyup="filterrows('tablerows',document.getElementById('cfpsfilter').value)"/>
 </p>
 
-<table>
+<table class="widetable">
 <tbody id="tablerows">
 <tr>
 	<th onclick="sortcolumn('tablerows',0,1)" class="cfps">CFPS</th>
