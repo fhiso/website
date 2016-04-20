@@ -276,3 +276,12 @@ fieldset {
 .content blockquote > p:last-child {
     margin-bottom: 0.5em;
 }
+
+.fhiso-example {
+    margin: 1em 2em;
+}
+.fhiso-example:before {
+    content: "Example \2014 ";
+    font-style: italic;
+}
+

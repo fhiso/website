@@ -9,7 +9,7 @@ my $class;
 while (<>) {
     chomp;
     if ($newp and s/^{\.([a-z]+)}\s*//) { 
-        print "<div class=\"fhiso$1\">\\fhisoopenclass{$1}\n";
+        print "<div class=\"fhiso-$1\">\\fhisoopenclass{$1}\n";
         $class = $1;
     }
     if (defined $class and /^\s*$/) {

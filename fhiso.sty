@@ -95,4 +95,9 @@
 
 % This is where we define FHISO classes.  
 % Syntax is much the same as for \newenvironment.
-\definefhisoclass{note}{[\textit{Note} --- }{]}
+
+\usepackage{changepage}
+\definefhisoclass{note}{[\textit{Note} --- }{\unskip]}
+\definefhisoclass{ednote}{[\textit{Editorial note} --- }{\unskip]}
+\definefhisoclass{example}{\begin{adjustwidth}{1cm}{1cm}\textit{Example} --- %
+  }{\end{adjustwidth}}
