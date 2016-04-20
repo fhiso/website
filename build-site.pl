@@ -37,13 +37,14 @@ sub write_html_1 {
     open my $out, '>', "$outdir/$dest" or die "Unable to open $outdir/$dest";
     print $out "<?php\n";
 
-    print $out "\$page_title = '$item->{title}';\n\n";
+    my $title = $item->{title}; $title =~ s/'/\\'/g;
+    print $out "\$page_title = '$title';\n\n";
 
     my $root;
     print $out "\$ancestral_pages = [\n";
     for my $i (0 .. $#$crumbs) {
         if (@$crumbs) {
-            my $t = $crumbs->[$i];
+            my $t = $crumbs->[$i]; $t =~ s/'/\\'/g;
             my $depth = $#$crumbs-$i;  
             $depth++ if $dest =~ m!/index\.php$!;
             my $url = join( '/', ('..') x $depth ) || '.';
@@ -63,7 +64,7 @@ sub write_html_1 {
                                   cmp lc(page_title($index->{$b})) } 
                               keys %$index) {
             my $i = $index->{$key};
-            my $t = page_title($i);
+            my $t = page_title($i); $t =~ s/'/\\'/g;
             print $out "  (object)[ 'url' => '$key', 'title' => '$t' ],\n";
         }
         print $out "];\n\n";
