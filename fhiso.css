@@ -4,6 +4,10 @@ body {
     display: block;
     width: 95%;
     font-family: tahoma,arial,sans-serif;
+    background: white;
+}
+
+.header, .navbar, .right, .footer {
     font-size: 0.8em;
 }
 
@@ -104,6 +108,8 @@ body {
     width: 180px;
     border-left: 1px dashed #CCC;
     padding: 10px;
+    z-index: +1;
+    background: white;
 }
 
 .related, .sitemap ul {
@@ -153,7 +159,7 @@ body {
 h1 {
     margin: 0.5em 0em 0em;
     padding: 0em;
-    color: #005a9c;
+    color: #005A9C;
 }
 
 h2, h3, h4, h5, h6 {
@@ -176,7 +182,7 @@ dt {
 }
 
 .content {
-    max-width: 560px;
+    max-width: 640px;
 }
 
 .content hr {
@@ -270,8 +276,7 @@ fieldset {
 .content blockquote {
     background: #f4f4f4;
     border: solid 1px #e1e1e1;
-    padding: 0em 1em;
-    max-width: calc(560px - 2*1em);
+    padding: 0em 0em 0em 2em;
     margin: 0em;
 }
 
@@ -279,11 +284,11 @@ fieldset {
     margin: 1em 0em;
 }
 
-.content blockquote > p:first-child { 
+p:first-child { 
     margin-top: 0.5em;
 }
 
-.content blockquote > p:last-child {
+p:last-child {
     margin-bottom: 0.5em;
 }
 
@@ -294,15 +299,21 @@ fieldset {
     padding: 0.5em 1em;
 }
 
-.fhiso-example:before {
+.fhiso-example blockquote {
+    border: none;
+    padding: none;
+    background: inherit;
+}
+
+.fhiso-example:not(.long):before, .fhiso-example.long > :first-child:before {
     content: "Example \2014 ";
     font-style: italic;
 }
 
 .fhiso-ednote {
     margin: 1em 0em 1em 2em;
-    background: #f9f0d4;
-    border-left: #b77362 solid 4px;
+    background: #F9F0D4;
+    border-left: #B77362 solid 4px;
     padding: 0.5em 1em;
 }
 
@@ -323,4 +334,5 @@ fieldset {
     content: "Note \2014 ";
     font-style: italic;
 }
+
 
