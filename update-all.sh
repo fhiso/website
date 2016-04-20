@@ -18,7 +18,7 @@ OUT=$ROOT/www
 REPOS="lexicon-eg tsc-governance sources-and-citations bibliography website"
 
 # Static content to copy from website/
-CONTENT="style.css fhiso.png favicon.ico columnsort.js pdf.png robots.txt"
+CONTENT="fhiso.css fhiso.png favicon.ico columnsort.js pdf.png robots.txt"
 
 if [ $# -eq 1 -a "$1" = '--help' ]; then
     cat <<EOF 
