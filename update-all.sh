@@ -45,7 +45,7 @@ fi
 
 cd $ROOT/lexicon-eg/builder
 rm -f lexicon-*.md
-python mergemd.py
+./mergemd.pl
 ln -sf lexicon-$(TZ=UTC date +%Y-%m-%d).md snapshot.md
 
 rm -rf $BUILD
