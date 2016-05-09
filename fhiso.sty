@@ -125,7 +125,7 @@
 \definecolor{exampleln}{HTML}{9999FF}
 \newmdenv[backgroundcolor=examplebg,linecolor=exampleln]{examplebox}
 \definefhisoclass{example}{\begin{examplebox}%
-  \textit{Example} --- \ignorespaces}%
+  {\color{headcol}\textit{Example} ---} \ignorespaces}%
   {\end{examplebox}}
 
 \definecolor{ednotebg}{HTML}{F9F0D4}
@@ -135,10 +135,13 @@
   {\color{red}\textit{Editorial note} ---} \ignorespaces}%
   {\end{ednotebox}}
 
-\definecolor{notebg}{HTML}{FCFCFC}
+\definecolor{notebg}{HTML}{F8F8F8}
 \definecolor{noteln}{HTML}{C0C0C0}
 \newmdenv[backgroundcolor=notebg,linecolor=noteln]{notebox}
 \definefhisoclass{note}{\begin{notebox}%
-  \textit{Note} --- \ignorespaces}%
+  {\color{darkgray}\textit{Note} ---} \ignorespaces}%
   {\end{notebox}}
 
+% Prevent widows and orphans.  (Note the default is 150.)
+\widowpenalty=10000
+\clubpenalty=10000

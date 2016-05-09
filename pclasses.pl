@@ -14,12 +14,19 @@ while (<>) {
         print "<div class=\"fhiso-$1$long\">\\fhisoopenclass{$1}\n";
         $class = $1;
     }
-    if (defined $class and ($long ? s/^\{\/\}\s*$// : /^\s*$/)) {
-        print "\\fhisocloseclass{$class}</div>\n";
-        $class = undef;
+
+    if (defined $class and $long and /^(.*)\{\/\}\s*$/) {
+        print "$1\n\\fhisocloseclass{$class}</div>\n\n";
+        $class = undef; $newp = 1;
     }
-    print "$_\n";
-    $newp = /^\s*$/;
+    elsif (defined $class and not $long and /^\s*$/) {
+        print "\\fhisocloseclass{$class}</div>\n\n";
+        $class = undef; $newp = 1;
+    }
+    else {
+        print "$_\n";
+        $newp = /^\s*$/;
+    }
 }
 
 print "\\fhisocloseclass{$class}</div>\n" if defined $class;
