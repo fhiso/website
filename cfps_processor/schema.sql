@@ -5,7 +5,7 @@ ALTER TABLE cfps DROP FOREIGN KEY cfps_ibfk_2;
 DROP TABLE IF EXISTS papers;
 DROP TABLE IF EXISTS cfps;
 
-DROP VIEW cfps_see_also;
+DROP VIEW IF EXISTS cfps_see_also;
 DROP TABLE IF EXISTS cfps_types;
 
 -- Note that the name is hard-coded into the code.
