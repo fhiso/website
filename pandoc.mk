@@ -6,7 +6,7 @@ MD_DIALECT := markdown+definition_lists+header_attributes-auto_identifiers
 
 # We also want definitions and YAML metadata blocks.
 MD_DIALECT := $(MD_DIALECT)+definition_lists+yaml_metadata_block
-MD_DIALECT := $(MD_DIALECT)+shortcut_reference_links
+MD_DIALECT := $(MD_DIALECT)+shortcut_reference_links+simple_tables
 
 PANDOC := pandoc
 
@@ -14,8 +14,10 @@ PANDOC := pandoc
 # (E.g. to set PANDOC=schroot -c testing -- pandoc.)
 -include local-settings.mk
 
+PPMD := ./preprocess-md.pl
+
 %.html:	%.md
-	./pclasses.pl < "$<" | $(PANDOC) -f $(MD_DIALECT) -o "$@"
+	$(PPMD) < "$<" | $(PANDOC) -f $(MD_DIALECT) -o "$@"
 
 # Setting fontfamily=fhiso is a bit of an abuse, as fhiso.sty does much 
 # more than just setting the font.
@@ -24,7 +26,7 @@ PDF_OPTS=-V documentclass:article --chapters -V papersize:a4paper -V dir:1 \
          --latex-engine=xelatex --standalone
 
 %.pdf: %.md fhiso.sty logo.png pandoc.mk
-	./pclasses.pl < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@"
+	$(PPMD) < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@"
 
 %.tex: %.md fhiso.sty logo.png pandoc.mk
-	./pclasses.pl < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" 
+	$(PPMD) < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" 

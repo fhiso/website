@@ -172,6 +172,10 @@ h2 + h2 {
     padding-top: 1em;
 }
 
+h2 + h3 {
+    margin-top: 1em;
+}
+
 a {
     color: #0071BD;
     text-decoration: none;
@@ -179,6 +183,15 @@ a {
 
 dt {
     font-weight: bold;
+}
+
+dt code {
+    font-weight: normal;
+}
+
+dd {
+    margin-top: .25em;
+    margin-bottom: .75em;
 }
 
 .content {
@@ -197,6 +210,7 @@ dt {
     border-collapse: collapse;
     font-size: 100%;
     word-wrap: break-word;
+    margin-top: 1em;
 }
 
 .content table th {
@@ -317,7 +331,7 @@ p:last-child {
     padding: 0.5em 1em;
 }
 
-.fhiso-ednote:before {
+.fhiso-ednote:not(.long):before, .fhiso-ednote.long > :first-child:before {
     content: "Editorial note \2014 ";
     font-style: italic;
     color: red;
@@ -330,7 +344,7 @@ p:last-child {
     padding: 0.5em 1em;
 }
 
-.fhiso-note:before {
+.fhiso-note:not(.long):before, .fhiso-note.long > :first-child:before {
     content: "Note \2014 ";
     font-style: italic;
 }
