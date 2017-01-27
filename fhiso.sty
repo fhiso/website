@@ -171,7 +171,8 @@
 %\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
 
 % Prevent bidi (v19.6) from putting numbers followed by a period backwards.
-\AtBeginDocument{\@Latintrue}
+% This is not necessary now Debian squeeze has pulled in bidi version 20.x.
+% \AtBeginDocument{\@Latintrue}
 
 % Left-align all longtable environments (used by pandoc simple_table)
 \usepackage{longtable}
