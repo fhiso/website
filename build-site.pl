@@ -82,11 +82,13 @@ sub write_html_1 {
             . "<a href=\"$primary\">here</a>.</p>\n";
     }
 
-    if ($src =~ /\.md$/) {
-        my $html = "$`.html";
-        system qw(make -s -f pandoc.mk), $html and die;
-        print $out qx(cat "$html");
-        unlink $html;
+    if ($src =~ m!^(\.\./[^/]+)/(.*)\.md$!) {
+        my $path = $1;
+        my $html = "$2.html";
+ 
+        system qw(make -s -C), $path, $html and die;
+        print $out qx(cat "$path/$html");
+        unlink "$path/$html";
     }
     elsif ($src =~ /\.(html|php)$/) {
         print $out qx(cat "$src");
@@ -105,13 +107,15 @@ sub write_html_1 {
 sub write_pdf {
     my ($src, $dest) = @_;
 
-    my $pdf = $src;  $pdf =~ s/\.md$/.pdf/;
-    system "make -s -f pandoc.mk \"../$pdf\"\n";
+    $src =~ m!^([^/]+)/(.*)\.md$!;
+    my $path = $1;
+    my $pdf = "$2.pdf";
+    system qw(make -s -C), "../$path", $pdf and die;
 
     if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
     $dest .= '.pdf';
 
-    system "cp -p \"../$pdf\" \"$outdir/$dest\"";
+    system "cp -p \"../$path/$pdf\" \"$outdir/$dest\"";
 }
 
 sub write_html {
