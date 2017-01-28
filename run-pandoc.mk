@@ -26,8 +26,8 @@ clean:
 .PHONY: all pdf html clean
 
 %.pdf: %.md
-	$(MAKE) -C $(ROOT)/website -f pandoc.mk $(ROOT)/$(REPO)/$@
+	$(MAKE) -C $(ROOT)/website -f pandoc.mk "$(ROOT)/$(REPO)/$@"
 
 %.html: %.md
-	$(MAKE) -C $(ROOT)/website -f pandoc.mk $(ROOT)/$(REPO)/$@
+	$(MAKE) -C $(ROOT)/website -f pandoc.mk "$(ROOT)/$(REPO)/$@"
 
