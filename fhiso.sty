@@ -53,6 +53,9 @@
 \renewcommand{\maketitlehooka}{\sffamily}
 \newcommand\chapter[1]{}
 
+% TODO: Remove this hard-coded path.
+\graphicspath{{../website/}}
+
 % Page headers and footers
 \usepackage[a4paper]{geometry}
 \usepackage{fancyhdr}
@@ -72,6 +75,8 @@
 \setlist[enumerate]{noitemsep, topsep=0pt, itemsep=0pt, parsep=0pt}
 \setlist[description]{style=nextline, topsep=0pt, itemsep=0.5em, parsep=0pt}
 
+\newcommand{\subtitle}[1]{\def\@subtitle{#1}}
+
 % Title page
 \newcommand{\fhisotitle}{
 \thispagestyle{empty}
@@ -79,6 +84,8 @@
 
 \vspace{1em}
 {\titlefont{\@title}}
+
+\ifdef{\@subtitle}{{\titlefont{\@subtitle}}}{}
 
 \vspace{2em}
 {\large\sffamily\bfseries{\@date}}
