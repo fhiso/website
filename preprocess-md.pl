@@ -9,8 +9,8 @@ my $long;
 
 sub text($) {
     my ($txt) = @_;
-    my @rfc2119 = ('must', 'must not', 'required', 'shall', 'shall not',
-                   'should', 'should not', 'recommended', 'not recommended',
+    my @rfc2119 = ('must not', 'must', 'required', 'shall not', 'shall',
+                   'should not', 'not recommended', 'recommended',
                    'may', 'optional');
     my $css = 'font-variant: small-caps';
     # Handle uses of *must*, etc.
@@ -20,8 +20,8 @@ sub text($) {
         $open . "<span style=\"$css\">$2<\/span>" . $open
     /gex;
     # Handle uses of MUST, etc.
-    my $rfc2119uc = join '|', map {s/ /\\ /; uc $_} @rfc2119;
-    $txt =~ s/($rfc2119uc)/
+    my $rfc2119uc = join '|', map {s/ /\ /; uc $_} @rfc2119;
+    $txt =~ s/\b($rfc2119uc)\b/
         "<span style=\"$css\">".lc($1)."<\/span>"
     /gex;
 
