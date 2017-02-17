@@ -24,6 +24,11 @@ sub text($) {
     $txt =~ s/($rfc2119uc)/
         "<span style=\"$css\">".lc($1)."<\/span>"
     /gex;
+
+    # You can't nest the short form of [...] and `...` cleanly in pandoc 
+    # markdown, so preprocess it here.
+    $txt =~ s/`\[(\w+)\]`/[`$1`](#$1)/g;
+
     print "$txt\n";
 }
 
