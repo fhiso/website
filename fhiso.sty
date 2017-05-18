@@ -183,6 +183,9 @@
 
 % Left-align all longtable environments (used by pandoc simple_table)
 \usepackage{longtable}
+% Set the spacing around tables to be the same as around boxes
+\setlength{\LTpre}{1em} 
+\setlength{\LTpost}{0.25em}
 \setlength{\LTleft}{2em}  % 2em is the same as the note/example/ednote box
 \pretocmd{\longtable}{%
   % 13pt is \mdfsetup's rightmargin (10pt) + linewidth (3pt)
