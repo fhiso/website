@@ -1,9 +1,13 @@
 % Basic fonts
 \usepackage[no-math]{fontspec}
+% Load the mono font first as it needs to be loaded before we set
+% Ligatures=Tex, which this is what breaks straight quotes.
+% Scale=MatchLowercase is needed or we get enormous monotype text.
+% https://tex.stackexchange.com/questions/370468
+\setmonofont{Noto Mono}[Scale=MatchLowercase]
 \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \setmainfont{Noto Serif}
 \setsansfont{Noto Sans}
-\setmonofont{Noto Mono}
 
 % Noto fonts don't include small caps support.  This fakes it.
 % http://tex.stackexchange.com/a/225078/16883
