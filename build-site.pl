@@ -8,8 +8,10 @@ use File::Copy;
 use FindBin;
 use POSIX qw/strftime/;
 use XML::LibXML;
+use File::Touch;
 
 my $outdir = '../www-build';
+my $uploaddir = '../www-upload';
 my $urlbase = 'http://tech.fhiso.org/';
 
 # NOTE: The $site variable with a long list of pages is now generated
@@ -105,7 +107,7 @@ sub write_html_1 {
 }
 
 sub write_pdf {
-    my ($src, $dest) = @_;
+    my ($src, $dest, $upload) = @_;
 
     $src =~ m!^([^/]+)/(.*)\.md$!;
     my $path = $1;
@@ -116,6 +118,10 @@ sub write_pdf {
     $dest .= '.pdf';
 
     system "cp -p \"../$path/$pdf\" \"$outdir/$dest\"";
+    if ($upload) {
+      (my $dest2 = $dest) =~ s!.*/!!;
+      touch "$uploaddir/$dest2";
+    }
 }
 
 sub write_html {
@@ -131,10 +137,10 @@ sub write_html {
             write_html_1( $file, $dir, 
                           { src => $old, title => $item->{title} }, 
                           $crumbs, $index );
-            write_pdf($old, $dir.$file);
+            write_pdf($old, $dir.$file, $item->{upload});
         }
 
-        write_pdf($item->{src}, $dir.$file);
+        write_pdf($item->{src}, $dir.$file, $item->{upload});
     }
 }
 
@@ -190,6 +196,7 @@ sub recurse_parse_sitemap {
             title => $p->getAttribute('title')
         };
         $desc->{versioned} = 1 if $p->getAttribute('versioned');
+        $desc->{upload} = 1 if $p->getAttribute('upload');
         $dir->{ $p->getAttribute('name') } = $desc
     }
 

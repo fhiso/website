@@ -66,6 +66,9 @@ for FILE in $CONTENT; do
     cp -p $ROOT/website/$FILE $BUILD/
 done
 
+rm -r $ROOT/www-upload
+mkdir $ROOT/www-upload
+
 cd $ROOT/website
 perl build-site.pl
 rsync -rp include/ $BUILD/include/
@@ -98,7 +101,7 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
     cp -p ../tsc-governance/terms.map ..
 
     # Do remote updates on the main server
-    ./main/upload-htaccess.pl
+    ./main/upload.pl
 else
     cat <<EOF >&2
 Not deploying a checkout with local modifications in these repositories:
