@@ -184,3 +184,6 @@
 % Left-align all longtable environments (used by pandoc simple_table)
 \usepackage{longtable}
 \setlength{\LTleft}{2em}  % 2em is the same as the note/example/ednote box
+\pretocmd{\longtable}{%
+  % 13pt is \mdfsetup's rightmargin (10pt) + linewidth (3pt)
+  \addtolength\columnwidth{-2em}\addtolength\columnwidth{13pt}}{}{error}
