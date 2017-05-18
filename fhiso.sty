@@ -107,8 +107,11 @@
 }
 
 % Remove extra separation around verbatim text
-\usepackage{etoolbox}
-\preto{\@verbatim}{\topsep=0pt \partopsep=0pt }
+%\usepackage{etoolbox}
+%\preto{\@verbatim}{\topsep=0pt \partopsep=0pt }
+
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{xleftmargin=2em}
 
 \renewcommand{\quote}{\list{}{\rightmargin=\leftmargin\topsep=0pt}\item\relax}
 
@@ -182,7 +185,7 @@
 % \AtBeginDocument{\@Latintrue}
 
 % Left-align all longtable environments (used by pandoc simple_table)
-\usepackage{longtable}
+\usepackage{longtable,etoolbox}
 % Set the spacing around tables to be the same as around boxes
 \setlength{\LTpre}{1em} 
 \setlength{\LTpost}{0.25em}
