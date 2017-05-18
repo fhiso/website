@@ -33,7 +33,8 @@ MD_DIALECT := markdown+definition_lists+header_attributes-auto_identifiers
 
 # We also want definitions and YAML metadata blocks.
 MD_DIALECT := $(MD_DIALECT)+definition_lists+yaml_metadata_block
-MD_DIALECT := $(MD_DIALECT)+shortcut_reference_links+simple_tables
+MD_DIALECT := $(MD_DIALECT)+shortcut_reference_links
+MD_DIALECT := $(MD_DIALECT)+simple_tables+multiline_tables
 
 PANDOC := pandoc
 
