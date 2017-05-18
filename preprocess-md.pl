@@ -10,7 +10,7 @@ my $long;
 sub text($) {
     my ($txt) = @_;
     my @rfc2119 = ('must not', 'must', 'required', 'shall not', 'shall',
-                   'should not', 'not recommended', 'recommended',
+                   'should not', 'should', 'not recommended', 'recommended',
                    'may', 'optional');
     my $css = 'font-variant: small-caps';
     # Handle uses of *must*, etc.
