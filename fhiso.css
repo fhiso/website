@@ -210,7 +210,7 @@ dd {
     border-collapse: collapse;
     font-size: 100%;
     word-wrap: break-word;
-    margin-top: 1em;
+    margin: 1em 0em 1em 2em;
 }
 
 .content table th {
