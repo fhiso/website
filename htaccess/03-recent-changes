@@ -2,6 +2,6 @@
 #
 # Redirects to preserve links since the deployment of http://tech.fhiso.org/
 
-RewriteRule ^style$               /policies/style        [R=301,E=limitcache:1]
-RewriteRule ^(charter|opm)/?$  	  /governance/$1         [R=301,E=limitcache:1]
-
+RewriteRule ^style$                  /policies/style     [R=301,E=limitcache:1]
+RewriteRule ^(charter|opm)/?$  	     /governance/$1      [R=301,E=limitcache:1]
+RewriteRule ^drafts/citation-(.*)$   /drafts/cev-$1      [R=301,E=limitcache:1]
