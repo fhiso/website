@@ -49,7 +49,7 @@ PPMD := $(ROOT)/website/preprocess-md.pl
 
 
 %.html:	%.md $(ROOT)/website/run-pandoc.mk
-	$(PPMD) < "$<" | $(PANDOC) -f $(MD_DIALECT) -o "$@"
+	$(PPMD) "$<" | $(PANDOC) -f $(MD_DIALECT) -o "$@"
 
 # Setting fontfamily=fhiso is a bit of an abuse, as fhiso.sty does much 
 # more than just setting the font.
@@ -60,8 +60,8 @@ PDF_OPTS := -V documentclass:article --chapters -V papersize:a4paper -V dir:1 \
 PDF_DEPS := $(ROOT)/website/fhiso.sty $(ROOT)/website/logo.png
 
 %.pdf: %.md $(PDF_DEPS) $(ROOT)/website/run-pandoc.mk
-	$(PPMD) < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@"
+	$(PPMD) "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@"
 
 %.tex: %.md $(PDF_DEPS) $(ROOT)/website/run-pandoc.mk
-	$(PPMD) < "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" 
+	$(PPMD) "$<" | $(PANDOC) $(PDF_OPTS) -f $(MD_DIALECT) -o "$@" 
 
