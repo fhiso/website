@@ -8,11 +8,11 @@ function fetch_types() {
     global $dbh;
     if (!$dbh) db_connect();
 
-    $result = mysql_query("SELECT * FROM cfps_types", $dbh)
-      or die('Cannot execute SELECT: ' . mysql_error($dbh));
+    $result = mysqli_query($dbh, "SELECT * FROM cfps_types")
+      or die('Cannot execute SELECT: ' . mysqli_error($dbh));
 
     $objs = array();
-    while ($obj = mysql_fetch_object($result))
+    while ($obj = mysqli_fetch_object($result))
         $objs[ $obj->name ] = $obj;
     return $objs;
 }

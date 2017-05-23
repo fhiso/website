@@ -8,13 +8,13 @@ function db_connect() {
 
     $cfg = $config['database'];
     
-    $dbh = mysql_connect( $cfg['hostname'], $cfg['username'], $cfg['password'] )
-        or die('Could not connect to database: '. mysql_error() );
+    $dbh = mysqli_connect($cfg['hostname'], $cfg['username'], $cfg['password'])
+        or die('Could not connect to database: '. mysqli_error() );
  
-    mysql_select_db($cfg['database'], $dbh)
+    mysqli_select_db($dbh, $cfg['database'])
         or die('Could not select database');
 
-    mysql_set_charset('utf8', $dbh)
+    mysqli_set_charset($dbh, 'utf8')
         or die('Could not set database character set');
 }
 
@@ -25,8 +25,8 @@ function exec_sql($sql) {
         error_log($sql);
 
     if (!$dbh) db_connect();
-    $result = mysql_query($sql, $dbh);
-    if (!$result) die('Cannot execute SQL: ' . mysql_error($dbh));
+    $result = mysqli_query($dbh, $sql);
+    if (!$result) die('Cannot execute SQL: ' . mysqli_error($dbh));
     return $result;
 }
 
@@ -41,20 +41,20 @@ function insert_array_contents($table, $fields) {
     foreach ( array_keys($fields) as $field ) {
         array_push( $keys, $field );
         array_push( $values, sprintf("'%s'", 
-            mysql_real_escape_string($fields[$field], $dbh) ) );
+            mysqli_real_escape_string($dbh, $fields[$field]) ) );
     }
 
     $sql = 'INSERT INTO ' . $table . ' (' . join(', ', $keys) . ')'
          . ' VALUES (' . join(', ', $values) . ')';
     exec_sql($sql);
-    return mysql_insert_id($dbh);
+    return mysqli_insert_id($dbh);
 }
 
 function fetch_objs_with_sql($sql) {
   $result = exec_sql($sql);
 
   $objs = array();
-  while ($obj = mysql_fetch_object($result))
+  while ($obj = mysqli_fetch_object($result))
     array_push($objs, $obj);
 
   return $objs;
@@ -96,7 +96,7 @@ function field_eq_clause($key, $id) {
     global $dbh;
     if (!$dbh) db_connect();
     if ($key == null) return null;
-    return sprintf("%s='%s'", $key, mysql_real_escape_string($id, $dbh));
+    return sprintf("%s='%s'", $key, mysqli_real_escape_string($dbh, $id));
 }
 
 function fetch_all($table, $key, $id, $order = null) {
@@ -107,14 +107,14 @@ function fetch_all($table, $key, $id, $order = null) {
 function fetch_one_or_none($table, $key, $id, $fields = null) {
   global $dbh;
   if (!$dbh) db_connect();
-  $where = sprintf("%s='%s'", $key, mysql_real_escape_string($id, $dbh));
+  $where = sprintf("%s='%s'", $key, mysqli_real_escape_string($dbh, $id));
   $objs = fetch_wol($fields, $table, $where);
   if (count($objs)) return $objs[0];
   else return null;
 }
 
 function fetch_one_cell($sql) {
-  $row = mysql_fetch_array(exec_sql($sql), MYSQL_NUM);
+  $row = mysqli_fetch_array(exec_sql($sql), MYSQL_NUM);
   return $row[0];
 }
 
