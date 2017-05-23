@@ -101,8 +101,11 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
     # Copy the rewrite map used for http://terms.fhiso.org/
     cp -p ../tsc-governance/terms.map ..
 
-    # Do remote updates on the main server
-    ./main/upload.pl
+    # Do remote updates on the main server 
+    # This requires the existance of a ./main/enable file
+    if [ -e ./main/enable ]; then
+      ./main/upload.pl
+    fi
 else
     cat <<EOF >&2
 Not deploying a checkout with local modifications in these repositories:

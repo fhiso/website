@@ -7,6 +7,8 @@ use FindBin;
 use Perl6::Slurp;
 use String::ShellQuote;
 
+die "Upload disabled\n" unless -e "$FindBin::Bin/enable";
+
 my @ssh_opts = qw/-o PasswordAuthentication=false/;
 my $ssh_user = 'betterge';
 my $ssh_port = 45667;
