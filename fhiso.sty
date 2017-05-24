@@ -47,12 +47,11 @@
 \usepackage{needspace}
 \usepackage{sectsty}
 \definecolor{headcol}{HTML}{005A9C}
-\allsectionsfont{\sffamily\color{headcol}}
-\newcommand\titlefont{\bfseries\huge\sffamily\color{headcol}\nohang}
-\newcommand\headspace{\needspace{5\baselineskip}}
-\sectionfont{\headspace\Large\sffamily\color{headcol}\nohang}
-\subsectionfont{\headspace\large\sffamily\color{headcol}\nohang}
-\subsubsectionfont{\headspace\normalsize\sffamily\color{headcol}\nohang}
+\newcommand\stdheadfont{\sffamily\color{headcol}\nohang}
+\newcommand\titlefont{\bfseries\huge\stdheadfont}
+\sectionfont{\needspace{7\baselineskip}\Large\stdheadfont}
+\subsectionfont{\needspace{5\baselineskip}\large\stdheadfont}
+\subsubsectionfont{\needspace{4\baselineskip}\normalsize\stdheadfont}
 \usepackage{titling}
 \renewcommand{\maketitlehooka}{\sffamily}
 \newcommand\chapter[1]{}
@@ -146,8 +145,6 @@
 
 \usepackage{mdframed}
 
-\definefhisoclass{note}{[\textit{Note} --- }{\unskip]}
-
 \mdfsetup{
   leftmargin=2em,
   linewidth=3pt,
@@ -161,21 +158,21 @@
 \definecolor{examplebg}{HTML}{E9FBE9}
 \definecolor{exampleln}{HTML}{9999FF}
 \newmdenv[backgroundcolor=examplebg,linecolor=exampleln]{examplebox}
-\definefhisoclass{example}{\begin{examplebox}%
+\definefhisoclass{example}{\needspace{5\baselineskip}\begin{examplebox}%
   {\color{headcol}\textit{Example} ---} \ignorespaces}%
   {\end{examplebox}}
 
 \definecolor{ednotebg}{HTML}{F9F0D4}
 \definecolor{ednoteln}{HTML}{B77362}
 \newmdenv[backgroundcolor=ednotebg,linecolor=ednoteln]{ednotebox}
-\definefhisoclass{ednote}{\begin{ednotebox}%
+\definefhisoclass{ednote}{\needspace{5\baselineskip}\begin{ednotebox}%
   {\color{red}\textit{Editorial note} ---} \ignorespaces}%
   {\end{ednotebox}}
 
 \definecolor{notebg}{HTML}{F8F8F8}
 \definecolor{noteln}{HTML}{C0C0C0}
 \newmdenv[backgroundcolor=notebg,linecolor=noteln]{notebox}
-\definefhisoclass{note}{\begin{notebox}%
+\definefhisoclass{note}{\needspace{5\baselineskip}\begin{notebox}%
   {\color{darkgray}\textit{Note} ---} \ignorespaces}%
   {\end{notebox}}
 
