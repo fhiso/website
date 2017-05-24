@@ -85,9 +85,15 @@ sub write_html_1 {
             . "<a href=\"$primary\">here</a>.</p>\n";
     }
 
+    my $phpxtra = '';
     if ($src =~ m!^(\.\./[^/]+)/(.*)\.md$!) {
         my $path = $1;
         my $html = "$2.html";
+
+        my $md = slurp $src or die;
+        if ($md =~ /^numbersections:\s*true$/m) {
+            $phpxtra = "\$numbersections = 1;\n"; 
+        }
  
         system qw(make -s -C), $path, $html and die;
         print $out qx(cat "$path/$html");
@@ -102,6 +108,7 @@ sub write_html_1 {
 
     print $out "<?php }\n\n";
 
+    print $out $phpxtra;
     print $out "include('include/template.php');\n";
     exit 1 if $?;
     close $out;

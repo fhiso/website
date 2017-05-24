@@ -349,4 +349,30 @@ p:last-child {
     font-style: italic;
 }
 
-
+body {
+    counter-reset: h2counter;
+}
+h1 {
+    counter-reset: h2counter;
+}
+.numbersections h2 {
+    counter-reset: h3counter;
+    counter-increment: h2counter;
+}
+.numbersections h2:before {
+    content: counter(h2counter) ".\0000a0\0000a0";
+}
+.numbersections h3 {
+    counter-increment: h3counter;
+    counter-reset: h4counter;
+}
+.numbersections h3:before {
+    content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+}
+.numbersections h4 {
+    counter-increment: h4counter;
+}
+.numbersections h4:before {
+    content: counter(h3counter) "." counter(h3counter) "." counter(h4counter) 
+             ".\0000a0\0000a0";
+}
