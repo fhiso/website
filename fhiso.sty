@@ -79,23 +79,25 @@
 \setlist[enumerate]{noitemsep, topsep=0pt, itemsep=0pt, parsep=0pt}
 \setlist[description]{style=nextline, topsep=0pt, itemsep=0.5em, parsep=0pt}
 
-\newcommand{\subtitle}[1]{\def\@subtitle{#1}}
+\newcommand{\subtitle}[1]{%
+  \def\@subtitle{#1}%
+  \hypersetup{pdftitle=\@title: \@subtitle}%
+  \rhead{\itshape\@title: \@subtitle}%
+}
 
 % Title page
 \newcommand{\fhisotitle}{
-\thispagestyle{empty}
-\begin{center}
+  \thispagestyle{empty}
+  \begin{center}
 
-\vspace{1em}
-{\titlefont{\@title}}
+  \vspace{1em}
+  {\titlefont{\@title}\ifdef{\@subtitle}{:\par\@subtitle}{}}
 
-\ifdef{\@subtitle}{{\titlefont{\@subtitle}}}{}
+  \vspace{2em}
+  {\large\sffamily\bfseries{\@date}}
 
-\vspace{2em}
-{\large\sffamily\bfseries{\@date}}
-
-\vspace{1em}
-\end{center}
+  \vspace{1em}
+  \end{center}
 }
 
 \newcommand{\fhisoFinal}{%
