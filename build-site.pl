@@ -63,7 +63,8 @@ sub write_html_1 {
                                 $a eq 'index' ? -1 :
                                 $b eq 'index' ? +1 : 
                                 lc(page_title($index->{$a})) 
-                                  cmp lc(page_title($index->{$b})) } 
+                                  cmp lc(page_title($index->{$b})) }
+                         grep { not $index->{$_}->{unlinked} }
                               keys %$index) {
             my $i = $index->{$key};
             my $t = page_title($i); $t =~ s/'/\\'/g;
@@ -195,6 +196,7 @@ sub recurse_parse_sitemap {
             src   => $p->getAttribute('src'), 
             title => $p->getAttribute('title')
         };
+        $desc->{unlinked} = 1 if $p->getAttribute('unlinked');
         $desc->{versioned} = 1 if $p->getAttribute('versioned');
         $desc->{upload} = 1 if $p->getAttribute('upload');
         $dir->{ $p->getAttribute('name') } = $desc
