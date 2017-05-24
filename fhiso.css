@@ -322,6 +322,7 @@ p:last-child {
 .fhiso-example:not(.long):before, .fhiso-example.long > :first-child:before {
     content: "Example \2014 ";
     font-style: italic;
+    color: #005A9C;
 }
 
 .fhiso-ednote {
