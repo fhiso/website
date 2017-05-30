@@ -4,5 +4,3 @@
 
 RewriteRule ^style$                  /policies/style     [R=301,E=limitcache:1]
 RewriteRule ^(charter|opm)/?$  	     /governance/$1      [R=301,E=limitcache:1]
-RewriteRule ^drafts/citation-(.*?)(\.php)?$                                   \
-                                     /drafts/cev-$1      [R=301,E=limitcache:1]
