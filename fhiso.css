@@ -352,17 +352,12 @@ p:last-child {
 
 body {
     counter-reset: h2counter;
-    counter-reset: h3counter;
-    counter-reset: h4counter;
 }
 h1 {
     counter-reset: h2counter;
-    counter-reset: h3counter;
-    counter-reset: h4counter;
 }
 .numbersections h2 {
     counter-reset: h3counter;
-    counter-reset: h4counter;
     counter-increment: h2counter;
 }
 .numbersections h2:before {
