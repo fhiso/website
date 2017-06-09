@@ -379,6 +379,6 @@ h1 {
     counter-increment: h4counter;
 }
 .numbersections h4:before {
-    content: counter(h3counter) "." counter(h3counter) "." counter(h4counter) 
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) 
              ".\0000a0\0000a0";
 }
