@@ -111,12 +111,16 @@
   \renewcommand{\tightlist}{}%
 }
 
-% Remove extra separation around verbatim text
-%\usepackage{etoolbox}
-%\preto{\@verbatim}{\topsep=0pt \partopsep=0pt }
-
+% Indent verbatim blocks by 2em
 \usepackage{fancyvrb}
-\DefineVerbatimEnvironment{verbatim}{Verbatim}{xleftmargin=2em}
+\renewenvironment{verbatim}{
+  \VerbatimEnvironment
+  % This is needed to remove extra space before CJK characters.
+  % https://tex.stackexchange.com/questions/374469
+  \CJKsetecglue{}
+  \begin{Verbatim}[xleftmargin=2em]%
+}{\end{Verbatim}}
+
 
 \renewcommand{\quote}{\list{}{\rightmargin=\leftmargin\topsep=0pt}\item\relax}
 
