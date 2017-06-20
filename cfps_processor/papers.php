@@ -41,7 +41,7 @@ $sql = <<<EOF
     JOIN cfps_types ON submission_type=cfps_types.id 
     LEFT JOIN cfps_see_also ON cfps.id=cfps_see_also.cfps_id 
     LEFT JOIN cfps_references ON cfps.id=cfps_references.cfps_id
-    WHERE (cfps_references.is_primary_subject 
+      AND (cfps_references.is_primary_subject 
            OR cfps_references.is_primary_subject IS NULL)
     GROUP BY cfps.id
     ORDER BY cfps.id DESC
