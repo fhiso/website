@@ -175,7 +175,7 @@ sub recurse {
     }
 }
 
-sub recurse_sitemap {
+sub recurse_public_sitemap {
     my ($mdout, $xmlout, $indent, $path, $desc) = @_;
     foreach my $key (sort { lc(page_title($desc->{$a})) 
                               cmp lc(page_title($desc->{$b})) } keys %$desc) {
@@ -185,7 +185,7 @@ sub recurse_sitemap {
         $key .= '/' if exists $i->{index};
         print $mdout "$indent*   [$t](/$path$key)\n";
         print $xmlout "  <url>\n    <loc>$urlbase$path$key</loc>\n  </url>\n";
-        recurse_sitemap($mdout, $xmlout, "$indent    ", "$path$key", $i) 
+        recurse_public_sitemap($mdout, $xmlout, "$indent    ", "$path$key", $i) 
             if exists $i->{index};
     }   
 }
@@ -225,36 +225,43 @@ sub read_sitemap {
     return $site;
 }
 
-my $site = read_sitemap( "tsc-governance/sitemap.xml" );
+sub generate_public_sitemap($) {
+    my ($site) = @_;
 
-mkdir $outdir unless -d $outdir;
-
-open my $sitemapxml, '>', "$outdir/sitemap.xml" or die;
-print $sitemapxml <<EOF;
+    open my $sitemapxml, '>', "$outdir/sitemap.xml" or die;
+    print $sitemapxml <<EOF;
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 EOF
 
-open my $sitemap, '>', "$FindBin::Bin/sitemap.md" or die;
-print $sitemap "# Site Map\n";
-print $sitemap "<div class=\"sitemap\">\n";
-print $sitemap "[$site->{index}->{title}](/)\n\n";
+    open my $sitemap, '>', "$FindBin::Bin/sitemap.md" or die;
+    print $sitemap "# Site Map\n";
+    print $sitemap "<div class=\"sitemap\">\n";
+    print $sitemap "[$site->{index}->{title}](/)\n\n";
+    
+    recurse_public_sitemap( $sitemap, $sitemapxml, '', '', $site );
+    
+    print $sitemap "</div>\n";
+    close $sitemap;
+    
+    print $sitemapxml "</urlset>\n";
+    close $sitemapxml;
+    
+    write_html( 'sitemap', '', { src => 'website/sitemap.md', 
+                                 title => 'Site Map' },
+                [ $site->{index}->{title} ], $site );
+}
 
-recurse_sitemap( $sitemap, $sitemapxml, '', '', $site );
 
-print $sitemap "</div>\n";
-close $sitemap;
+mkdir $outdir unless -d $outdir;
 
-print $sitemapxml "</urlset>\n";
-close $sitemapxml;
-
-write_html( 'sitemap', '', { src => 'website/sitemap.md', title => 'Site Map' },
-            [ $site->{index}->{title} ], $site );
+my $site = read_sitemap( "tsc-governance/sitemap.xml" );
+generate_public_sitemap $site;
 
 # Build the actual site
 recurse $site;
 
-# Unlinked, but not especially secret (or it wouldn't be in Github!) site
+# Unlinked site, but not especially secret (or it wouldn't be in Github!)
 mkdir "$outdir/board" unless -d "$outdir/board";
 recurse read_sitemap( "tsc-governance/board/sitemap.xml" ), 'board/', '';
 
