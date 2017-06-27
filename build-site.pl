@@ -178,7 +178,9 @@ sub recurse {
 sub recurse_public_sitemap {
     my ($mdout, $xmlout, $indent, $path, $desc) = @_;
     foreach my $key (sort { lc(page_title($desc->{$a})) 
-                              cmp lc(page_title($desc->{$b})) } keys %$desc) {
+                              cmp lc(page_title($desc->{$b})) } 
+                     grep { not $desc->{$_}->{unlinked} }
+                     keys %$desc) {
         next if $key eq 'index';
         my $i = $desc->{$key};
         my $t = page_title($i);
