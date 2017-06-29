@@ -6,4 +6,4 @@ RewriteRule ^style$                  /policies/style     [R=301,E=limitcache:1]
 RewriteRule ^(charter|opm)/?$  	     /governance/$1      [R=301,E=limitcache:1]
 RewriteRule ^TR/?$                   /drafts             [R=301,E=limitcache:1]
 RewriteRule ^drafts/(elf|cev)-(.*?)(.php)?$ \
-                                     /TR/$1-$2           [R=301,E=limitcache:1]
+                          //fhiso.org/TR/$1-$2           [R=301,E=limitcache:1]
