@@ -24,7 +24,7 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
     <meta name="author" 
           content="Family History Information Standards Organisation, Inc." />
     <title><?php esc($page_title) ?></title>
-    <link rel="stylesheet" href="//tech.fhiso.org/fhiso.css" type="text/css" />
+    <link rel="stylesheet" href="/TR/fhiso.css" type="text/css" />
     <?php if ($pdf) { ?><link rel="alternate" href="<?php esc($pdf) 
       ?>" type="application/pdf" /><?php } ?>
     <?php if (function_exists('header_content')) header_content() ?>
@@ -38,13 +38,14 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
       <div class="right"><a href="/">Technical<br/>Site</a></div>
       <?php } ?>
       <div class="logo"><a href="http://fhiso.org/"><img 
-           src="//tech.fhiso.org/fhiso.png" 
+           src="/TR/fhiso.png" 
            alt="Family History Information Standards Organisation" /></a></div>
     </div>
     <div class="navbar menu1">
       <?php global $ancestral_pages, $page_title; ?>
       <a class="navitem" href="http://fhiso.org/">Home</a>
-      <?php foreach ($ancestral_pages as $a) { ?>
+      <?php
+      foreach ($ancestral_pages as $a) { ?>
       <span class="sep">/</span>
       <a class="navitem" href="<?php esc($a->url) ?>"><?php esc($a->title) 
         ?></a>
@@ -88,7 +89,8 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
       <?php if ($pdf) { ?>
       <h2>Download</h2>
       <ul class="related">
-        <li><a href="<?php esc($pdf) ?>">as PDF <img src="/pdf.png"/></a></li>
+        <li><a href="<?php esc($pdf) 
+          ?>">as PDF <img src="/TR/pdf.png"/></a></li>
       </ul>
       <?php } ?>
     </div>

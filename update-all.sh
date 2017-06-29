@@ -20,6 +20,7 @@ REPOS="lexicon-eg tsc-governance sources-and-citations bibliography
 
 # Static content to copy from website/
 CONTENT="fhiso.css fhiso.png favicon.ico columnsort.js pdf.png robots.txt"
+TRCONTENT="fhiso.css fhiso.png pdf.png"
 
 if [ $# -eq 1 -a "$1" = '--help' ]; then
     cat <<EOF 
@@ -65,6 +66,11 @@ mkdir -p $BUILD
 # Copy static content
 for FILE in $CONTENT; do
     cp -p $ROOT/website/$FILE $BUILD/
+done
+
+mkdir -p $BUILD/TR
+for FILE in $TRCONTENT; do
+    cp -p $ROOT/website/$FILE $BUILD/TR/
 done
 
 rm -r $ROOT/www-upload
