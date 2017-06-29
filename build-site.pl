@@ -25,8 +25,9 @@ sub write_link {
     my $dest = $item->{dest};
     $dest =~ s!^http://(fhiso.org)/!%{ENV:scheme}://$1/!;
     open my $out, '>>', "$outdir/.redirects" or die "Unable to open .redirects";
-    print $out "RewriteRule ^$dir$file((-\\d{8})?(\\.\\w+)??)(\\.php)?\$ "
-      . "$dest\$1 [L,R=301,E=limitcache:1]\n";
+    print $out "RewriteRule ^$dir$file((-\\d{8})?(\\.\\w+)??)(\\.php)?\$ \\\n";
+    print $out "\t$dest\$1 \\\n";
+    print $out "\t[L,R=301,E=limitcache:1]\n";
     close $out;
 }
 
