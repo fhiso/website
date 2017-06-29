@@ -12,6 +12,11 @@ RewriteBase /
 Header always set Cache-Control "max-age=3600" env=limitcache
 
 #
+# Proxy TR/ to tech.fhiso.org.
+#
+RewriteRule ^TR/(.*) http://tech.fhiso.org/TR/$1    [L,P]
+
+#
 # Redirects for the new tech site (http://tech.fhiso.org)
 # Use 301 redirects for better SEO and caching, but don't cache forever!
 #
