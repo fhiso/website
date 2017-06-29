@@ -24,7 +24,7 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
     <meta name="author" 
           content="Family History Information Standards Organisation, Inc." />
     <title><?php esc($page_title) ?></title>
-    <link rel="stylesheet" href="/fhiso.css" type="text/css" />
+    <link rel="stylesheet" href="//tech.fhiso.org/fhiso.css" type="text/css" />
     <?php if ($pdf) { ?><link rel="alternate" href="<?php esc($pdf) 
       ?>" type="application/pdf" /><?php } ?>
     <?php if (function_exists('header_content')) header_content() ?>
@@ -37,7 +37,8 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
       <?php } else { ?>
       <div class="right"><a href="/">Technical<br/>Site</a></div>
       <?php } ?>
-      <div class="logo"><a href="http://fhiso.org/"><img src="/fhiso.png" 
+      <div class="logo"><a href="http://fhiso.org/"><img 
+           src="//tech.fhiso.org/fhiso.png" 
            alt="Family History Information Standards Organisation" /></a></div>
     </div>
     <div class="navbar menu1">
