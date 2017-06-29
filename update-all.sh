@@ -78,6 +78,12 @@ rsync -rp account/ $BUILD/account/
 mkdir -p $BUILD/cfps/files
 rsync -rp cfps_processor/ready/ $BUILD/cfps/files/
 
+# Extra redirects created by build-site.pl
+if [ -e $BUILD/.redirects ] ; then
+    cat $BUILD/.redirects >> $BUILD/.htaccess 
+    rm $BUILD/.redirects
+fi
+
 # At the moment the database is built from the JSON file in git.
 # This is a temporary arrangement while the old and new sites are 
 # running in parallel.  This will trash and recreate the database.

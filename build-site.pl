@@ -14,14 +14,18 @@ my $outdir = '../www-build';
 my $uploaddir = '../www-upload';
 my $urlbase = 'http://tech.fhiso.org/';
 
-# NOTE: The $site variable with a long list of pages is now generated
-# from tsc-governance/sitemap.xml.
-
-chdir "$FindBin::Bin";
-
 sub page_title($) { 
     my ($i) = @_;
     return exists $i->{index} ? $i->{index}->{title} : $i->{title};
+}
+
+sub write_link {
+    my ($file, $dir, $item) = @_;
+
+    open my $out, '>>', "$outdir/.redirects" or die "Unable to open .redirects";
+    print $out "RewriteRule ^$dir$file((-\\d{8})?(\\.\\w+)?)\$ "
+      . "$item->{dest}\$1 [L,R=301,E=limitcache:1]\n";
+    close $out;
 }
 
 sub write_html_1 {
@@ -169,6 +173,9 @@ sub recurse {
             mkdir "$outdir/$dir$file" unless -d "$outdir/$dir$file";
             recurse( $i, "$dir$file/", @crumbs ); 
         }
+        elsif ( $i->{link} ) {
+            write_link( $file, $dir, $i );
+        }
         else { 
             write_html( $file, $dir, $i, \@crumbs, $desc );
         }
@@ -200,14 +207,19 @@ sub recurse_parse_sitemap {
                      title => $xml->getAttribute('title') } 
     };
 
-    foreach my $p ($xml->findnodes('page')) {
-        my $desc = {
-            src   => $p->getAttribute('src'), 
-            title => $p->getAttribute('title')
-        };
-        $desc->{unlinked} = 1 if $p->getAttribute('unlinked');
-        $desc->{versioned} = 1 if $p->getAttribute('versioned');
-        $desc->{upload} = 1 if $p->getAttribute('upload');
+    foreach my $p ($xml->findnodes('page | link')) {
+        my $desc = { title => $p->getAttribute('title') };
+
+        foreach (qw/src dest/) {
+          if (my $val = $p->getAttribute($_)) { $desc->{$_} = $val; }
+        }
+
+        # Boolean attributes
+        foreach (qw/unlinked versioned upload/) {
+            $desc->{$_} = 1 if $p->getAttribute($_);
+        }
+        if ($p->nodeName eq 'link') { $desc->{link} = 1; }
+            
         $dir->{ $p->getAttribute('name') } = $desc
     }
 
@@ -221,7 +233,7 @@ sub recurse_parse_sitemap {
 
 sub read_sitemap {
     my ($xmlfile) = @_;
-    my $dom = XML::LibXML->load_xml( location => "$FindBin::Bin/../$xmlfile" );
+    my $dom = XML::LibXML->load_xml( location => $xmlfile );
 
     my (undef, $site) = recurse_parse_sitemap( $dom->documentElement );
     return $site;
@@ -255,9 +267,11 @@ EOF
 }
 
 
+chdir "$FindBin::Bin";
+
 mkdir $outdir unless -d $outdir;
 
-my $site = read_sitemap( "tsc-governance/sitemap.xml" );
+my $site = read_sitemap( "../tsc-governance/sitemap.xml" );
 generate_public_sitemap $site;
 
 # Build the actual site
@@ -265,5 +279,5 @@ recurse $site;
 
 # Unlinked site, but not especially secret (or it wouldn't be in Github!)
 mkdir "$outdir/board" unless -d "$outdir/board";
-recurse read_sitemap( "tsc-governance/board/sitemap.xml" ), 'board/', '';
+recurse read_sitemap( "../tsc-governance/board/sitemap.xml" ), 'board/', '';
 
