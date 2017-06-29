@@ -110,7 +110,7 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
       <?php } ?>
     </div>
     <?php } ?>
-    <div class="content<?php if ($numbersections) echo " numbersections"; ?>">
+    <div class="content<?php if ($docclass) echo " $docclass"; ?>">
       <?php content(); ?>
     </div>
     <div class="footer">

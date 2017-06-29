@@ -98,7 +98,9 @@ sub write_html_1 {
 
         my $md = slurp $src or die;
         if ($md =~ /^numbersections:\s*true$/m) {
-            $phpxtra = "\$numbersections = 1;\n"; 
+            $phpxtra = "\$docclass = 'numbersections';\n"; 
+        } else {
+            $phpxtra = "\$docclass = '';\n"; 
         }
  
         system qw(make -s -C), $path, $html and die;
