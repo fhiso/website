@@ -12,5 +12,5 @@ RewriteRule ^drafts/(elf|cev)-(.*?)(.php)?$ \
 # proxy it back here.
 RewriteCond %{HTTP:X-Forwarded-Host} !=fhiso.org [NC]
 RewriteCond %{SERVER_NAME}           =tech.fhiso.org
-RewriteRule ^TR/(.+)$                http://tech.fhiso.org/TR/$1     \
+RewriteRule ^TR/(.+)$                http://fhiso.org/TR/$1     \
                                                          [R=301,E=limitcache:1]
