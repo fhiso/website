@@ -378,3 +378,13 @@ h1 {
     content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) 
              ".\0000a0\0000a0";
 }
+
+.cc-img {
+    float: left;
+    padding-right: 1em;
+}
+.cc-img + p {
+    font-size: 0.8em;
+    margin: 0;
+}
+
