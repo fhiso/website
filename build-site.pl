@@ -23,7 +23,7 @@ sub write_link {
     my ($file, $dir, $item) = @_;
 
     open my $out, '>>', "$outdir/.redirects" or die "Unable to open .redirects";
-    print $out "RewriteRule ^$dir$file((-\\d{8})?(\\.\\w+)?)\$ "
+    print $out "RewriteRule ^$dir$file((-\\d{8})?(\\.\\w+)??)(\\.php)?\$ "
       . "$item->{dest}\$1 [L,R=301,E=limitcache:1]\n";
     close $out;
 }
@@ -68,7 +68,9 @@ sub write_html_1 {
                                 $b eq 'index' ? +1 : 
                                 lc(page_title($index->{$a})) 
                                   cmp lc(page_title($index->{$b})) }
-                         grep { not $index->{$_}->{unlinked} }
+                         grep { exists $index->{$_}->{index} 
+                                    ? not $index->{$_}->{index}->{unlinked}
+                                    : not $index->{$_}->{unlinked} }
                               keys %$index) {
             my $i = $index->{$key};
             my $t = page_title($i); $t =~ s/'/\\'/g;
@@ -113,7 +115,8 @@ sub write_html_1 {
     print $out "<?php }\n\n";
 
     print $out $phpxtra;
-    print $out "include('include/template.php');\n";
+    my $template = $dir =~ m!^TR/! ? 'trtemplate.php' : 'template.php';
+    print $out "include('include/$template');\n";
     exit 1 if $?;
     close $out;
 }
@@ -206,6 +209,7 @@ sub recurse_parse_sitemap {
         'index' => { src   => $xml->findvalue('index/@src'), 
                      title => $xml->getAttribute('title') } 
     };
+    $dir->{index}->{unlinked} = 1 if $xml->getAttribute('unlinked');
 
     foreach my $p ($xml->findnodes('page | link')) {
         my $desc = { title => $p->getAttribute('title') };
@@ -280,4 +284,3 @@ recurse $site;
 # Unlinked site, but not especially secret (or it wouldn't be in Github!)
 mkdir "$outdir/board" unless -d "$outdir/board";
 recurse read_sitemap( "../tsc-governance/board/sitemap.xml" ), 'board/', '';
-
