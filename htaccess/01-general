@@ -4,6 +4,9 @@ RewriteEngine on
 #
 # This is where the logic to hide .php and .html suffixes lives
 
+# Use 301 redirects for better SEO and caching, but don't cache forever!
+Header always set Cache-Control "max-age=3600" env=limitcache
+
 # Redirect foo.html => foo if the html is now php
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^(.*)\.html$ /$1 [L,R=301,E=limitcache:1]
@@ -26,9 +29,4 @@ RewriteRule ^(.*)$ /$1.html [L]
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteCond %{DOCUMENT_ROOT}/$1 !-d
 RewriteRule ^(.*)$ /$1.php [L]
-
-# Use 301 redirects for better SEO and caching, but don't cache forever!
-Header always set Cache-Control "max-age=3600" env=limitcache
-
-
 
