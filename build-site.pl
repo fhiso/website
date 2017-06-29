@@ -22,9 +22,11 @@ sub page_title($) {
 sub write_link {
     my ($file, $dir, $item) = @_;
 
+    my $dest = $item->{dest};
+    $dest =~ s!^http://(fhiso.org)/!%{ENV:scheme}://$1/!;
     open my $out, '>>', "$outdir/.redirects" or die "Unable to open .redirects";
     print $out "RewriteRule ^$dir$file((-\\d{8})?(\\.\\w+)??)(\\.php)?\$ "
-      . "$item->{dest}\$1 [L,R=301,E=limitcache:1]\n";
+      . "$dest\$1 [L,R=301,E=limitcache:1]\n";
     close $out;
 }
 

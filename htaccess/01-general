@@ -30,3 +30,9 @@ RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteCond %{DOCUMENT_ROOT}/$1 !-d
 RewriteRule ^(.*)$ /$1.php [L]
 
+# Code to set %{ENV:scheme} to 'http' or 'https'
+# See https://stackoverflow.com/questions/19372594
+RewriteCond %{HTTPS} =on
+RewriteRule ^(.*)$ - [env=scheme:https]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ - [env=scheme:http]
