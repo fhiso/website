@@ -45,7 +45,9 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
       <?php global $ancestral_pages, $page_title; ?>
       <a class="navitem" href="http://fhiso.org/">Home</a>
       <?php
-      $ancestral_pages[0]->url = '//tech.fhiso.org/';
+      # On the live tech site, we're accessed via mod_proxy from the main site.
+      if ($_SERVER['SERVER_NAME'] == 'tech.fhiso.org')
+        $ancestral_pages[0]->url = '//tech.fhiso.org/';
       foreach ($ancestral_pages as $a) { ?>
       <span class="sep">/</span>
       <a class="navitem" href="<?php esc($a->url) ?>"><?php esc($a->title) 
