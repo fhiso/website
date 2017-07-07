@@ -6,18 +6,18 @@ RewriteRule ^style$                  /policies/style     [R=301,E=limitcache:1]
 RewriteRule ^(charter|opm)/?$  	     /governance/$1      [R=301,E=limitcache:1]
 RewriteRule ^TR/?$                   /drafts             [R=301,E=limitcache:1]
 
-RewriteRule ^drafts/(elf|cev)-(.*?)(.php)?$   \
-	%{ENV:scheme}://fhiso.org/TR/$1-$2    \
+RewriteRule ^drafts/(elf|cev)-(.*?)(.php)?$                                   \
+	%{ENV:scheme}://fhiso.org/TR/$1-$2                                    \
 	[R=301,E=limitcache:1]
 
 # TR/ is hosted on tech.fhiso.org but we pretend its on the main site and
 # proxy it back here.
 RewriteCond %{HTTP:X-Forwarded-Host} !=fhiso.org [NC]
 RewriteCond %{SERVER_NAME}           =tech.fhiso.org
-RewriteRule ^TR/(.+)$                \
+RewriteRule ^TR/(.+)$                                                         \
   %{ENV:scheme}://fhiso.org/TR/$1                        [R=301,E=limitcache:1]
 
 # Map -ize spelling to -ise
 RewriteCond %{SERVER_NAME}           =tech.fhiso.org
-RewriteRule ^TR/elf-serialization    \
-  %{ENV:scheme}://fhiso.org/TR/elf-serialisation         [R=301,E=limitcache:1]
+RewriteRule ^TR/elf-serialization(.*)$                                        \
+  %{ENV:scheme}://fhiso.org/TR/elf-serialisation$1       [R=301,E=limitcache:1]
