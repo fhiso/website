@@ -14,5 +14,10 @@ RewriteRule ^drafts/(elf|cev)-(.*?)(.php)?$   \
 # proxy it back here.
 RewriteCond %{HTTP:X-Forwarded-Host} !=fhiso.org [NC]
 RewriteCond %{SERVER_NAME}           =tech.fhiso.org
-RewriteRule ^TR/(.+)$                %{ENV:scheme}://fhiso.org/TR/$1     \
-                                                         [R=301,E=limitcache:1]
+RewriteRule ^TR/(.+)$                \
+  %{ENV:scheme}://fhiso.org/TR/$1                        [R=301,E=limitcache:1]
+
+# Map -ize spelling to -ise
+RewriteCond %{SERVER_NAME}           =tech.fhiso.org
+RewriteRule ^TR/elf-serialization    \
+  %{ENV:scheme}://fhiso.org/TR/elf-serialisation         [R=301,E=limitcache:1]
