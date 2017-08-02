@@ -122,7 +122,7 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
 
         # Upload the bylaws on the site
         make -s -C ../tsc-governance board/by-laws.html
-        cat ../tsc-governance/board/by-laws.html | ./main/wp-update.php
+        cat ../tsc-governance/board/by-laws.html | php ./main/wp-update.php
         rm -f ../tsc-governance/board/by-laws.html
     fi
 else
