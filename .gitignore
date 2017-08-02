@@ -4,3 +4,4 @@ local-settings.mk
 local-settings.sh
 .dialect
 main/enable
+main/.wp-app-password
