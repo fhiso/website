@@ -16,7 +16,7 @@ OUT=$ROOT/www
 
 # Git repositories we use
 REPOS="lexicon-eg tsc-governance sources-and-citations bibliography 
-       legacy-format website"
+       legacy-format website basic-concepts"
 
 # Static content to copy from website/
 CONTENT="fhiso.css fhiso.png favicon.ico columnsort.js pdf.png robots.txt"
