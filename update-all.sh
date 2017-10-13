@@ -118,9 +118,10 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
     # Do remote updates on the main server 
     # This requires the existance of a ./main/enable file
     if [ -e ./main/enable ]; then
+        # Upload .htacess and PDF governance files to the main server
         ./main/upload.pl
 
-        # Upload the bylaws on the site
+        # Upload the bylaws to the main site
         make -s -C ../tsc-governance board/by-laws.html
         cat ../tsc-governance/board/by-laws.html | php ./main/wp-update.php
         rm -f ../tsc-governance/board/by-laws.html
