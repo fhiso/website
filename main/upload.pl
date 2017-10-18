@@ -10,10 +10,10 @@ use String::ShellQuote;
 die "Upload disabled\n" unless -e "$FindBin::Bin/enable";
 
 my @ssh_opts = qw/-o PasswordAuthentication=false/;
-my $ssh_user = 'betterge';
+my $ssh_user = 'fhiso123';
 my $ssh_port = 45667;
 my $ssh_host = 'fhiso.org';
-my $remote_dir = 'domains/fhiso.org/public_html';
+my $remote_dir = 'public_html';
 
 # We have an SSH key set up to provide access.
 my @ssh = ('ssh', '-T', @ssh_opts, '-l', $ssh_user, '-p', $ssh_port, $ssh_host);
