@@ -134,7 +134,13 @@ sub write_pdf {
     my $pdf = "$2.pdf";
     system qw(make -s -C), "../$path", $pdf and die;
 
-    if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { $dest .= "-$1"; }
+    if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { 
+      my $filedate = $1;
+      # We don't want to overwrite old PDFs
+      my $yesterday = strftime '%Y%m%d', gmtime(time() - 3600*24);
+      return if $filedate < $yesterday;
+      $dest .= "-$filedate"; 
+    }
     $dest .= '.pdf';
 
     system "cp -p \"../$path/$pdf\" \"$outdir/$dest\"";
