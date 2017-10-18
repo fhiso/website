@@ -112,15 +112,35 @@
 }
 
 % Indent verbatim blocks by 2em
-\usepackage{fancyvrb}
-\renewenvironment{verbatim}{
-  \VerbatimEnvironment
-  % This is needed to remove extra space before CJK characters.
-  % https://tex.stackexchange.com/questions/374469
-  \CJKsetecglue{}
-  \begin{Verbatim}[xleftmargin=2em]%
-}{\end{Verbatim}}
+%\usepackage{fancyvrb}
+%\renewenvironment{verbatim}{
+%  \VerbatimEnvironment
+%  % This is needed to remove extra space before CJK characters.
+%  % https://tex.stackexchange.com/questions/374469
+%  \CJKsetecglue{}
+%  \begin{Verbatim}[xleftmargin=2em]%
+%}{\end{Verbatim}}
 
+% The fancyvrb package doesn't do automatic line wrapping.  Use
+% the listings package instead
+\let\verbatim\relax
+\usepackage{listings}
+\lstnewenvironment{verbatim}{\lstset{
+  basicstyle=\ttfamily,
+  xleftmargin=2em,
+  % These skips are determined empirically to match verbatim
+  aboveskip=-0.75em,
+  belowskip=-0.1em,
+  breaklines=true,
+  breakatwhitespace=true,
+  % colums=fullflexible and keepspaces=true uses the font's own kerning
+  columns=fullflexible,
+  keepspaces=true,
+  % postbreak is the indentation symbol
+  postbreak={\raisebox{0ex}[0ex][0ex]%
+              {\ensuremath{\color{gray}\rightarrow\space}}},
+  breakindent=1em
+}}{}
 
 \renewcommand{\quote}{\list{}{\rightmargin=\leftmargin\topsep=0pt}\item\relax}
 
