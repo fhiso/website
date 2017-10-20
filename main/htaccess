@@ -9,15 +9,22 @@ RewriteBase /
 # cache it forever!  One day we might want to unpick it.
 # Usage:  RewriteRule foo bar  [L,R=301,E=limitcache:1]
 #
-Header always set Cache-Control "max-age=3600" env=limitcache
+Header always set Cache-Control "max-age=300" env=limitcache
+# Temporarily reduced from 3600 to 300 - 20171020
+
+#
+# Redirect HTTP to HTTPS
+#
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1  [L,R=301,E=limitcache:1]
 
 #
 # Proxy TR/ to tech.fhiso.org.
 #
-RewriteRule ^TR/(.*) http://tech.fhiso.org/TR/$1    [L,P]
+RewriteRule ^TR/(.*) https://tech.fhiso.org/TR/$1    [L,P]
 
 #
-# Redirects for the new tech site (http://tech.fhiso.org)
+# Redirects for the new tech site (https://tech.fhiso.org)
 # Use 301 redirects for better SEO and caching, but don't cache forever!
 #
 RewriteCond %{REQUEST_URI}  ^/tsc(-charter|-opm|-egs|-public)?/?$  [OR]
@@ -25,21 +32,21 @@ RewriteCond %{REQUEST_URI}  ^/(cceg|lexeg|sceg|bibliography)       [OR]
 RewriteCond %{REQUEST_URI}  ^/technical-style-guide/?$             [OR]
 RewriteCond %{REQUEST_URI}  ^(/terms?|/files/cfp)/                 [OR]
 RewriteCond %{REQUEST_URI}  ^/(call-for-papers(-submissions)?|cfp-faq)/?$
-RewriteRule .* http://tech.fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1] 
+RewriteRule .* https://tech.fhiso.org%{REQUEST_URI}  [L,R=301,E=limitcache:1] 
 
 #
 # Pages that have moved on the main site.
 #
 RewriteRule ^(aboutfhiso/)?fhiso-board(/minutes.*)$ \
-	http://fhiso.org$2        [L,R=301,E=limitcache:1]
+	https://fhiso.org$2        [L,R=301,E=limitcache:1]
 RewriteRule ^(aboutfhiso/)?fhiso-(board|regions)/?$ \
-	http://fhiso.org/$2/      [L,R=301,E=limitcache:1]
+	https://fhiso.org/$2/      [L,R=301,E=limitcache:1]
 RewriteRule ^aboutfhiso(/.*)$ \
-	http://fhiso.org$1        [L,R=301,E=limitcache:1]
+	https://fhiso.org$1        [L,R=301,E=limitcache:1]
 RewriteRule ^by-laws/?$ \
-	http://fhiso.org/bylaws/  [L,R=301,E=limitcache:1]
+	https://fhiso.org/bylaws/  [L,R=301,E=limitcache:1]
 RewriteRule ^(about-bettergedcom|why-fhiso)/?$ \
-	http://fhiso.org/history/ [L,R=301,E=limitcache:1]
+	https://fhiso.org/history/ [L,R=301,E=limitcache:1]
 
 #
 # Redirect www.fhiso.org to fhiso.org.  
@@ -47,7 +54,7 @@ RewriteRule ^(about-bettergedcom|why-fhiso)/?$ \
 # 301, so we've written off the www.fhiso.org subdomain.
 #
 RewriteCond %{HTTP_HOST} ^www\.fhiso\.org [NC]
-RewriteRule ^(.*)$ http://fhiso.org/$1 [R=301,L,E=limitcache:1]
+RewriteRule ^(.*)$ https://fhiso.org/$1 [R=301,L,E=limitcache:1]
 
 #
 # Redirect ancient /wp/ links.  It's doubtful this is still used.
