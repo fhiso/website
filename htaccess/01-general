@@ -5,8 +5,7 @@ RewriteEngine on
 # This is where the logic to hide .php and .html suffixes lives
 
 # Use 301 redirects for better SEO and caching, but don't cache forever!
-Header always set Cache-Control "max-age=300" env=limitcache
-# XXX Temporarily reduced from 3600 to 300 - 20171020
+Header always set Cache-Control "max-age=3600" env=limitcache
 
 # Redirect everything to HTTPS.  Note that we don't do this when we're being
 # proxied, because Simply Hosting's server apparently does not have mod_ssl.
