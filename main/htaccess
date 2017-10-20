@@ -16,12 +16,16 @@ Header always set Cache-Control "max-age=300" env=limitcache
 # Redirect HTTP to HTTPS
 #
 RewriteCond %{HTTPS} !=on
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1  [L,R=301,E=limitcache:1]
+RewriteRule ^(.*) https://%{SERVER_NAME}/$1  [L,R=301,E=limitcache:1]
 
 #
 # Proxy TR/ to tech.fhiso.org.
+# Note the Simply Hosting server appears not to have mod_ssl installed, 
+# therefore we cannot proxy to https://tech.fhiso.org/.  The security
+# implication of this are low as there is no senstive information being 
+# passed.
 #
-RewriteRule ^TR/(.*) https://tech.fhiso.org/TR/$1    [L,P]
+RewriteRule ^TR/(.*) http://tech.fhiso.org/TR/$1    [L,P]
 
 #
 # Redirects for the new tech site (https://tech.fhiso.org)
