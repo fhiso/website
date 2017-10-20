@@ -9,8 +9,7 @@ RewriteBase /
 # cache it forever!  One day we might want to unpick it.
 # Usage:  RewriteRule foo bar  [L,R=301,E=limitcache:1]
 #
-Header always set Cache-Control "max-age=300" env=limitcache
-# Temporarily reduced from 3600 to 300 - 20171020
+Header always set Cache-Control "max-age=3600" env=limitcache
 
 #
 # Redirect HTTP to HTTPS
