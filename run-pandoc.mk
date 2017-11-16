@@ -36,6 +36,9 @@ MD_DIALECT := $(MD_DIALECT)+definition_lists+yaml_metadata_block
 MD_DIALECT := $(MD_DIALECT)+shortcut_reference_links
 MD_DIALECT := $(MD_DIALECT)+simple_tables+multiline_tables
 
+# Table captions are used in term defintions
+MD_DIALECT := $(MD_DIALECT)+table_captions
+
 PANDOC := pandoc
 
 # Allow any changes for the local machine.

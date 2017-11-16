@@ -388,3 +388,8 @@ h1 {
     margin: 0;
 }
 
+table caption {
+    text-align: left;
+    font-weight: bold;
+    color: #005a9c;
+}

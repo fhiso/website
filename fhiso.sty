@@ -220,3 +220,8 @@
 \pretocmd{\longtable}{%
   % 13pt is \mdfsetup's rightmargin (10pt) + linewidth (3pt)
   \addtolength\columnwidth{-2em}\addtolength\columnwidth{13pt}}{}{error}
+
+% Captions are used in term definitions
+\usepackage[labelformat=empty,singlelinecheck=false,margin=2em,skip=0.1em,
+            textfont={sf,bf,color=headcol}]{caption}
+\pretocmd{\longtable}{\needspace{4\baselineskip}}{}{}
