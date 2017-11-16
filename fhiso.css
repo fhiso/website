@@ -388,8 +388,9 @@ h1 {
     margin: 0;
 }
 
-table caption {
+.content table caption {
     text-align: left;
     font-weight: bold;
     color: #005a9c;
+    padding: 0px 8px 4px;
 }
