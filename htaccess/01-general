@@ -12,7 +12,7 @@ Header always set Cache-Control "max-age=3600" env=limitcache
 # Note too that [OR] has higher precedent than mod_rewrite's implicit AND:
 # see <https://stackoverflow.com/questions/922399>.
 RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Host} !=fhiso.org [NC]
+RewriteCond %{HTTP:X-Forwarded-Host} =tech.fhiso.org [NC]
 RewriteCond %{REQUEST_METHOD} =GET [OR]
 RewriteCond %{REQUEST_METHOD} =HEAD
 RewriteRule ^(.*) https://%{SERVER_NAME}/$1  [L,R=301,E=limitcache:1]
