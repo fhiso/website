@@ -11,6 +11,8 @@ my $long;
 
 sub text($) {
     my ($txt) = @_;
+
+    # RFC 2119 keywords
     my @rfc2119 = ('must not', 'must', 'required', 'shall not', 'shall',
                    'should not', 'should', 'not recommended', 'recommended',
                    'may', 'optional');
@@ -31,18 +33,24 @@ sub text($) {
     # markdown, so preprocess it here.
     $txt =~ s/`\[(\w+)\]`/[`$1`](#$1)/g;
 
+    # Markdown has a poorly documented "feature" whereby two spaces at 
+    # the end of a line inserts a hard line break (<br/> or \\).  Stop that.
+    $txt =~ s/\s{2,}$/ /;
+
     print "$txt\n";
 }
 
 while (<>) {
     chomp;
 
+    # File inclusion:  {#include filename}
     if ($newp and s/^{#include\s*(.*?)}$//) {
         my $txt = slurp($1) or die "Unable to read file '$1'";
         $txt =~ s/^/    /gm;
         print "$txt\n";
     }
 
+    # Paragraph classes:  {.class} and {.class ...} {/}
     if ($newp and s/^{\.([a-z]+)(\s*\.{3})?}\s*//) { 
         $long = $2 ? " long" : "";
         print "<div class=\"fhiso-$1$long\">\\fhisoopenclass{$1}\n";
