@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^(.*)$ term.pl [QSA,L]
+AddHandler cgi-script .pl
+Options +ExecCGI 
+SetEnvIfNoCase ^Accept$ "(.+)" HTTP_ACCEPT=$1
+

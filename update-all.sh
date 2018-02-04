@@ -112,9 +112,6 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
         if ! cmp -s $OLD $NEW; then cp -p $NEW $OLD; fi
     done
 
-    # Copy the rewrite map used for http://terms.fhiso.org/
-    cp -p ../tsc-governance/terms.map ..
-
     # Do remote updates on the main server 
     # This requires the existance of a ./main/enable file
     if [ -e ./main/enable ]; then
