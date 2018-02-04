@@ -7,8 +7,7 @@ RewriteRule ^(charter|opm)/?$  	     /governance/$1      [R=301,E=limitcache:1]
 RewriteRule ^TR/?$                   /drafts             [R=301,E=limitcache:1]
 
 RewriteRule ^drafts/(elf|cev)-(.*?)(.php)?$                                   \
-	%{ENV:scheme}://fhiso.org/TR/$1-$2                                    \
-	[R=301,E=limitcache:1]
+	                             /TR/$1-$2           [R=301,E=limitcache:1]
 
 # TR/ is hosted on tech.fhiso.org but we pretend its on the main site and
 # proxy it back here.
