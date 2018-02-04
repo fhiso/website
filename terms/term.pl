@@ -16,7 +16,6 @@ sub error_code($) {
 
 sub redirect_to($) {
   my ($url) = @_;
-  $url =~ s!https://terms\.fhiso\.org!http://terms2\.fhiso\.org!;
   my $msg = status_message(303);
   print "Status: 303 $msg\r\n"
       . "Location: $url\r\n"
@@ -67,7 +66,7 @@ sub get_requested_format() {
 
 sub load_rdf_data() {
   my $model = new RDF::Redland::Model( 
-    new RDF::Redland::Storage("hashes", "test", 
+    new RDF::Redland::Storage("hashes", "rdf", 
                               "new='yes',hash-type='memory'"), "" );
  
   foreach my $src ( 'basic-concepts/basic-concepts.ttl',
