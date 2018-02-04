@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 
+# This file contains the discovery implementation used on the 
+# terms.fhiso.org domain.  It handles 303 redirects to HTML and PDF
+# documentation and to machine-readable data in N-Triples, Turtle 
+# or RDF/XML.  The latter are generated on the fly from two source 
+# files written in Turtle.
+
 use strict;
 use warnings;
 
