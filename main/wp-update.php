@@ -23,7 +23,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $json = curl_exec($ch);
-if ($json === false) die "Unable to fetch <$url>";
+if ($json === false) die("Unable to fetch <$url>");
 
 $result = json_decode($json);
 if (count($result) == 0)
