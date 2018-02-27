@@ -22,7 +22,10 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-$result = json_decode(curl_exec($ch));
+$json = curl_exec($ch);
+if ($json === false) die "Unable to fetch <$url>";
+
+$result = json_decode($json);
 if (count($result) == 0)
   die("No WordPress pages match '$page_name'");
 elseif (count($result) > 1) 
