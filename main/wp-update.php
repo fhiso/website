@@ -24,6 +24,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $json = curl_exec($ch);
 if ($json === false) die("Unable to fetch <$url>");
+$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if ($code != 200) die("Got HTTP status code $code from WordPress");
 
 $result = json_decode($json);
 if (count($result) == 0)
