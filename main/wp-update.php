@@ -23,7 +23,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $result = json_decode(curl_exec($ch));
-if (count($result) != 1) die("Multiple pages match");
+if (count($result) == 0)
+  die("No WordPress pages match '$page_name'");
+elseif (count($result) > 1) 
+  die("Multiple WordPress pages match '$page_name'");
 $page_id = $result[0]->id;
 
 $url = "$site/wp-json/wp/v2/pages/$page_id";
