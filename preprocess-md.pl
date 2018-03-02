@@ -104,6 +104,9 @@ while (<>) {
 push @lines, "\\fhisocloseclass{$class}</div>\n" if defined $class;
 
 foreach my $line (@lines) {
-  $line =~ s/{§(\S+)}/'§'.$labels{$1}/gex;
+  $line =~ s/{§(\S+)}/
+    die "Unknown label '$1'" unless exists $labels{$1};
+    '§'.$labels{$1}
+  /gex;
   print $line;
 }
