@@ -3,7 +3,10 @@
 use strict;
 use warnings;
 
-# This tells perl to open STDIN, etc. as utf8.  This is better than doing
+# This tells Perl that this Perl source file is encodede in UTF-8.
+use utf8;
+
+# This tells Perl to open STDIN, etc. as UTF-8.  This is better than doing
 # binmode STDIN, ':utf8' because it works even when STDIN is a file specified
 # in @ARGV auto-open by the <> operator.
 use open qw(:std :utf8);
