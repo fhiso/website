@@ -24,6 +24,7 @@ my @lines;
 
 my @sect;
 my %labels;
+my $bad_nesting;
 
 sub text($) {
     my ($txt) = @_;
@@ -50,7 +51,7 @@ sub text($) {
       while ($l < scalar @sect) { pop @sect }
       if ($l == scalar @sect) { ++$sect[$l-1] }
       elsif ($l == 1 + scalar(@sect)) { push @sect, 1 }
-      else { die "Bad section nesting" }
+      else { $bad_nesting = 1 }
 
       if ($txt =~ /{#(\S+)}\s*$/) {
         if (exists $labels{$1}) { die "Duplicate label: $1" }
@@ -105,6 +106,7 @@ push @lines, "\\fhisocloseclass{$class}</div>\n" if defined $class;
 
 foreach my $line (@lines) {
   $line =~ s/{§(\S+)}/
+    die "File has bad nesting" if $bad_nesting;
     die "Unknown label '$1'" unless exists $labels{$1};
     '§'.$labels{$1}
   /gex;
