@@ -14,6 +14,8 @@ my $outdir = '../www-build';
 my $uploaddir = '../www-upload';
 my $urlbase = 'http://tech.fhiso.org/';
 
+my $verbose = grep { $_ eq '-v' || $_ eq '--verbose' } @ARGV;
+
 sub page_title($) { 
     my ($i) = @_;
     return exists $i->{index} ? $i->{index}->{title} : $i->{title};
@@ -105,8 +107,10 @@ sub write_html_1 {
         } else {
             $phpxtra = "\$docclass = '';\n"; 
         }
- 
-        system qw(make -s -C), $path, $html and die;
+
+        my @make = ('make'); 
+        push @make, '-s' unless $verbose; 
+        system @make, '-C', $path, $html and die;
         print $out qx(cat "$path/$html");
         unlink "$path/$html";
     }
@@ -132,7 +136,9 @@ sub write_pdf {
     $src =~ m!^([^/]+)/(.*)\.md$!;
     my $path = $1;
     my $pdf = "$2.pdf";
-    system qw(make -s -C), "../$path", $pdf and die;
+    my @make = ('make'); 
+    push @make, '-s' unless $verbose; 
+    system @make, '-C', "../$path", $pdf and die;
 
     if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { 
       my $filedate = $1;
