@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-# This tells Perl that this Perl source file is encodede in UTF-8.
+# This tells Perl that this Perl source file is encoded in UTF-8.
 use utf8;
 
 # This tells Perl to open STDIN, etc. as UTF-8.  This is better than doing
