@@ -22,9 +22,9 @@ my $long;
 # complete with \n terminators, between passes.
 my @lines;
 
-my @sect;
-my %labels;
-my $bad_nesting;
+my @sect;               # The current (sub)section numbers(s) while parsing.
+my %labels;             # Map of label name to section number.
+my $bad_nesting;        # Have we had any badly nested headings yet?
 
 sub text($) {
     my ($txt) = @_;
@@ -46,6 +46,8 @@ sub text($) {
         "<span style=\"$css\">".lc($1)."<\/span>"
     /gex;
 
+    # Scan all headings (currently excluding ones with --- and === underlining)
+    # to keep track of section numbers.
     if ($txt =~ /^(#+)\s/) {
       my $l = length $1;
       while ($l < scalar @sect) { pop @sect }
@@ -53,6 +55,9 @@ sub text($) {
       elsif ($l == 1 + scalar(@sect)) { push @sect, 1 }
       else { $bad_nesting = 1 }
 
+      # Where there's a {#name} mark at the heading line (which pandoc will
+      # use to create an anchor), store it as a label for {§name} references
+      # handled in this preprocessor. 
       if ($txt =~ /{#(\S+)}\s*$/) {
         if (exists $labels{$1}) { die "Duplicate label: $1" }
         $labels{$1} = join('.', @sect[1..$#sect]);
@@ -104,6 +109,7 @@ while (<>) {
 
 push @lines, "\\fhisocloseclass{$class}</div>\n" if defined $class;
 
+# Second pass over data handling references of the form {§name}
 foreach my $line (@lines) {
   $line =~ s/{§(\S+)}/
     die "File has bad nesting" if $bad_nesting;
