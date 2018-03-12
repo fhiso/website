@@ -191,6 +191,7 @@ sub write_html {
         my $date_pat = "[0-9]" x 8;   $date_pat = "{$date_pat,dev}";
         $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
         foreach my $old (glob $old_pat) {
+            continue unless -e $old;
             $old =~ s!^\.\./!!;
             write_html_1( $file, $dir, 
                           { src => $old, title => $item->{title} }, 
