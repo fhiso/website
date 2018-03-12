@@ -42,7 +42,7 @@ sub write_html_1 {
     my $src = "../$item->{src}";
     my $dest = "${dir}$file.php";
     my $primary = undef;
-    if ($src =~ /-([0-9]{8})\.([a-z]+)$/) {
+    if ($src =~ /-([0-9]{8}|dev)\.([a-z]+)$/) {
         $primary = $dest;  
         $dest = "${dir}$file-$1.php";
         $primary =~ s!^(?:.*/)?([^./]+)\.php$!$1!;
@@ -143,11 +143,11 @@ sub write_pdf {
     push @make, '-s' unless $verbose; 
     system @make, '-C', "../$path", $pdf and die;
 
-    if ($src =~ /-([0-9]{8})\.([a-z]+)$/) { 
+    if ($src =~ /-([0-9]{8}|dev)\.([a-z]+)$/) { 
       my $filedate = $1;
       # We don't want to overwrite old PDFs
       my $yesterday = strftime '%Y%m%d', gmtime(time() - 3600*24);
-      return if $filedate < $yesterday;
+      return if $filedate ne 'dev' && $filedate < $yesterday;
       $dest .= "-$filedate"; 
     }
     $dest .= '.pdf';
