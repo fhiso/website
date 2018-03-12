@@ -172,11 +172,11 @@ sub write_html {
                 my $tmp = tmpnam($dir, 'rel');
                 my $dest = "$base-$rel.$ext";
                 system("cd '$dir'; "
-                       . "git show 'releases-$rel':'$base.$ext' > '$tmp'; "
-                       . "if test \\! -e '$dest' || ! cmp -s '$tmp' '$dest'; "
-                       . "then mv '$tmp' '$dest'; else "
-                       . "rm '$tmp'; "
-                       . "fi");
+                   . "git show 'origin/releases-$rel':'$base.$ext' > '$tmp'; "
+                   . "if test \\! -e '$dest' || ! cmp -s '$tmp' '$dest'; "
+                   . "then mv '$tmp' '$dest'; else "
+                   . "rm '$tmp'; "
+                   . "fi");
             }
         }
 
