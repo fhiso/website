@@ -5,10 +5,13 @@ use warnings;
 
 use Perl6::Slurp;
 use File::Copy;
+use File::Touch;
+use File::Basename;
+use File::Temp;
 use FindBin;
 use POSIX qw/strftime/;
 use XML::LibXML;
-use File::Touch;
+use Cwd;
 
 my $outdir = '../www-build';
 my $uploaddir = '../www-upload';
@@ -161,6 +164,22 @@ sub write_html {
     write_html_1($file, $dir, $item, $crumbs, $index);
 
     if ($item->{versioned}) {
+        if ($item->{releases}) {
+            my $dir = '../' . dirname $item->{src};
+            my ($base, $ext) = basename($item->{src}) =~ /(.*)\.([a-z]+)$/
+                or die "Unexpected filename: $item->{src}";
+            foreach my $rel (split /\s+/, $item->{releases}) {
+                my $tmp = tmpnam($dir, 'rel');
+                my $dest = "$base-$rel.$ext";
+                system("cd '$dir'; "
+                       . "git show 'releases-$rel':'$base.$ext' > '$tmp'; "
+                       . "if test \\! -e '$dest' || ! cmp -s '$tmp' '$dest'; "
+                       . "then mv '$tmp' '$dest'; else "
+                       . "rm '$tmp'; "
+                       . "fi");
+            }
+        }
+
         my $old_pat = "../$item->{src}";
         my $date_pat = "[0-9]" x 8;
         $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
@@ -231,7 +250,7 @@ sub recurse_parse_sitemap {
     foreach my $p ($xml->findnodes('page | link')) {
         my $desc = { title => $p->getAttribute('title') };
 
-        foreach (qw/src dest/) {
+        foreach (qw/src dest releases/) {
           if (my $val = $p->getAttribute($_)) { $desc->{$_} = $val; }
         }
 
