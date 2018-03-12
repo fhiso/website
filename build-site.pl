@@ -188,7 +188,7 @@ sub write_html {
         }
 
         my $old_pat = "../$item->{src}";
-        my $date_pat = "[0-9]" x 8;
+        my $date_pat = "[0-9]" x 8;   $date_pat = "{$date_pat,dev}";
         $old_pat =~ s/\.([a-z]+)$/-$date_pat\.$1/;
         foreach my $old (glob $old_pat) {
             $old =~ s!^\.\./!!;
