@@ -93,10 +93,18 @@ sub write_html_1 {
     print $out "function content() { ?>\n";
 
     if (defined $primary) { 
-        print $out '<p class="warning">Warning: '
-            . 'This may be an old version of the document.   '
-            . 'The current version can be found '
-            . "<a href=\"$primary\">here</a>.</p>\n";
+        if ($src =~ /-dev\.([a-z]+)$/) {
+            print $out '<p class="warning">Warning: '
+                . 'This is an internal draft of the document.   '
+                . 'The current version can be found '
+                . "<a href=\"$primary\">here</a>.</p>\n";
+        }
+        else {
+            print $out '<p class="warning">Warning: '
+                . 'This may be an old version of the document.   '
+                . 'The current version can be found '
+                . "<a href=\"$primary\">here</a>.</p>\n";
+        }
     }
 
     my $phpxtra = '';
