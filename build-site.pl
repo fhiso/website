@@ -170,13 +170,20 @@ sub write_html {
                 or die "Unexpected filename: $item->{src}";
             foreach my $rel (split /\s+/, $item->{releases}) {
                 my $tmp = tmpnam($dir, 'rel');
-                my $dest = "$base-$rel.$ext";
+                my ($dest, $branch);
+                if ($rel =~ /^\d+$/) {
+                    $dest = "$base-$rel.$ext";
+                    $branch = "origin/releases-$rel";
+                } else {
+                    $dest = "$base-dev.$ext";
+                    $branch = "origin/$rel";
+                }
                 system("cd '$dir'; "
-                   . "git show 'origin/releases-$rel':'$base.$ext' > '$tmp'; "
-                   . "if test \\! -e '$dest' || ! cmp -s '$tmp' '$dest'; "
-                   . "then mv '$tmp' '$dest'; else "
-                   . "rm '$tmp'; "
-                   . "fi");
+                       . "git show '$branch':'$base.$ext' > '$tmp'; "
+                       . "if test \\! -e '$dest' || ! cmp -s '$tmp' '$dest'; "
+                       . "then mv '$tmp' '$dest'; else "
+                       . "rm '$tmp'; "
+                       . "fi");
             }
         }
 
