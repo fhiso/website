@@ -92,6 +92,27 @@ sub get_result_binding_iri($$) {
   return undef;
 }
 
+sub get_namespace_contents($$) {
+  my ($model, $subj) = @_;
+
+  $subj =~ s/[\/#?]$//;
+
+  my $res = $model->query_execute( new RDF::Redland::Query(
+    'CONSTRUCT { ?term a ?type } WHERE { ?term a ?type ' .
+      'BIND( REPLACE( STR(?term), "^(.*)[/#?][^/#?]+$", "$1" ) AS ?ns ) ' .
+      "FILTER( ?ns = \"$subj\" ) " .
+    '}',
+    undef, undef, "sparql") );
+
+  return $res->as_stream;
+}
+
+sub is_namespace($$) {
+  my ($model, $subj) = @_;
+  my $ns = get_namespace_contents($model, $subj);
+  return ($ns && !$ns->end);
+}
+
 sub get_definition_url($$) { 
   my ($model, $subj) = @_;
 
@@ -114,11 +135,21 @@ sub get_object_type($$) {
 sub handle_redirect($$) {
   my ($model, $url) = @_;
 
+  my $fmt = get_requested_format(); 
+
   my $defn = get_definition_url($model, $url);
+  if (not $defn and is_namespace($model, $url)) {
+    if ($fmt =~ /^RDF\.(.*)$/) {
+      my $ext = $1;
+      $url =~ s/[\/#?]$//;
+      redirect_to("$url.$ext");
+    } else {
+      error_code(406);
+    }
+  }
+
   error_code(404) if not defined $defn;
   
-  my $fmt = get_requested_format();
-  error_code(406) if not defined $fmt;
   if ($fmt eq 'HTML') {
     redirect_to($defn);
   }
@@ -167,7 +198,11 @@ my $output = new RDF::Redland::Model(
 $output->add_statements( get_rdf_properties($model, $url) );
 
 my $type = get_object_type($model, $url);
-if ($type eq 'http://www.w3.org/2000/01/rdf-schema#Class') {
+if (not defined $type) {
+  my $ns = get_namespace_contents($model, $url);
+  $output->add_statements($ns);
+}
+elsif ($type eq 'http://www.w3.org/2000/01/rdf-schema#Class') {
   $output->add_statements( get_rdf_objects_of_type($model, $url) );
 }
 
