@@ -73,7 +73,7 @@ for FILE in $TRCONTENT; do
     cp -p $ROOT/website/$FILE $BUILD/TR/
 done
 
-rm -r $ROOT/www-upload
+rm -rf $ROOT/www-upload
 mkdir $ROOT/www-upload
 
 cd $ROOT/website
