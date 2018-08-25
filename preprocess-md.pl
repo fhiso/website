@@ -66,7 +66,7 @@ sub text($) {
 
     # You can't nest the short form of [...] and `...` cleanly in pandoc 
     # markdown, so preprocess it here.
-    $txt =~ s/`\[([:\w]+)\]`/[`$1`](#$1)/g;
+    $txt =~ s/`\[([:\w#]+)\]`/[`$1`](#$1)/g;
 
     # Markdown has a poorly documented "feature" whereby two spaces at 
     # the end of a line inserts a hard line break (<br/> or \\).  Stop that.
