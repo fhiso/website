@@ -29,6 +29,9 @@ my $bad_nesting;        # Have we had any badly nested headings yet?
 sub text($) {
     my ($txt) = @_;
 
+    # Ignore preformatted lines
+    goto done_text if $txt =~ /^ {4}/;
+
     # RFC 2119 keywords
     my @rfc2119 = ('must not', 'must', 'required', 'shall not', 'shall',
                    'should not', 'should', 'not recommended', 'recommended',
@@ -72,6 +75,7 @@ sub text($) {
     # the end of a line inserts a hard line break (<br/> or \\).  Stop that.
     $txt =~ s/\s{2,}$/ /;
 
+  done_text:
     push @lines, "$txt\n";
 }
 
