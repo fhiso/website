@@ -22,13 +22,10 @@ xx:40) by a cronjob running `update-all.sh`.  This does the following:
 5.  Run `./build-site.pl` to generate HTML and PDF versions for all files 
     listed in `tsc-governance/sitemap.xml` (and other `sitemap.xml` files
     imported from that).
-6.  Build and install user management PHP code from `./include/` and
-    `./account/`.  
+6.  Install user management PHP code from `./include/` and `./account/`.  
 7.  Install the CFPS PDF files, and populate its MySQL database.
-8.  Install the `tsc-governance/term.map` rewrite map to control 303
-    redirections on `http://terms.fhiso.org/`.
-9.  Upload an .htaccess file on the main server (`http://fhiso.org/`).
-10. Upload PDF versions of governance documents to `/files/governance/`
+8.  Upload an .htaccess file on the main server (`http://fhiso.org/`).
+9.  Upload PDF versions of governance documents to `/files/governance/`
     on the main server.
-11. Upload an HTML version of the bylaws to the main server via the
+10. Upload an HTML version of the bylaws to the main server via the
     WordPress API.
