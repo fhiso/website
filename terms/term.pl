@@ -13,6 +13,11 @@ use List::Util qw/max/;
 use RDF::Redland;
 use HTTP::Status qw/status_message/;
 
+my @source_files = qw{
+  basic-concepts/basic-concepts.ttl
+  sources-and-citations/citation-elements.ttl
+};
+
 sub error_code($) {
   my ($code) = @_;
   my $msg = status_message($code);
@@ -75,8 +80,7 @@ sub load_rdf_data() {
     new RDF::Redland::Storage("hashes", "rdf", 
                               "new='yes',hash-type='memory'"), "" );
  
-  foreach my $src ( 'basic-concepts/basic-concepts.ttl',
-                    'sources-and-citations/citation-elements.ttl' ) {
+  foreach my $src (@source_files) {
     $model->load( new RDF::Redland::URI("file:///home/techsite/$src") );
   }
 
