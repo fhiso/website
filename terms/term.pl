@@ -16,6 +16,7 @@ use HTTP::Status qw/status_message/;
 my @source_files = qw{
   basic-concepts/basic-concepts.ttl
   sources-and-citations/citation-elements.ttl
+  legacy-format/elf.ttl
 };
 
 sub error_code($) {
