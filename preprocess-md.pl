@@ -45,7 +45,7 @@ sub text($) {
     /gex;
     # Handle uses of MUST, etc.
     my $rfc2119uc = join '|', map {s/ /\ /; uc $_} @rfc2119;
-    $txt =~ s/\b($rfc2119uc)\b/
+    $txt =~ s/(?<!`)\b($rfc2119uc)\b/
         "<span style=\"$css\">".lc($1)."<\/span>"
     /gex;
 
