@@ -34,6 +34,12 @@
 
 \setTransitionsFor{Arabic}{\begingroup\fhisoArabic}{\endgroup}
 
+% Hebrew support
+% Note that Debian 'stretch' does not include Noto Serif Hebrew, hence 
+% using the sans serif version.  Once Debian 'buster' has been released,
+% the serif font will be available.
+\newfontfamily{\Hebrewmainfont}[Script=Hebrew, Scale=1]{Noto Sans Hebrew}
+\setTransitionsFor{Hebrew}{\begingroup\Hebrewmainfont}{\endgroup}
 
 % Japanese support
 % Note: this must come after \usepackage{ucharclasses} or we get spurious 
