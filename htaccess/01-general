@@ -48,3 +48,7 @@ RewriteCond %{HTTPS} =on
 RewriteRule ^(.*)$ - [env=scheme:https]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ - [env=scheme:http]
+
+# Strip Facebook spyware tokens.  I'm surprised these are legal.
+RewriteCond %{QUERY_STRING} ^(.*)&?fbclid=[^&]+$ [NC]
+RewriteRule ^/?(.*)$ /$1?%1 [NE,L,R=301,E=limitcache:1]
