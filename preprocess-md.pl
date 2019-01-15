@@ -17,6 +17,9 @@ my $newp = 1;
 my $class;
 my $long;
 
+# Setting this to 1 will remove all non-normative material from the output.
+my $only_norm = 0;
+
 # This preprocessor now makes two passes over the input stream in order
 # to handle forward references.  @lines contains the list of lines,
 # complete with \n terminators, between passes.
@@ -92,26 +95,37 @@ while (<>) {
     # Paragraph classes:  {.class} and {.class ...} {/}
     if ($newp and s/^{\.([a-z]+)(\s*\.{3})?}\s*//) { 
         $long = $2 ? " long" : "";
-        push @lines, "<div class=\"fhiso-$1$long\">\\fhisoopenclass{$1}\n";
+        unless ($only_norm) {
+            push @lines, "<div class=\"fhiso-$1$long\">\\fhisoopenclass{$1}\n";
+        }
         $class = $1;
     }
 
     if (defined $class and $long and /^(.*)\{\/\}\s*$/) {
-        text $1;
-        push @lines, "\\fhisocloseclass{$class}</div>\n\n";
+        unless ($only_norm) {
+            text $1;
+            push @lines, "\\fhisocloseclass{$class}</div>\n\n";
+        }
         $class = undef; $newp = 1;
     }
     elsif (defined $class and not $long and /^\s*$/) {
-        push @lines, "\\fhisocloseclass{$class}</div>\n\n";
+        unless ($only_norm) {
+            push @lines, "\\fhisocloseclass{$class}</div>\n\n";
+        }
         $class = undef; $newp = 1;
     }
     else {
-        text $_;
+        unless ($only_norm and defined $class) {
+            text $_;
+        }
         $newp = /^\s*$/;
     }
 }
 
-push @lines, "\\fhisocloseclass{$class}</div>\n" if defined $class;
+
+unless ($only_norm) {
+    push @lines, "\\fhisocloseclass{$class}</div>\n" if defined $class;
+}
 
 # Second pass over data handling references of the form {§name}
 foreach my $line (@lines) {
