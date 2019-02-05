@@ -76,12 +76,14 @@ sub get_requested_format() {
   else { return "HTML" }
 }
 
-sub load_rdf_data() {
+sub load_rdf_data($) {
+  my ($srcs) = @_;
+
   my $model = new RDF::Redland::Model( 
     new RDF::Redland::Storage("hashes", "rdf", 
                               "new='yes',hash-type='memory'"), "" );
  
-  foreach my $src (@source_files) {
+  foreach my $src (@$srcs) {
     $model->load( new RDF::Redland::URI("file:///home/techsite/$src") );
   }
 
@@ -190,7 +192,7 @@ sub get_rdf_objects_of_type($$) {
   return get_rdf_stream($model, "?s a <$type>");
 }
 
-my $model = load_rdf_data();
+my $model = load_rdf_data(\@source_files);
 
 my $url = "https://terms.fhiso.org$ENV{REQUEST_URI}";
 
