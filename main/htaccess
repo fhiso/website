@@ -65,7 +65,7 @@ RewriteRule ^(.*)$ https://fhiso.org/$1 [R=301,L,E=limitcache:1]
 # bare year component (e.g. /reports/2018), so redirect them.
 #
 RewriteRule ^reports/?$ /reports/2018 [R=301,L,E=limitcache:1]
-RewriteRule ^reports/([0-9]+)$ /reports/report-$1 [L]
+RewriteRule ^reports/([0-9]+)/?$ /reports/report-$1 [L]
 
 #
 # Redirect ancient /wp/ links.  It's doubtful this is still used.
