@@ -206,7 +206,9 @@ sub write_html {
                           $crumbs, $index );
             write_pdf($old, $dir.$file, $item->{upload});
         }
+    }
 
+    if ($item->{versioned} or $item->{upload}) {
         write_pdf($item->{src}, $dir.$file, $item->{upload});
     }
 }
