@@ -132,7 +132,8 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
         # 10. Upload an HTML version of the bylaws to the main server via the
         #     WordPress API.
         make -s -C ../tsc-governance board/by-laws.html
-        cat ../tsc-governance/board/by-laws.html | php ./main/wp-update.php
+        cat ../tsc-governance/board/by-laws.html \
+		| php ./main/wp-update.php bylaws governance/by-laws.pdf
         rm -f ../tsc-governance/board/by-laws.html
     fi
 else
