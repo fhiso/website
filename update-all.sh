@@ -129,12 +129,15 @@ elif [ -z "$DIRTY" -o $# -eq 1 -a "$1" = '--deploy' ]; then
         #     `/files/governance/` on the main server.
         ./main/upload.pl
 
-        # 10. Upload an HTML version of the bylaws to the main server via the
-        #     WordPress API.
-        make -s -C ../tsc-governance board/by-laws.html
+        # 10. Upload an HTML version of the bylaws and annual report to the 
+        #     main server via the WordPress API.
+        make -s -C ../tsc-governance board/by-laws.html board/report-2018.html
         cat ../tsc-governance/board/by-laws.html \
-		| php ./main/wp-update.php bylaws governance/by-laws.pdf
-        rm -f ../tsc-governance/board/by-laws.html
+	    | php ./main/wp-update.php bylaws governance/by-laws.pdf
+        cat ../tsc-governance/board/report-2018.html \
+	    | php ./main/wp-update.php report-2018 governance/report-2018.pdf
+        rm -f ../tsc-governance/board/by-laws.html \
+              ../tsc-governance/board/report-2018.html
     fi
 else
     cat <<EOF >&2

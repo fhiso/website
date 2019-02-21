@@ -27,5 +27,5 @@ xx:40) by a cronjob running `update-all.sh`.  This does the following:
 8.  Upload an .htaccess file on the main server (`http://fhiso.org/`).
 9.  Upload PDF versions of governance documents to `/files/governance/`
     on the main server.
-10. Upload an HTML version of the bylaws to the main server via the
-    WordPress API.
+10. Upload an HTML version of the bylaws and annual report to the main
+    server via the WordPress API.
