@@ -64,9 +64,6 @@ if ($pdf) header("Link: <$pdf>; rel=alternate; type=application/pdf")
       <?php if (user_logged_in()) { ?>
       <a href="/account/logout">Log out</a>
       <a href="/account">Account</a>
-      <?php } else { ?>
-      <a href="/account/register">Register</a>
-      <a href="/account/login">Log in</a>
       <?php } ?>
     </div>
     <?php 
