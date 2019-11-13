@@ -63,6 +63,7 @@
 \newcommand\chapter[1]{}
 
 % TODO: Remove this hard-coded path.
+\usepackage{graphicx}
 \graphicspath{{../website/}}
 
 % Page headers and footers
@@ -111,11 +112,14 @@
   % package).  This defines it back to \fhisotitle.
   % Unfortunately we can't just import 'bidi' now, because it needs to be
   % imported after a bunch of other stuff in the template.
+  \usepackage{bidi}
   \renewcommand{\maketitle}{\fhisotitle}%
   % The default pandoc template defines and invokes \tightlist on all
   % lists (enumerate, itemize, description).  We'd rather configure
   % these ourselves using the enumitem package.
   \renewcommand{\tightlist}{}%
+  % Change hyperlink colours
+  \hypersetup{colorlinks=true,urlcolor=headcol,linkcolor=headcol}%
 }
 
 % Indent verbatim blocks by 2em
@@ -129,7 +133,8 @@
 %}{\end{Verbatim}}
 
 % The fancyvrb package doesn't do automatic line wrapping.  Use
-% the listings package instead
+% the listings package instead.  However that doesn't support Unicode
+% properly.  TODO: Investigate the minted package.
 \let\verbatim\relax
 \usepackage{listings}
 \lstnewenvironment{verbatim}{\lstset{

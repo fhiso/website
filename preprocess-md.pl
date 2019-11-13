@@ -29,8 +29,8 @@ my @sect;               # The current (sub)section numbers(s) while parsing.
 my %labels;             # Map of label name to section number.
 my $bad_nesting;        # Have we had any badly nested headings yet?
 
-sub text($) {
-    my ($txt) = @_;
+sub text($$) {
+    my ($start, $txt) = @_;
 
     # Ignore preformatted lines
     goto done_text if $txt =~ /^ {4}/;
@@ -79,7 +79,7 @@ sub text($) {
     $txt =~ s/\s{2,}$/ /;
 
   done_text:
-    push @lines, "$txt\n";
+    push @lines, "$start$txt\n";
 }
 
 while (<>) {
@@ -94,16 +94,24 @@ while (<>) {
 
     # Paragraph classes:  {.class} and {.class ...} {/}
     if ($newp and s/^{\.([a-z]+)(\s*\.{3})?}\s*//) { 
+        $class = $1;
         $long = $2 ? " long" : "";
         unless ($only_norm) {
-            push @lines, "<div class=\"fhiso-$1$long\">\\fhisoopenclass{$1}\n";
+            my $start = "<div class=\"fhiso-$1$long\">\\fhisoopenclass{$1}";
+            if (/\S/) { push @lines, $start; }
+            else { # Look ahead
+                $_ = <>; chomp;
+                if ($_ =~ /^ {4}/) { push @lines, "$start\n\n"; text "", $_ }
+                else { text $start, $_ }
+                $newp = /^\s*$/;
+                next;
+            }
         }
-        $class = $1;
     }
 
     if (defined $class and $long and /^(.*)\{\/\}\s*$/) {
         unless ($only_norm) {
-            text $1;
+            text "", $1;
             push @lines, "\\fhisocloseclass{$class}</div>\n\n";
         }
         $class = undef; $newp = 1;
@@ -116,7 +124,7 @@ while (<>) {
     }
     else {
         unless ($only_norm and defined $class) {
-            text $_;
+            text "", $_;
         }
         $newp = /^\s*$/;
     }

@@ -56,9 +56,10 @@ PPMD := $(ROOT)/website/preprocess-md.pl
 
 # Setting fontfamily=fhiso is a bit of an abuse, as fhiso.sty does much 
 # more than just setting the font.
-PDF_OPTS := -V documentclass:article --chapters -V papersize:a4paper -V dir:1 \
+PDF_OPTS := -V documentclass:article --top-level-division=chapter \
+            -V papersize:a4paper -V dir:1 \
             -V fontsize:11pt -V fontfamily:$(ROOT)/website/fhiso \
-	    -V header-includes:\\fhisoFinal --latex-engine=xelatex --standalone
+	    -V header-includes:\\fhisoFinal --pdf-engine=xelatex --standalone
 
 PDF_DEPS := $(ROOT)/website/fhiso.sty $(ROOT)/website/logo.png
 
