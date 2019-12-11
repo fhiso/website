@@ -92,6 +92,21 @@
   \rhead{\itshape\@title: \@subtitle}%
 }
 
+% Count the number of authors
+% https://tex.stackexchange.com/questions/391048
+\newcounter{numauthors}
+\def\count@and#1\and#2{%
+  \ifx#2\@nil\else
+    \stepcounter{numauthors}\expandafter\count@and\fi
+}
+
+\let\latex@author\author
+\def\author#1{%
+  \stepcounter{numauthors}
+  \count@and#1\and\@nil
+  \latex@author{#1}
+}
+
 % Title page
 \newcommand{\fhisotitle}{
   \thispagestyle{empty}
@@ -102,6 +117,13 @@
 
   \vspace{2em}
   {\large\sffamily\bfseries{\@date}}
+
+  \ifnum\value{numauthors}>0
+    \vspace{1em}
+    \renewcommand\and{\\}
+    \large\sffamily{\bfseries 
+      \ifnum\value{numauthors}>1 Editors\else Editor\fi}:\\\@author
+  \fi
 
   \vspace{1em}
   \end{center}
